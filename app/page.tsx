@@ -135,7 +135,7 @@ export default function Home() {
           </div>
 
           <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-7 text-[14px] text-white/60">
-            {['30 dager gratis prøveperiode', 'Personlig onboarding inkludert', 'Norsk support på hverdager'].map(t => (
+            {['30 dager gratis prøveperiode', 'Personlig onboarding inkludert', 'Support 24/7'].map(t => (
               <li key={t} className="flex items-center gap-1.5">
                 <svg className="w-3.5 h-3.5 text-eblue flex-shrink-0" viewBox="0 0 14 14" fill="none">
                   <path d="M2.5 7.5l3 3 6-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -245,7 +245,7 @@ export default function Home() {
             {[
               'Gratis prøveperiode i 30 dager',
               'Personlig onboarding-hjelp',
-              'Norsk support på hverdager',
+              'Support 24/7',
             ].map(item => (
               <li key={item} className="flex items-center justify-center gap-2 text-[13px] text-slate">
                 <svg className="w-4 h-4 text-emerald-500 flex-shrink-0" viewBox="0 0 16 16" fill="none">
