@@ -4,7 +4,7 @@ import { useState } from 'react'
 const items = [
   {
     q: 'Hva koster Efero?',
-    a: 'Efero tilbyr en enkel og transparent prismodell. Start med 30 dager gratis — ingen kredittkort påkrevd. Ta kontakt med oss for å høre mer om priser.',
+    a: 'Efero tilbyr en enkel og transparent prismodell. Start med 30 dager gratis. Ta kontakt med oss for å høre mer om priser.',
   },
   {
     q: 'Trenger jeg å installere noe?',
@@ -20,7 +20,7 @@ const items = [
   },
   {
     q: 'Kan jeg prøve det uten å forplikte meg?',
-    a: '30 dager gratis, ingen kredittkort, ingen binding. Du har ingenting å tape.',
+    a: '30 dager gratis. Du har ingenting å tape.',
   },
 ]
 

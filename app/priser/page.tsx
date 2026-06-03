@@ -68,7 +68,6 @@ const plans: Plan[] = [
 
 const included = [
   '30 dagers gratis prøveperiode',
-  'Ikke kredittkort påkrevd',
   'Norsk MVA-håndtering',
   'Automatisk faktura',
   'Mobilapp for teknikere',
@@ -90,7 +89,7 @@ const faqItems = [
   },
   {
     q: 'Er det bindingstid?',
-    a: 'Nei. Månedlig abonnement uten bindingstid. Kanseller når som helst direkte i appen.',
+    a: 'Nei. Vi tilbyr månedlig abonnement. Du bestemmer selv om du vil fortsette.',
   },
   {
     q: 'Får jeg faktura for abonnementet?',
@@ -153,7 +152,7 @@ export default function Priser() {
           </h1>
 
           <p className="text-[17px] text-white/60 leading-relaxed mb-16">
-            Ingen skjulte kostnader. Ingen binding.<br />Kanseller når som helst.
+            Ingen skjulte kostnader. Transparent prising.
           </p>
 
           {/* Stats */}
