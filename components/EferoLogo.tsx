@@ -3,18 +3,18 @@ export default function EferoLogo({ variant = 'dark' }: { variant?: 'dark' | 'wh
   const iconColor = variant === 'white' ? '#FFFFFF' : '#2563FF'
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} role="img" aria-label="Efero logo">
-      <svg width="24" height="20" viewBox="0 0 36 30" fill="none">
-        <polygon points="4,0 32,0 28,8 0,8"   fill={iconColor}/>
-        <rect    x="0" y="11" width="28" height="8" fill={iconColor}/>
-        <polygon points="0,22 28,22 32,30 4,30" fill={iconColor}/>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }} role="img" aria-label="Efero logo">
+      <svg width="32" height="28" viewBox="0 0 40 34" fill="none">
+        <polygon points="6,0 38,0 32,9 0,9"   fill={iconColor}/>
+        <rect    x="0" y="13" width="32" height="9" fill={iconColor}/>
+        <polygon points="0,25 32,25 38,34 6,34" fill={iconColor}/>
       </svg>
       <span style={{
         fontFamily: 'Inter, sans-serif',
-        fontWeight: 700,
-        fontSize: '20px',
+        fontWeight: 800,
+        fontSize: '22px',
         color: textColor,
-        letterSpacing: '-0.5px',
+        letterSpacing: '-0.8px',
         lineHeight: 1,
       }}>
         Efero
