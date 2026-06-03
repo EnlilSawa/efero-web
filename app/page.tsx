@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { DashboardMockup } from '@/components/AppMockup'
 import { InteractiveDemo } from '@/components/InteractiveDemo'
 import { TestimonialsSection } from '@/components/TestimonialsSection'
@@ -88,17 +89,20 @@ function AppBadges() {
 export default function Home() {
   return (
     <>
-      {/* ── HERO — navy med bakgrunnsmønster ──────────────────── */}
+      {/* ── HERO — bakgrunnsbilde ─────────────────────────────── */}
       <section className="bg-navy border-b border-white/10 relative overflow-hidden">
 
-        {/* Dashboard som bakgrunn */}
-        <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
-          <div style={{ opacity: 0.12, transform: 'scale(1.25) translateY(10%)', filter: 'blur(1px)', width: '100%', maxWidth: 1100 }}>
-            <DashboardMockup />
-          </div>
-        </div>
-        {/* Overlay */}
-        <div className="absolute inset-0 z-0" style={{ background: 'rgba(10,27,51,0.88)' }}/>
+        {/* Bakgrunnsbilde */}
+        <Image
+          src="/hero-bg.jpeg"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          aria-hidden="true"
+        />
+        {/* Lett overlay for lesbarhet */}
+        <div className="absolute inset-0 z-0" style={{ background: 'rgba(10,27,51,0.55)' }}/>
 
         <div className="relative z-10 max-w-[700px] mx-auto px-6 py-24 text-center flex flex-col items-center">
 
