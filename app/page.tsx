@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { DashboardMockup } from '@/components/AppMockup'
-import { FeaturesSection } from '@/components/FeaturesSection'
+import { InteractiveDemo } from '@/components/InteractiveDemo'
 import { TestimonialsSection } from '@/components/TestimonialsSection'
 import { HomeContactForm } from '@/components/HomeContactForm'
 import { AnimatedSection } from '@/components/AnimatedSection'
@@ -107,19 +107,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SCREENSHOT — lys grå ───────────────────────────────── */}
-      <section id="les-mer" className="bg-lgray border-b border-border py-16 px-6">
-        <div className="max-w-site mx-auto">
-          <AnimatedSection>
-            <p className="text-[12px] font-semibold text-slate uppercase tracking-[0.1em] text-center mb-8">
-              Se Efero i praksis
-            </p>
-            <div className="rounded-[16px] border border-border overflow-hidden max-w-[1100px] mx-auto">
-              <DashboardMockup />
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+      {/* ── INTERAKTIV DEMO ────────────────────────────────────── */}
+      <InteractiveDemo />
 
       {/* ── OM EFERO — hvit ────────────────────────────────────── */}
       <section className="bg-white border-b border-border py-24 px-6">
@@ -180,9 +169,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ── FUNKSJONER — tabs ──────────────────────────────────── */}
-      <FeaturesSection />
 
       {/* ── TALL-STRIP — navy ──────────────────────────────────── */}
       <section className="bg-navy border-b border-white/10 py-16 px-6">

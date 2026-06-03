@@ -160,6 +160,64 @@ export function TechnicianMockup() {
   )
 }
 
+export function StatisticsMockup() {
+  const bars = [
+    { month: 'Jan', h: 42 },
+    { month: 'Feb', h: 55 },
+    { month: 'Mar', h: 50 },
+    { month: 'Apr', h: 68 },
+    { month: 'Mai', h: 60 },
+    { month: 'Jun', h: 100 },
+  ]
+  const techs = [
+    { name: 'Magnus Vik',  jobs: 28, pct: 75 },
+    { name: 'Lars Nilsen', jobs: 19, pct: 51 },
+    { name: 'Tor Berg',    jobs: 12, pct: 32 },
+  ]
+  return (
+    <div className="rounded-2xl overflow-hidden shadow-2xl border border-border bg-white" style={{ height: 360 }}>
+      <div className="bg-navy px-5 py-3 flex justify-between items-center">
+        <span className="text-white font-semibold text-[13px]">Statistikk</span>
+        <span className="text-white/50 text-[11px]">Juni 2026</span>
+      </div>
+      <div className="p-4">
+        <div className="mb-3">
+          <div className="text-[11px] text-slate mb-0.5">Totalt denne måneden</div>
+          <div className="text-[26px] font-bold text-navy leading-none">48 500 kr</div>
+        </div>
+        <div className="mb-4">
+          <div className="text-[11px] text-slate mb-2">Månedlig inntekt</div>
+          <div className="flex items-end gap-1.5" style={{ height: 64 }}>
+            {bars.map((b, idx) => (
+              <div key={b.month} className="flex-1 flex flex-col items-center gap-1">
+                <div
+                  className={`w-full rounded-t ${idx === bars.length - 1 ? 'bg-eblue' : 'bg-eblue/25'}`}
+                  style={{ height: `${b.h}%` }}
+                />
+                <div className="text-[9px] text-slate">{b.month}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <div className="text-[11px] text-slate mb-2">Teknikere</div>
+          <div className="flex flex-col gap-2">
+            {techs.map(t => (
+              <div key={t.name} className="flex items-center gap-2">
+                <div className="w-[88px] text-[11px] text-charcoal truncate shrink-0">{t.name}</div>
+                <div className="flex-1 bg-lgray rounded-full overflow-hidden" style={{ height: 6 }}>
+                  <div className="bg-eblue h-full rounded-full" style={{ width: `${t.pct}%` }} />
+                </div>
+                <div className="text-[10px] text-slate w-14 text-right shrink-0">{t.jobs} jobber</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function QuoteMockup() {
   return (
     <div className="rounded-2xl overflow-hidden shadow-2xl border border-border bg-white" style={{ height: 320 }}>
