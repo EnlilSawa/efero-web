@@ -49,7 +49,7 @@ const tabs: Tab[] = [
     text: 'Teknikerne ser dagens jobber på mobilen. Ingen WhatsApp, ingen misforståelser.',
     features: [
       'Mobilapp for teknikere',
-      'Ingen WhatsApp, ingen misforståelser',
+      'Ingen misforståelser',
       'Én knapp når ferdig',
       'Inntekt per tekniker',
     ],
