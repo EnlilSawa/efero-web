@@ -4,9 +4,9 @@ export default function EferoLogo({ variant = 'dark' }: { variant?: 'dark' | 'wh
       src="/images/logo-dark.png"
       alt="Efero logo"
       style={{
-        height: '48px',
+        height: '64px',
         width: 'auto',
-        maxWidth: '180px',
+        maxWidth: '240px',
         objectFit: 'contain',
         display: 'block',
         filter: variant === 'white' ? 'brightness(0) invert(1)' : 'none',
