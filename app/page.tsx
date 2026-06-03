@@ -164,11 +164,13 @@ export default function Home() {
             <div className="flex flex-col gap-4 text-[16px] text-slate leading-[1.8]">
               <p>
                 Efero er bygget av folk som har sett håndverkere slite med administrasjon for lenge.
-                Rørleggere og elektrikere er eksperter på sitt håndverk — ikke på regnskapsark og
-                fakturaprogram fra 2005.
               </p>
               <p>
-                Vi laget Efero for å gi norske håndverkere et verktøy som faktisk fungerer i hverdagen.
+                Rørleggere, elektrikere, snekkere, malere, VVS-montører — alle er eksperter på sitt håndverk.
+                Ingen skal måtte bruke timer på fakturaark og tungvinte systemer.
+              </p>
+              <p>
+                Vi laget Efero for å gi alle norske håndverkere et verktøy som faktisk fungerer i hverdagen — uansett fag.
               </p>
             </div>
           </AnimatedSection>
