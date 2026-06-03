@@ -24,6 +24,7 @@ export default function EferoLogo({ variant = 'dark' }: { variant?: 'dark' | 'wh
           objectFit: 'contain',
           display: 'block',
           filter: variant === 'white' ? 'brightness(0) invert(1)' : 'none',
+          mixBlendMode: variant === 'dark' ? 'multiply' : 'normal',
         }}
       />
     </div>
