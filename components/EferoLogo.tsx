@@ -4,13 +4,13 @@ export default function EferoLogo({ variant = 'dark' }: { variant?: 'dark' | 'wh
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }} role="img" aria-label="Efero logo">
-      <svg width="28" height="25" viewBox="0 0 40 36" fill="none">
+      <svg width="28" height="22" viewBox="0 0 40 29" fill="none">
         {/* Øverste: høyre flat, venstre skrå (bred nede, smal oppe) */}
-        <polygon points="10,0 40,0 40,9 0,9" fill={iconColor}/>
+        <polygon points="10,0 40,0 40,7 0,7" fill={iconColor}/>
         {/* Midterste: helt rett */}
-        <rect x="0" y="13" width="40" height="9" fill={iconColor}/>
+        <rect x="0" y="11" width="40" height="7" fill={iconColor}/>
         {/* Nederste: speil av øverste (bred oppe, smal nede) */}
-        <polygon points="0,27 40,27 40,36 10,36" fill={iconColor}/>
+        <polygon points="0,22 40,22 40,29 10,29" fill={iconColor}/>
       </svg>
       <span style={{
         fontFamily: 'Inter, sans-serif',
