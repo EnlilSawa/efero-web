@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { EferoLogo } from './EferoLogo'
+import EferoLogo from './EferoLogo'
 
 const cols = [
   {
@@ -40,7 +40,7 @@ export function Footer() {
 
           {/* Brand col */}
           <div>
-            <EferoLogo light />
+            <EferoLogo variant="white" />
             <p className="mt-4 text-[14px] text-white/55 leading-relaxed max-w-[200px]">
               Den enkleste måten å drive håndverkerbedrift.
             </p>

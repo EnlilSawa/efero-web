@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { EferoLogo } from './EferoLogo'
+import EferoLogo from './EferoLogo'
 
 const centerLinks = [
   { href: '/#funksjoner', label: 'Produkt' },
@@ -25,7 +25,7 @@ export function Navbar() {
       <div className="max-w-site mx-auto px-8 h-16 flex items-center justify-between gap-8">
 
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0"><EferoLogo /></Link>
+        <Link href="/" className="flex-shrink-0"><EferoLogo variant="dark" /></Link>
 
         {/* Center links */}
         <nav className="hidden md:flex items-center gap-7 flex-1 justify-center">
