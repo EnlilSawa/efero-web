@@ -4,7 +4,7 @@ export default function EferoLogo({ variant = 'dark' }: { variant?: 'dark' | 'wh
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }} role="img" aria-label="Efero logo">
-      <svg width="36" height="32" viewBox="0 0 40 36" fill="none">
+      <svg width="28" height="25" viewBox="0 0 40 36" fill="none">
         {/* Øverste: høyre flat, venstre skrå (bred nede, smal oppe) */}
         <polygon points="10,0 40,0 40,9 0,9" fill={iconColor}/>
         {/* Midterste: helt rett */}
