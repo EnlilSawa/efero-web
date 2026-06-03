@@ -4,7 +4,7 @@ import { useState } from 'react'
 const items = [
   {
     q: 'Hva koster Efero?',
-    a: 'Efero tilbyr en enkel og transparent prismodell. Start med 30 dager gratis. Ta kontakt med oss for å høre mer om priser.',
+    a: 'Efero tilbyr en enkel og transparent modell. Start med 30 dager gratis. Ta kontakt med oss for å høre mer.',
   },
   {
     q: 'Trenger jeg å installere noe?',
@@ -12,7 +12,7 @@ const items = [
   },
   {
     q: 'Hvor mange teknikere kan jeg ha?',
-    a: 'Så mange du vil. Ingen ekstra kostnad per tekniker. Flat månedspris uansett teamstørrelse.',
+    a: 'Så mange du vil. Ingen ekstra kostnad per tekniker.',
   },
   {
     q: 'Hva skjer etter prøveperioden?',

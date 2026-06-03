@@ -35,12 +35,6 @@ const appSchema = {
   operatingSystem: 'Web, iOS, Android',
   description: 'Jobbstyring og fakturering for norske håndverkere',
   url: 'https://efero.app',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'NOK',
-    description: '30 dager gratis prøveperiode',
-  },
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',

@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 type Plan = {
   name: string
-  price: string
+  teamLabel: string
   desc: string
   features: string[]
   cta: string
@@ -19,7 +19,7 @@ type Plan = {
 const plans: Plan[] = [
   {
     name: 'Liten',
-    price: '399',
+    teamLabel: 'Opp til 3 teknikere',
     desc: 'Perfekt for små bedrifter med inntil 3 teknikere.',
     features: [
       'Opp til 3 teknikere',
@@ -36,7 +36,7 @@ const plans: Plan[] = [
   },
   {
     name: 'Middels',
-    price: '699',
+    teamLabel: 'Opp til 8 teknikere',
     desc: 'For bedrifter i vekst med inntil 8 teknikere.',
     features: [
       'Opp til 8 teknikere',
@@ -51,7 +51,7 @@ const plans: Plan[] = [
   },
   {
     name: 'Stor',
-    price: '999',
+    teamLabel: 'Ubegrenset teknikere',
     desc: 'For større lag uten begrensninger.',
     features: [
       'Ubegrenset teknikere',
@@ -158,7 +158,7 @@ export default function Priser() {
           <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-12">
             {[
               { value: '30 dager', label: 'Gratis prøveperiode' },
-              { value: '0 kr',     label: 'Oppsettskostnad' },
+              { value: 'Gratis',   label: 'Oppsett' },
               { value: '24t',      label: 'Support responstid' },
             ].map(s => (
               <div key={s.value} className="text-center">
@@ -173,7 +173,7 @@ export default function Priser() {
       {/* ── Pakkekort ───────────────────────────────────────────── */}
       <section className="bg-white border-b border-border py-24 px-6">
         <div className="max-w-[1000px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-8">
             {plans.map((plan) => (
               <div
                 key={plan.name}
@@ -193,11 +193,7 @@ export default function Priser() {
 
                 <div className="mb-6">
                   <p className="text-[18px] font-semibold text-navy mb-4">{plan.name}</p>
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-[48px] font-semibold text-navy leading-none">{plan.price}</span>
-                    <span className="text-[17px] text-navy font-medium">kr</span>
-                  </div>
-                  <p className="text-[14px] text-slate">/mnd eks. MVA</p>
+                  <p className="text-[18px] font-semibold text-navy mb-1">{plan.teamLabel}</p>
                 </div>
 
                 <p className="text-[14px] text-slate leading-relaxed mb-6">{plan.desc}</p>
@@ -226,6 +222,7 @@ export default function Priser() {
               </div>
             ))}
           </div>
+          <p className="text-center text-[14px] text-slate">Ta kontakt for pris</p>
         </div>
       </section>
 
