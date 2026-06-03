@@ -4,25 +4,49 @@ import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Efero — Jobb enkelt. Fakturer raskt.',
-  description: 'Efero samler jobber, team og fakturering i én app. Bygget for norske håndverkere.',
   metadataBase: new URL('https://efero.app'),
+  title: {
+    template: '%s',
+    default: 'Efero — Jobbstyring og fakturering for håndverkere',
+  },
+  description: 'Efero er appen som samler jobber, team og faktura i én løsning. Bygget for norske rørleggere, elektrikere og snekkere. Start gratis i dag.',
   openGraph: {
-    title: 'Efero — Jobb enkelt. Fakturer raskt.',
-    description: 'Enkel jobb- og fakturaadministrasjon for norske håndverkere.',
     siteName: 'Efero',
     locale: 'nb_NO',
     type: 'website',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/opengraph-image'],
+  },
+}
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Efero',
+  url: 'https://efero.app',
+  logo: 'https://efero.app/logo.png',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'hei@efero.app',
+    contactType: 'customer service',
+    availableLanguage: 'Norwegian',
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="no">
+    <html lang="nb">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
       </head>
       <body>
         <Navbar />

@@ -1,9 +1,52 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { DashboardMockup } from '@/components/AppMockup'
 import { InteractiveDemo } from '@/components/InteractiveDemo'
 import { TestimonialsSection } from '@/components/TestimonialsSection'
 import { HomeContactForm } from '@/components/HomeContactForm'
 import { AnimatedSection } from '@/components/AnimatedSection'
+
+export const metadata: Metadata = {
+  title: 'Efero — Jobbstyring og fakturering for håndverkere',
+  description: 'Efero er appen som samler jobber, team og faktura i én løsning. Bygget for norske rørleggere, elektrikere og snekkere. Start gratis i dag.',
+  keywords: [
+    'håndverker app', 'rørlegger program', 'elektriker app', 'jobbstyring håndverk',
+    'faktura håndverker', 'VVS program', 'snekker app', 'håndverkerbedrift',
+    'arbeidsordre app norge', 'fakturaprogram håndverker',
+  ],
+  alternates: { canonical: 'https://efero.app' },
+  openGraph: {
+    title: 'Efero — Jobbstyring og fakturering for håndverkere',
+    description: 'Efero er appen som samler jobber, team og faktura i én løsning. Bygget for norske rørleggere, elektrikere og snekkere. Start gratis i dag.',
+    url: 'https://efero.app',
+    type: 'website',
+  },
+  twitter: {
+    title: 'Efero — Jobbstyring og fakturering for håndverkere',
+    description: 'Efero er appen som samler jobber, team og faktura i én løsning. Bygget for norske rørleggere, elektrikere og snekkere. Start gratis i dag.',
+  },
+}
+
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Efero',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web, iOS, Android',
+  description: 'Jobbstyring og fakturering for norske håndverkere',
+  url: 'https://efero.app',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'NOK',
+    description: '30 dager gratis prøveperiode',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: '3',
+  },
+}
 
 // ── App badges ────────────────────────────────────────────────────────────────
 
@@ -214,6 +257,11 @@ export default function Home() {
           </ul>
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
 
       {/* ── CTA — navy ─────────────────────────────────────────── */}
       <section id="kom-i-gang" className="bg-navy py-24 px-6">

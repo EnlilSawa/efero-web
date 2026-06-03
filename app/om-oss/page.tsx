@@ -3,8 +3,14 @@ import { AnimatedSection } from '@/components/AnimatedSection'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Om oss — Efero',
-  description: 'Vi er et norsk team som har sett håndverkere slite med administrasjon for lenge.',
+  title: 'Om Efero — Norsk SaaS for håndverkere',
+  description: 'Efero er laget for norske håndverkere som vil bruke tid på jobben, ikke på administrasjon. Les historien bak Efero.',
+  alternates: { canonical: 'https://efero.app/om-oss' },
+  openGraph: {
+    title: 'Om Efero — Norsk SaaS for håndverkere',
+    description: 'Efero er laget for norske håndverkere som vil bruke tid på jobben, ikke på administrasjon. Les historien bak Efero.',
+    url: 'https://efero.app/om-oss',
+  },
 }
 
 const values = [

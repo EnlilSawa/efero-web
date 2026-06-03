@@ -45,7 +45,7 @@ export function DashboardMockup() {
     { name: 'Anne Sørby',     addr: 'Parkveien 22, Oslo',  status: 'Pågår', color: 'bg-blue-100 text-eblue' },
   ]
   return (
-    <div className="rounded-2xl overflow-hidden shadow-2xl border border-border flex" style={{ height: 380 }}>
+    <div className="rounded-2xl overflow-hidden shadow-2xl border border-border flex" style={{ height: 380 }} role="img" aria-label="Efero jobbstyring dashboard for håndverkere">
       {/* Sidebar */}
       <div className="w-[160px] bg-navy flex-shrink-0 flex flex-col py-4 px-3 gap-1">
         <div className="flex items-center gap-1.5 px-2 pb-4 mb-2 border-b border-white/10">
@@ -102,7 +102,7 @@ export function DashboardMockup() {
 
 export function InvoiceMockup() {
   return (
-    <div className="rounded-2xl overflow-hidden shadow-2xl border border-border bg-white" style={{ height: 320 }}>
+    <div className="rounded-2xl overflow-hidden shadow-2xl border border-border bg-white" style={{ height: 320 }} role="img" aria-label="Efero automatisk faktura for håndverkere">
       <div className="bg-navy px-5 py-3 flex justify-between items-center">
         <span className="text-white font-semibold text-[13px]">Faktura</span>
         <span className="text-white/50 text-[11px]">INV-2026-004</span>
@@ -135,7 +135,7 @@ export function InvoiceMockup() {
 
 export function TechnicianMockup() {
   return (
-    <div className="rounded-2xl overflow-hidden shadow-2xl border border-border bg-white mx-auto" style={{ height: 320, maxWidth: 260 }}>
+    <div className="rounded-2xl overflow-hidden shadow-2xl border border-border bg-white mx-auto" style={{ height: 320, maxWidth: 260 }} role="img" aria-label="Efero team oversikt for håndverkerbedrifter">
       <div className="bg-navy px-4 py-3">
         <div className="text-white font-semibold text-[13px]">Mine jobber</div>
         <div className="text-white/50 text-[11px]">3 jobber i dag</div>

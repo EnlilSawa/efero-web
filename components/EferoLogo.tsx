@@ -2,7 +2,7 @@ export function EferoLogo({ light = false }: { light?: boolean }) {
   const iconColor = '#2563FF'
   const textColor = light ? '#FFFFFF' : '#0A1B33'
   return (
-    <div className="flex items-center select-none" style={{ gap: 8 }}>
+    <div className="flex items-center select-none" style={{ gap: 8 }} role="img" aria-label="Efero logo">
       <svg width="22" height="24" viewBox="0 0 22 24" fill="none">
         <g transform="translate(6,0) skewX(-12)">
           <rect y="0"  width="15" height="6" rx="1.5" fill={iconColor}/>
