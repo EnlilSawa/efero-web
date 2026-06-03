@@ -28,7 +28,7 @@ const plans: Plan[] = [
       'Tilbudsmodul',
       'Kunderegister',
       'Jobbarkiv med bilder',
-      'E-post support',
+      'Support',
     ],
     cta: 'Start gratis prøveperiode',
     featured: false,
