@@ -54,7 +54,7 @@ export function HomeContactForm() {
           </p>
 
           <div className="flex flex-col gap-3 mb-8">
-            <span className="text-[15px] text-charcoal">✉️ hei@efero.app</span>
+            <span className="text-[15px] text-charcoal">✉️ kontakt@efero.no</span>
             <span className="text-[15px] text-charcoal">🕐 Svar innen 24 timer</span>
           </div>
 

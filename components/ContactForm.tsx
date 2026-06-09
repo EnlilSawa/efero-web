@@ -37,11 +37,11 @@ export function ContactForm() {
           <p className="text-[16px] text-slate leading-[1.7] mb-8">
             Vi svarer innen én arbeidsdag.
             Eller send oss en e-post direkte på{' '}
-            <a href="mailto:hei@efero.app" className="text-navy underline underline-offset-2">hei@efero.app</a>
+            <a href="mailto:kontakt@efero.no" className="text-navy underline underline-offset-2">kontakt@efero.no</a>
           </p>
           <div className="flex flex-col gap-3 text-[15px] text-slate">
             <span>📍 Norge</span>
-            <span>✉️ hei@efero.app</span>
+            <span>✉️ kontakt@efero.no</span>
           </div>
         </div>
 

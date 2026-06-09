@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { CookieBanner } from '@/components/CookieBanner'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://efero.app'),
@@ -30,7 +31,7 @@ const orgSchema = {
   logo: 'https://efero.app/logo.png',
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'hei@efero.app',
+    email: 'kontakt@efero.no',
     contactType: 'customer service',
     availableLanguage: 'Norwegian',
   },
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   )

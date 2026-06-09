@@ -67,9 +67,9 @@ const plans: Plan[] = [
 
 const included = [
   '30 dagers gratis prøveperiode',
-  'Norsk MVA-håndtering',
+  'Mva utregning automatisk',
   'Automatisk faktura',
-  'Mobilapp for teknikere',
+  'Mobilapp for admin og teknikere',
   'E-post support',
 ]
 

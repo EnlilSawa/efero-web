@@ -6,6 +6,7 @@ import { InteractiveDemo } from '@/components/InteractiveDemo'
 import { TestimonialsSection } from '@/components/TestimonialsSection'
 import { HomeContactForm } from '@/components/HomeContactForm'
 import { AnimatedSection } from '@/components/AnimatedSection'
+import { MobileAppSection } from '@/components/MobileAppSection'
 
 export const metadata: Metadata = {
   title: 'Efero — Jobbstyring og fakturering for håndverkere',
@@ -107,11 +108,11 @@ export default function Home() {
         <div className="relative z-10 max-w-[700px] mx-auto px-6 py-24 text-center flex flex-col items-center">
 
           <div className="inline-flex items-center bg-eblue text-white text-[12px] font-semibold px-4 py-1.5 rounded-full mb-8">
-            Bygget for norske håndverkere
+            Bygget for håndverkere
           </div>
 
           <h1 className="text-[56px] font-semibold text-white leading-[1.12] tracking-tight mb-7">
-            Framtidens verktøy for din håndverkerbedrift
+            Appen som gir deg<br />kontroll over bedriften.
           </h1>
 
           <p className="text-[20px] text-white/70 leading-relaxed max-w-[560px] mb-10">
@@ -147,6 +148,9 @@ export default function Home() {
 
         </div>
       </section>
+
+      {/* ── MOBIL-SEKSJON ──────────────────────────────────────── */}
+      <MobileAppSection />
 
       {/* ── INTERAKTIV DEMO ────────────────────────────────────── */}
       <InteractiveDemo />

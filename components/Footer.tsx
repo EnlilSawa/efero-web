@@ -16,14 +16,15 @@ const cols = [
     links: [
       { label: 'Om oss',     href: '/om-oss' },
       { label: 'Kontakt',    href: '#kontakt' },
-      { label: 'Personvern', href: '#' },
-      { label: 'Vilkår',     href: '#' },
+      { label: 'Personvern', href: '/personvern' },
+      { label: 'Vilkår',              href: '/vilkar' },
+      { label: 'Databehandleravtale', href: '/databehandleravtale' },
     ],
   },
   {
     label: 'KONTAKT',
     links: [
-      { label: 'hei@efero.app',    href: 'mailto:hei@efero.app' },
+      { label: 'kontakt@efero.no',    href: 'mailto:kontakt@efero.no' },
       { label: 'Norge',            href: '#' },
       { label: 'Man-fre 09-17',    href: '#' },
     ],
@@ -44,8 +45,8 @@ export function Footer() {
             <p className="mt-4 text-[14px] text-white/55 leading-relaxed max-w-[200px]">
               Den enkleste måten å drive håndverkerbedrift.
             </p>
-            <a href="mailto:hei@efero.app" className="mt-3 block text-[13px] text-white/55 hover:text-white/80 transition-colors">
-              hei@efero.app
+            <a href="mailto:kontakt@efero.no" className="mt-3 block text-[13px] text-white/55 hover:text-white/80 transition-colors">
+              kontakt@efero.no
             </a>
           </div>
 

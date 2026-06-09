@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     },
     body: JSON.stringify({
       from: 'noreply@efero.app',
-      to: 'hei@efero.app',
+      to: 'kontakt@efero.no',
       reply_to: email,
       subject: `Kontaktskjema: ${name}`,
       html,
