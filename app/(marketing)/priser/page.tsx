@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import { DEMO_LINK } from '@/lib/links'
 
 // ── Types ───────────────────────────────────────────────────────────────────
 
@@ -30,7 +31,7 @@ const plans: Plan[] = [
       'Jobbarkiv med bilder',
       'Support',
     ],
-    cta: 'Start gratis prøveperiode',
+    cta: 'Book en demo',
     featured: false,
     outline: true,
   },
@@ -45,7 +46,7 @@ const plans: Plan[] = [
       'Månedlig rapport',
       'Eksport til PDF',
     ],
-    cta: 'Start gratis prøveperiode',
+    cta: 'Book en demo',
     featured: true,
     outline: false,
   },
@@ -59,7 +60,7 @@ const plans: Plan[] = [
       'Dedikert onboarding-hjelp',
       'Tilpassede rapporter',
     ],
-    cta: 'Start gratis prøveperiode',
+    cta: 'Book en demo',
     featured: false,
     outline: true,
   },
@@ -75,6 +76,10 @@ const included = [
 
 const faqItems = [
   {
+    q: 'Hva koster Efero?',
+    a: 'Fra 399 kr/mnd eks. mva, avhengig av antall teknikere. Se prispakkene over for full oversikt.',
+  },
+  {
     q: 'Hva skjer etter 30 dager gratis?',
     a: 'Du velger selv om du vil fortsette. Vi sender deg en e-post før prøveperioden utløper. Ingen automatisk trekk uten at du aktivt velger en pakke.',
   },
@@ -88,7 +93,7 @@ const faqItems = [
   },
   {
     q: 'Er det bindingstid?',
-    a: 'Nei. Vi tilbyr månedlig abonnement. Du bestemmer selv om du vil fortsette.',
+    a: 'Nei. Efero betales månedlig, og du kan avslutte når du vil.',
   },
   {
     q: 'Får jeg faktura for abonnementet?',
@@ -210,7 +215,7 @@ export default function Priser() {
                 </ul>
 
                 <Link
-                  href="#"
+                  href={DEMO_LINK}
                   className={`h-12 w-full rounded-[8px] flex items-center justify-center text-[14px] font-semibold transition-colors ${
                     plan.outline
                       ? 'border-2 border-navy text-navy hover:bg-navy hover:text-white'
@@ -265,13 +270,13 @@ export default function Priser() {
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
-              href="#"
+              href={DEMO_LINK}
               className="h-11 px-6 rounded-[8px] bg-eblue text-white text-[15px] font-semibold flex items-center hover:bg-blue-500 transition-colors"
             >
-              Start gratis — 30 dager
+              Book en demo
             </Link>
             <Link
-              href="/kontakt"
+              href="/#kontakt"
               className="h-11 px-6 rounded-[8px] border-2 border-white/30 text-white text-[15px] font-semibold flex items-center hover:border-white transition-colors"
             >
               Ta kontakt

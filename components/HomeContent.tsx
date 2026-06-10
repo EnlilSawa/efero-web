@@ -2,10 +2,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { DashboardMockup } from '@/components/AppMockup'
 import { InteractiveDemo } from '@/components/InteractiveDemo'
-import { TestimonialsSection } from '@/components/TestimonialsSection'
 import { HomeContactForm } from '@/components/HomeContactForm'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { MobilePreview } from '@/components/MobilePreview'
+import { DEMO_LINK } from '@/lib/links'
 
 export const appSchema = {
   '@context': 'https://schema.org',
@@ -22,46 +22,19 @@ export const appSchema = {
   },
 }
 
-// ── App badges ────────────────────────────────────────────────────────────────
+// ── Priser ────────────────────────────────────────────────────────────────────
 
-export function AppBadges() {
-  return (
-    <div className="flex items-center justify-center gap-4 mt-10">
+const pricingPlans = [
+  { name: 'Liten',   teamLabel: '1–3 teknikere',   price: '399 kr',   featured: false },
+  { name: 'Middels', teamLabel: '4–10 teknikere',  price: '899 kr',   featured: true },
+  { name: 'Stor',    teamLabel: '11–20 teknikere', price: '1 499 kr', featured: false },
+]
 
-      {/* App Store */}
-      <div className="flex flex-col items-center gap-1.5">
-        <a href="#" className="flex items-center gap-3 bg-black border border-white/20 text-white rounded-[10px] px-5 py-2.5 w-[148px] hover:bg-white/10 transition-colors">
-          <svg className="w-7 h-7 flex-shrink-0" viewBox="0 0 24 24" fill="white">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-          </svg>
-          <div>
-            <div className="text-[9px] text-white/60 leading-none mb-0.5">Download on the</div>
-            <div className="text-[14px] font-semibold text-white leading-tight">App Store</div>
-          </div>
-        </a>
-        <span className="text-[11px] text-white/40">Kommer snart</span>
-      </div>
-
-      {/* Google Play */}
-      <div className="flex flex-col items-center gap-1.5">
-        <a href="#" className="flex items-center gap-3 bg-black border border-white/20 text-white rounded-[10px] px-5 py-2.5 w-[148px] hover:bg-white/10 transition-colors">
-          <svg className="w-7 h-7 flex-shrink-0" viewBox="0 0 24 24" fill="none">
-            <path d="M3.18 23.76c.3.17.65.19.96.07l11.62-6.72-2.6-2.6-9.98 9.25z" fill="#4FC3F7"/>
-            <path d="M3.18.24C2.77.44 2.5.86 2.5 1.33v21.34c0 .47.27.89.68 1.09L14.04 12 3.18.24z" fill="#81C784"/>
-            <path d="M19.66 10.54c-.35-.2-.77-.2-1.12 0L17 11.14l2.77 2.77 1.08-.62c.62-.36.62-1.23 0-1.69-.39-.24-.81-.62-1.19-1.06z" fill="#F06292"/>
-            <path d="M19.13 14.3L16.6 13.1 5.54.72C5.2.36 4.67.28 4.23.5L15.1 11.37l4.03 3.19-.1.24z" fill="#FFB74D"/>
-          </svg>
-          <div>
-            <div className="text-[9px] text-white/60 leading-none mb-0.5">GET IT ON</div>
-            <div className="text-[14px] font-semibold text-white leading-tight">Google Play</div>
-          </div>
-        </a>
-        <span className="text-[11px] text-white/40">Kommer snart</span>
-      </div>
-
-    </div>
-  )
-}
+const pricingFeatures = [
+  'Alle funksjoner inkludert',
+  'Ubegrenset antall jobber og fakturaer',
+  '30 dager gratis prøveperiode',
+]
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
@@ -103,16 +76,16 @@ export function HomeContent() {
 
             <div className="flex flex-wrap gap-3 justify-center">
               <Link
-                href="#kom-i-gang"
+                href={DEMO_LINK}
                 className="h-[52px] px-8 rounded-[10px] bg-eblue text-white text-[15px] font-semibold flex items-center hover:bg-blue-500 transition-colors"
               >
-                Start gratis — 30 dager
+                Book en demo
               </Link>
               <Link
-                href="#les-mer"
+                href="#kontakt"
                 className="h-[52px] px-8 rounded-[10px] border-2 border-white/30 text-white text-[15px] font-semibold flex items-center hover:border-white transition-colors"
               >
-                Se hvordan det fungerer
+                Prøv gratis i 30 dager
               </Link>
             </div>
 
@@ -202,6 +175,69 @@ export function HomeContent() {
         </div>
       </section>
 
+      {/* ── PRISER — hvit ──────────────────────────────────────── */}
+      <section className="bg-white border-b border-border py-24 px-6">
+        <div className="max-w-site mx-auto">
+          <AnimatedSection>
+            <div className="text-center mb-14">
+              <h2 className="text-[36px] font-semibold text-navy tracking-tight mb-4">
+                Enkel og ærlig pris
+              </h2>
+              <p className="text-[18px] text-slate">
+                Ingen bindingstid. Ingen oppstartskostnad. Avslutt når du vil.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+            {pricingPlans.map((plan, i) => (
+              <AnimatedSection key={plan.name} delay={i * 80}>
+                <div
+                  className={`rounded-[16px] p-8 flex flex-col relative h-full ${
+                    plan.featured ? 'border-2 border-eblue md:-translate-y-2' : 'border border-border'
+                  }`}
+                >
+                  {plan.featured && (
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                      <span className="bg-eblue text-white text-[11px] font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                        Mest valgt
+                      </span>
+                    </div>
+                  )}
+
+                  <p className="text-[15px] font-semibold text-navy mb-1">{plan.name}</p>
+                  <p className="text-[14px] text-slate mb-6">{plan.teamLabel}</p>
+
+                  <div className="flex items-end gap-1.5">
+                    <span className="text-[40px] font-semibold text-navy leading-none">{plan.price}</span>
+                    <span className="text-[16px] text-slate mb-1">/mnd</span>
+                  </div>
+                  <p className="text-[13px] text-slate mb-6">Eks. mva</p>
+
+                  <div className="h-px bg-border mb-6"/>
+
+                  <ul className="flex flex-col gap-3 flex-1 mb-8">
+                    {pricingFeatures.map(f => (
+                      <li key={f} className="flex items-start gap-2.5 text-[14px] text-charcoal">
+                        <span className="text-eblue font-semibold">→</span>
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href={DEMO_LINK}
+                    className="h-12 w-full rounded-[8px] bg-eblue text-white text-[14px] font-semibold flex items-center justify-center hover:bg-blue-500 transition-colors"
+                  >
+                    Book en demo
+                  </Link>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── TALL-STRIP — navy ──────────────────────────────────── */}
       <section className="bg-navy border-b border-white/10 py-16 px-6">
         <div className="max-w-site mx-auto">
@@ -220,8 +256,27 @@ export function HomeContent() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS — hvit ────────────────────────────────── */}
-      <TestimonialsSection />
+      {/* ── BLI EN AV DE 20 FØRSTE — lys grå ───────────────────── */}
+      <section className="bg-lgray border-b border-border py-24 px-6">
+        <div className="max-w-site mx-auto text-center">
+          <AnimatedSection>
+            <h2 className="text-[36px] font-semibold text-navy tracking-tight mb-6">
+              Bli en av de 20 første
+            </h2>
+            <p className="text-[18px] text-slate leading-relaxed max-w-[600px] mx-auto mb-10">
+              Efero lanseres nå, og vi ser etter 20 håndverksbedrifter som vil være
+              med å forme produktet. De første kundene får egne betingelser, gratis
+              oppsett og direktelinje til gründeren. Book en demo, så forteller vi mer.
+            </p>
+            <Link
+              href={DEMO_LINK}
+              className="inline-flex h-[56px] px-10 rounded-[10px] bg-eblue text-white text-[16px] font-semibold items-center justify-center hover:bg-blue-500 transition-colors"
+            >
+              Book en 15-minutters demo
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
 
       {/* ── KONTAKT — lys grå ──────────────────────────────────── */}
       <HomeContactForm />
@@ -265,10 +320,10 @@ export function HomeContent() {
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link
-                href="#"
+                href={DEMO_LINK}
                 className="h-[52px] px-8 rounded-[10px] bg-eblue text-white text-[15px] font-semibold flex items-center hover:bg-blue-500 transition-colors"
               >
-                Start gratis prøveperiode
+                Book en demo
               </Link>
               <Link
                 href="#"
@@ -277,7 +332,6 @@ export function HomeContent() {
                 Last ned appen
               </Link>
             </div>
-            <AppBadges />
           </AnimatedSection>
         </div>
       </section>

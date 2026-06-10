@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import EferoLogo from './EferoLogo'
+import { DEMO_LINK } from '@/lib/links'
 
 const centerLinks = [
   { href: '/#funksjoner', label: 'Produkt' },
@@ -41,8 +42,8 @@ export function Navbar() {
           <Link href="/login" className="text-[14px] font-medium text-slate hover:text-navy transition-colors">
             Logg inn
           </Link>
-          <Link href="/#kom-i-gang" className="h-10 px-5 rounded-[8px] bg-navy text-white text-[14px] font-semibold flex items-center hover:bg-charcoal transition-colors">
-            Kom i gang
+          <Link href={DEMO_LINK} className="h-10 px-5 rounded-[8px] bg-navy text-white text-[14px] font-semibold flex items-center hover:bg-charcoal transition-colors">
+            Book en demo
           </Link>
         </div>
 
@@ -63,7 +64,7 @@ export function Navbar() {
           ))}
           <div className="border-t border-border pt-4 flex flex-col gap-3">
             <Link href="/login" onClick={() => setOpen(false)} className="text-[15px] text-slate">Logg inn</Link>
-            <Link href="/#kom-i-gang" onClick={() => setOpen(false)} className="h-12 rounded-[8px] bg-navy text-white text-[14px] font-semibold flex items-center justify-center">Kom i gang</Link>
+            <Link href={DEMO_LINK} onClick={() => setOpen(false)} className="h-12 rounded-[8px] bg-navy text-white text-[14px] font-semibold flex items-center justify-center">Book en demo</Link>
           </div>
         </div>
       )}

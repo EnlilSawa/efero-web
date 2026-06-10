@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { AnimatedSection } from '@/components/AnimatedSection'
+import { DEMO_LINK } from '@/lib/links'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -122,10 +123,10 @@ export default function OmOss() {
               Prøv Efero gratis i 30 dager. Personlig onboarding inkludert.
             </p>
             <Link
-              href="/#kom-i-gang"
+              href={DEMO_LINK}
               className="inline-flex h-[52px] px-8 rounded-btn bg-eblue text-white text-[15px] font-semibold items-center hover:bg-blue-500 transition-colors"
             >
-              Start gratis
+              Book en demo
             </Link>
           </AnimatedSection>
         </div>
