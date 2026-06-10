@@ -6,6 +6,7 @@ import { InteractiveDemo } from '@/components/InteractiveDemo'
 import { TestimonialsSection } from '@/components/TestimonialsSection'
 import { HomeContactForm } from '@/components/HomeContactForm'
 import { AnimatedSection } from '@/components/AnimatedSection'
+import { MobilePreview } from '@/components/MobilePreview'
 
 export const metadata: Metadata = {
   title: 'Efero — Jobbstyring og fakturering for håndverkere',
@@ -90,7 +91,7 @@ export default function Home() {
   return (
     <>
       {/* ── HERO — bakgrunnsbilde ─────────────────────────────── */}
-      <section className="bg-navy border-b border-white/10 relative overflow-hidden">
+      <section className="bg-navy border-b border-white/10 relative overflow-hidden flex items-center" style={{ minHeight: '90vh' }}>
 
         {/* Bakgrunnsbilde */}
         <Image
@@ -104,46 +105,56 @@ export default function Home() {
         {/* Lett overlay for lesbarhet */}
         <div className="absolute inset-0 z-0" style={{ background: 'rgba(10,27,51,0.55)' }}/>
 
-        <div className="relative z-10 max-w-[700px] mx-auto px-6 py-24 text-center flex flex-col items-center">
+        <div className="relative z-10 max-w-[1280px] mx-auto px-6 py-20 w-full grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 lg:gap-16 items-center">
 
-          <div className="inline-flex items-center bg-eblue text-white text-[12px] font-semibold px-4 py-1.5 rounded-full mb-8">
-            Bygget for håndverkere
+          {/* Tekst */}
+          <div className="mx-auto text-center flex flex-col items-center">
+
+            <div className="inline-flex items-center bg-eblue text-white text-[12px] font-semibold px-4 py-1.5 rounded-full mb-8">
+              Bygget for håndverkere
+            </div>
+
+            <h1 className="text-[56px] font-semibold text-white leading-[1.12] tracking-tight mb-7">
+              Appen som gir deg<br />kontroll over bedriften.
+            </h1>
+
+            <p className="text-[20px] text-white/70 leading-relaxed max-w-[560px] mb-10">
+              Efero samler jobber, team og fakturering i én enkel app.
+              Fra kundetelefon til betalt faktura — uten papir og Excel.
+            </p>
+
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link
+                href="#kom-i-gang"
+                className="h-[52px] px-8 rounded-[10px] bg-eblue text-white text-[15px] font-semibold flex items-center hover:bg-blue-500 transition-colors"
+              >
+                Start gratis — 30 dager
+              </Link>
+              <Link
+                href="#les-mer"
+                className="h-[52px] px-8 rounded-[10px] border-2 border-white/30 text-white text-[15px] font-semibold flex items-center hover:border-white transition-colors"
+              >
+                Se hvordan det fungerer
+              </Link>
+            </div>
+
+            <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-7 text-[14px] text-white/60">
+              {['30 dager gratis prøveperiode', 'Personlig onboarding inkludert', 'Support 24/7'].map(t => (
+                <li key={t} className="flex items-center gap-1.5">
+                  <svg className="w-3.5 h-3.5 text-eblue flex-shrink-0" viewBox="0 0 14 14" fill="none">
+                    <path d="M2.5 7.5l3 3 6-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  {t}
+                </li>
+              ))}
+            </ul>
+
           </div>
 
-          <h1 className="text-[56px] font-semibold text-white leading-[1.12] tracking-tight mb-7">
-            Appen som gir deg<br />kontroll over bedriften.
-          </h1>
-
-          <p className="text-[20px] text-white/70 leading-relaxed max-w-[560px] mb-10">
-            Efero samler jobber, team og fakturering i én enkel app.
-            Fra kundetelefon til betalt faktura — uten papir og Excel.
-          </p>
-
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link
-              href="#kom-i-gang"
-              className="h-[52px] px-8 rounded-[10px] bg-eblue text-white text-[15px] font-semibold flex items-center hover:bg-blue-500 transition-colors"
-            >
-              Start gratis — 30 dager
-            </Link>
-            <Link
-              href="#les-mer"
-              className="h-[52px] px-8 rounded-[10px] border-2 border-white/30 text-white text-[15px] font-semibold flex items-center hover:border-white transition-colors"
-            >
-              Se hvordan det fungerer
-            </Link>
+          {/* Mobil-animasjon */}
+          <div className="flex justify-center">
+            <MobilePreview />
           </div>
-
-          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-7 text-[14px] text-white/60">
-            {['30 dager gratis prøveperiode', 'Personlig onboarding inkludert', 'Support 24/7'].map(t => (
-              <li key={t} className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 text-eblue flex-shrink-0" viewBox="0 0 14 14" fill="none">
-                  <path d="M2.5 7.5l3 3 6-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                {t}
-              </li>
-            ))}
-          </ul>
 
         </div>
       </section>

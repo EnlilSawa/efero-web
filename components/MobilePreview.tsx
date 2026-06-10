@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useId } from 'react'
 
 function StatusBar() {
   return (
@@ -161,7 +161,33 @@ function Screen3() {
   )
 }
 
-export function MobilePreview() {
+type MobilePreviewProps = {
+  width?: number
+  mobileWidth?: number
+  frameBg?: string
+  frameBorder?: string
+  boxShadow?: string
+  floatY?: number
+  rotate?: number
+  accentColor?: string
+  showDots?: boolean
+}
+
+export function MobilePreview({
+  width = 280,
+  mobileWidth = 220,
+  frameBg = 'rgba(255,255,255,0.05)',
+  frameBorder = '4px solid rgba(255,255,255,0.15)',
+  boxShadow = '0 0 60px rgba(37,99,255,0.3), 0 25px 50px rgba(0,0,0,0.3)',
+  floatY = 10,
+  rotate = 3,
+  accentColor = 'rgba(255,255,255,0.2)',
+  showDots = false,
+}: MobilePreviewProps) {
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, '')
+  const frameClass = `efero-phone-${uid}`
+  const floatClass = `efero-float-${uid}`
+
   const [activeScreen, setActiveScreen] = useState(0)
   const [visible, setVisible] = useState(true)
 
@@ -189,24 +215,23 @@ export function MobilePreview() {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
       {/* Phone wrapper */}
-      <div className="efero-mobile-float" style={{ position: 'relative', backgroundColor: 'transparent' }}>
+      <div className={floatClass} style={{ position: 'relative' }}>
 
         {/* Left side buttons */}
-        <div style={{ position: 'absolute', left: -4, top: 116, width: 4, height: 28, backgroundColor: '#CBD5E1', borderRadius: '3px 0 0 3px' }} />
-        <div style={{ position: 'absolute', left: -4, top: 154, width: 4, height: 28, backgroundColor: '#CBD5E1', borderRadius: '3px 0 0 3px' }} />
+        <div style={{ position: 'absolute', left: -4, top: '20.71%', width: 4, height: '5%', backgroundColor: accentColor, borderRadius: '3px 0 0 3px' }} />
+        <div style={{ position: 'absolute', left: -4, top: '27.5%', width: 4, height: '5%', backgroundColor: accentColor, borderRadius: '3px 0 0 3px' }} />
         {/* Right side button */}
-        <div style={{ position: 'absolute', right: -4, top: 130, width: 4, height: 50, backgroundColor: '#CBD5E1', borderRadius: '0 3px 3px 0' }} />
+        <div style={{ position: 'absolute', right: -4, top: '23.21%', width: 4, height: '8.93%', backgroundColor: accentColor, borderRadius: '0 3px 3px 0' }} />
 
         {/* Phone body */}
-        <div style={{
-          width: 280, height: 560,
-          backgroundColor: '#FFFFFF',
+        <div className={frameClass} style={{
+          backgroundColor: frameBg,
           borderRadius: 40,
-          border: '4px solid #E2E8F0',
+          border: frameBorder,
           position: 'relative',
           overflow: 'hidden',
           boxSizing: 'border-box',
-          boxShadow: '0 25px 60px rgba(0,0,0,0.15), 0 10px 20px rgba(0,0,0,0.08)',
+          boxShadow,
         }}>
 
           {/* Glare / reflection */}
@@ -220,11 +245,11 @@ export function MobilePreview() {
           {/* Notch */}
           <div style={{
             position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
-            width: 80, height: 24, backgroundColor: '#FFFFFF',
+            width: 80, height: 24, backgroundColor: frameBg,
             borderRadius: '0 0 16px 16px', zIndex: 20,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>
-            <div style={{ width: 7, height: 7, borderRadius: '50%', backgroundColor: '#CBD5E1' }} />
+            <div style={{ width: 7, height: 7, borderRadius: '50%', backgroundColor: accentColor }} />
           </div>
 
           {/* Screen */}
@@ -248,23 +273,35 @@ export function MobilePreview() {
       </div>
 
       {/* Dot navigation */}
-      <div style={{ display: 'flex', gap: 8, marginTop: 28, alignItems: 'center' }}>
-        {[0, 1, 2].map(i => (
-          <button key={i} onClick={() => goToScreen(i)} style={{
-            width: i === activeScreen ? 24 : 8, height: 8, borderRadius: 4,
-            backgroundColor: i === activeScreen ? '#2563FF' : 'rgba(10,27,51,0.15)',
-            border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', padding: 0,
-          }} />
-        ))}
-      </div>
+      {showDots && (
+        <div style={{ display: 'flex', gap: 8, marginTop: 28, alignItems: 'center' }}>
+          {[0, 1, 2].map(i => (
+            <button key={i} onClick={() => goToScreen(i)} style={{
+              width: i === activeScreen ? 24 : 8, height: 8, borderRadius: 4,
+              backgroundColor: i === activeScreen ? '#60a5fa' : accentColor,
+              border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', padding: 0,
+            }} />
+          ))}
+        </div>
+      )}
 
       <style>{`
-        @keyframes eferoMobileFloat {
-          0%, 100% { transform: translateY(0px); }
-          50%       { transform: translateY(-8px); }
+        .${frameClass} {
+          width: ${width}px;
+          height: ${width * 2}px;
         }
-        .efero-mobile-float {
-          animation: eferoMobileFloat 3s ease-in-out infinite;
+        @keyframes ${floatClass} {
+          0%, 100% { transform: translateY(0px) rotate(${rotate}deg); }
+          50%       { transform: translateY(-${floatY}px) rotate(${rotate}deg); }
+        }
+        .${floatClass} {
+          animation: ${floatClass} 3s ease-in-out infinite;
+        }
+        @media (max-width: 1023px) {
+          .${frameClass} {
+            width: ${mobileWidth}px;
+            height: ${mobileWidth * 2}px;
+          }
         }
       `}</style>
     </div>

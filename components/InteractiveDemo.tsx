@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { DashboardMockup, InvoiceMockup, TechnicianMockup, StatisticsMockup } from './AppMockup'
-import { MobilePreview } from './MobilePreview'
 
 type Tab = {
   icon: string
@@ -89,7 +88,7 @@ export function InteractiveDemo() {
 
   return (
     <section id="les-mer" className="border-b border-border px-6" style={{ backgroundColor: '#F5F7FA', paddingTop: 96, paddingBottom: 96 }}>
-      <div className="max-w-[1280px] mx-auto">
+      <div className="max-w-[1100px] mx-auto">
 
         {/* Header */}
         <div className="text-center">
@@ -101,72 +100,60 @@ export function InteractiveDemo() {
           </p>
         </div>
 
-        {/* Two-column layout: tabs + screenshots (60%) / mobile preview (40%) */}
-        <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-12 lg:gap-16 items-center">
+        {/* Tab navigation */}
+        <div className="overflow-x-auto mb-12">
+          <div className="flex justify-center gap-2 min-w-max mx-auto px-4">
+            {tabs.map((t, i) => (
+              <button
+                key={t.label}
+                onClick={() => handleTab(i)}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-[14px] font-medium whitespace-nowrap transition-colors ${
+                  active === i
+                    ? 'bg-eblue text-white'
+                    : 'bg-white text-slate border border-[#E2E8F0] hover:border-eblue/40'
+                }`}
+              >
+                <span>{t.icon}</span>
+                <span>{t.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
 
-          {/* Left: tab navigation + content */}
-          <div>
-            {/* Tab navigation */}
-            <div className="overflow-x-auto mb-10">
-              <div className="flex justify-center gap-2 min-w-max mx-auto px-4">
-                {tabs.map((t, i) => (
-                  <button
-                    key={t.label}
-                    onClick={() => handleTab(i)}
-                    className={`flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-[14px] font-medium whitespace-nowrap transition-colors ${
-                      active === i
-                        ? 'bg-eblue text-white'
-                        : 'bg-white text-slate border border-[#E2E8F0] hover:border-eblue/40'
-                    }`}
-                  >
-                    <span>{t.icon}</span>
-                    <span>{t.label}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Content */}
-            <div
-              className="grid grid-cols-1 md:grid-cols-[40%_60%] gap-10 items-center"
-              style={{ opacity: fading ? 0 : 1, transition: 'opacity 0.2s ease' }}
-            >
-              {/* Screenshot — top on mobile, right on desktop */}
-              <div className="order-1 md:order-2 bg-white rounded-[14px] border border-border p-4">
-                <Mockup />
-              </div>
-
-              {/* Text — bottom on mobile, left on desktop */}
-              <div className="order-2 md:order-1">
-                <div className="inline-flex items-center bg-eblue/10 text-eblue text-[12px] font-semibold px-3 py-1.5 rounded-full mb-5">
-                  {badge}
-                </div>
-                <h3
-                  className="text-[28px] font-semibold text-navy leading-[1.25] tracking-tight mb-4"
-                  style={{ whiteSpace: 'pre-line' }}
-                >
-                  {title}
-                </h3>
-                <p className="text-[15px] text-slate leading-[1.75] mb-7">
-                  {text}
-                </p>
-                <ul className="flex flex-col gap-3">
-                  {features.map(f => (
-                    <li key={f} className="flex items-center gap-2.5 text-[14px] text-charcoal font-medium">
-                      <svg className="w-4 h-4 text-emerald-500 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
-                        <path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/>
-                      </svg>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+        {/* Content */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-[40%_60%] gap-10 items-center"
+          style={{ opacity: fading ? 0 : 1, transition: 'opacity 0.2s ease' }}
+        >
+          {/* Screenshot — top on mobile, right on desktop */}
+          <div className="order-1 md:order-2 bg-white rounded-[14px] border border-border p-4">
+            <Mockup />
           </div>
 
-          {/* Right: mobile preview */}
-          <div className="flex justify-center">
-            <MobilePreview />
+          {/* Text — bottom on mobile, left on desktop */}
+          <div className="order-2 md:order-1">
+            <div className="inline-flex items-center bg-eblue/10 text-eblue text-[12px] font-semibold px-3 py-1.5 rounded-full mb-5">
+              {badge}
+            </div>
+            <h3
+              className="text-[28px] font-semibold text-navy leading-[1.25] tracking-tight mb-4"
+              style={{ whiteSpace: 'pre-line' }}
+            >
+              {title}
+            </h3>
+            <p className="text-[15px] text-slate leading-[1.75] mb-7">
+              {text}
+            </p>
+            <ul className="flex flex-col gap-3">
+              {features.map(f => (
+                <li key={f} className="flex items-center gap-2.5 text-[14px] text-charcoal font-medium">
+                  <svg className="w-4 h-4 text-emerald-500 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/>
+                  </svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
