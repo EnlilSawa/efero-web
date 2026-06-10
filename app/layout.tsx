@@ -1,8 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Navbar } from '@/components/Navbar'
-import { Footer } from '@/components/Footer'
-import { CookieBanner } from '@/components/CookieBanner'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://efero.app'),
@@ -49,12 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
       </head>
-      <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <CookieBanner />
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
