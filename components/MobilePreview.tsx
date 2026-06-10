@@ -161,7 +161,7 @@ function Screen3() {
   )
 }
 
-export function MobileAppSection() {
+export function MobilePreview() {
   const [activeScreen, setActiveScreen] = useState(0)
   const [visible, setVisible] = useState(true)
 
@@ -186,95 +186,76 @@ export function MobileAppSection() {
   }
 
   return (
-    <section style={{ backgroundColor: '#0A1B33', padding: '96px 24px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-      <div style={{ maxWidth: 560, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-        <h2 style={{ color: 'white', fontSize: 36, fontWeight: 600, textAlign: 'center', margin: '0 0 16px', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
-          Se Efero i lomma di
-        </h2>
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 18, textAlign: 'center', margin: '0 0 56px', lineHeight: 1.6 }}>
-          Teknikerne bruker mobilappen.<br />Du har full oversikt.
-        </p>
+      {/* Phone wrapper */}
+      <div className="efero-mobile-float" style={{ position: 'relative', backgroundColor: 'transparent' }}>
 
-        {/* Phone wrapper */}
-        <div className="efero-mobile-float" style={{ position: 'relative', marginBottom: 32 }}>
+        {/* Left side buttons */}
+        <div style={{ position: 'absolute', left: -4, top: 116, width: 4, height: 28, backgroundColor: '#CBD5E1', borderRadius: '3px 0 0 3px' }} />
+        <div style={{ position: 'absolute', left: -4, top: 154, width: 4, height: 28, backgroundColor: '#CBD5E1', borderRadius: '3px 0 0 3px' }} />
+        {/* Right side button */}
+        <div style={{ position: 'absolute', right: -4, top: 130, width: 4, height: 50, backgroundColor: '#CBD5E1', borderRadius: '0 3px 3px 0' }} />
 
-          {/* Left side buttons */}
-          <div style={{ position: 'absolute', left: -4, top: 116, width: 4, height: 28, backgroundColor: '#2a2a4a', borderRadius: '3px 0 0 3px' }} />
-          <div style={{ position: 'absolute', left: -4, top: 154, width: 4, height: 28, backgroundColor: '#2a2a4a', borderRadius: '3px 0 0 3px' }} />
-          {/* Right side button */}
-          <div style={{ position: 'absolute', right: -4, top: 130, width: 4, height: 50, backgroundColor: '#2a2a4a', borderRadius: '0 3px 3px 0' }} />
+        {/* Phone body */}
+        <div style={{
+          width: 280, height: 560,
+          backgroundColor: '#FFFFFF',
+          borderRadius: 40,
+          border: '4px solid #E2E8F0',
+          position: 'relative',
+          overflow: 'hidden',
+          boxSizing: 'border-box',
+          boxShadow: '0 25px 60px rgba(0,0,0,0.15), 0 10px 20px rgba(0,0,0,0.08)',
+        }}>
 
-          {/* Phone body */}
+          {/* Glare / reflection */}
           <div style={{
-            width: 280, height: 560,
-            backgroundColor: '#1a1a2e',
-            borderRadius: 40,
-            border: '6px solid #2a2a4a',
-            position: 'relative',
-            overflow: 'hidden',
-            boxSizing: 'border-box',
-            boxShadow: '0 40px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.04)',
+            position: 'absolute', top: 0, left: 0, width: '55%', height: '45%',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 60%)',
+            borderRadius: '34px 0 0 0',
+            pointerEvents: 'none', zIndex: 30,
+          }} />
+
+          {/* Notch */}
+          <div style={{
+            position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
+            width: 80, height: 24, backgroundColor: '#FFFFFF',
+            borderRadius: '0 0 16px 16px', zIndex: 20,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>
-
-            {/* Glare / reflection */}
-            <div style={{
-              position: 'absolute', top: 0, left: 0, width: '55%', height: '45%',
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 60%)',
-              borderRadius: '34px 0 0 0',
-              pointerEvents: 'none', zIndex: 30,
-            }} />
-
-            {/* Notch */}
-            <div style={{
-              position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
-              width: 80, height: 24, backgroundColor: '#1a1a2e',
-              borderRadius: '0 0 16px 16px', zIndex: 20,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}>
-              <div style={{ width: 7, height: 7, borderRadius: '50%', backgroundColor: '#0d0d1a' }} />
-            </div>
-
-            {/* Screen */}
-            <div style={{
-              position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-              backgroundColor: '#0A1B33', borderRadius: 28, overflow: 'hidden',
-            }}>
-              <div style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.5s ease', height: '100%' }}>
-                {activeScreen === 0 && <Screen1 />}
-                {activeScreen === 1 && <Screen2 />}
-                {activeScreen === 2 && <Screen3 />}
-              </div>
-            </div>
-
-            {/* Home indicator */}
-            <div style={{
-              position: 'absolute', bottom: 8, left: '50%', transform: 'translateX(-50%)',
-              width: 64, height: 4, backgroundColor: 'rgba(255,255,255,0.25)', borderRadius: 2, zIndex: 20,
-            }} />
+            <div style={{ width: 7, height: 7, borderRadius: '50%', backgroundColor: '#CBD5E1' }} />
           </div>
-        </div>
 
-        {/* Dot navigation */}
-        <div style={{ display: 'flex', gap: 8, marginBottom: 32, alignItems: 'center' }}>
-          {[0, 1, 2].map(i => (
-            <button key={i} onClick={() => goToScreen(i)} style={{
-              width: i === activeScreen ? 24 : 8, height: 8, borderRadius: 4,
-              backgroundColor: i === activeScreen ? '#2563FF' : 'rgba(255,255,255,0.3)',
-              border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', padding: 0,
-            }} />
-          ))}
-        </div>
+          {/* Screen */}
+          <div style={{
+            position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+            backgroundColor: '#0A1B33', borderRadius: 28, overflow: 'hidden',
+          }}>
+            <div style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.5s ease', height: '100%' }}>
+              {activeScreen === 0 && <Screen1 />}
+              {activeScreen === 1 && <Screen2 />}
+              {activeScreen === 2 && <Screen3 />}
+            </div>
+          </div>
 
-        {/* Feature points */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 6, color: 'rgba(255,255,255,0.6)', fontSize: 14 }}>
-          {['Jobber på telefonen', 'Én knapp når ferdig', 'Faktura sending via appen'].map((text, i) => (
-            <span key={text} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              {text}
-              {i < 2 && <span style={{ opacity: 0.4 }}>·</span>}
-            </span>
-          ))}
+          {/* Home indicator */}
+          <div style={{
+            position: 'absolute', bottom: 8, left: '50%', transform: 'translateX(-50%)',
+            width: 64, height: 4, backgroundColor: 'rgba(255,255,255,0.25)', borderRadius: 2, zIndex: 20,
+          }} />
         </div>
+      </div>
+
+      {/* Dot navigation */}
+      <div style={{ display: 'flex', gap: 8, marginTop: 28, alignItems: 'center' }}>
+        {[0, 1, 2].map(i => (
+          <button key={i} onClick={() => goToScreen(i)} style={{
+            width: i === activeScreen ? 24 : 8, height: 8, borderRadius: 4,
+            backgroundColor: i === activeScreen ? '#2563FF' : 'rgba(10,27,51,0.15)',
+            border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', padding: 0,
+          }} />
+        ))}
       </div>
 
       <style>{`
@@ -286,6 +267,6 @@ export function MobileAppSection() {
           animation: eferoMobileFloat 3s ease-in-out infinite;
         }
       `}</style>
-    </section>
+    </div>
   )
 }

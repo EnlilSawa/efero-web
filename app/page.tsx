@@ -6,7 +6,6 @@ import { InteractiveDemo } from '@/components/InteractiveDemo'
 import { TestimonialsSection } from '@/components/TestimonialsSection'
 import { HomeContactForm } from '@/components/HomeContactForm'
 import { AnimatedSection } from '@/components/AnimatedSection'
-import { MobileAppSection } from '@/components/MobileAppSection'
 
 export const metadata: Metadata = {
   title: 'Efero — Jobbstyring og fakturering for håndverkere',
@@ -148,9 +147,6 @@ export default function Home() {
 
         </div>
       </section>
-
-      {/* ── MOBIL-SEKSJON ──────────────────────────────────────── */}
-      <MobileAppSection />
 
       {/* ── INTERAKTIV DEMO ────────────────────────────────────── */}
       <InteractiveDemo />
