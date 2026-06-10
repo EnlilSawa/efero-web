@@ -69,7 +69,7 @@ export function ComingSoon({ initialCount }: { initialCount: number }) {
           className="mt-5 text-[18px] text-white/70 leading-relaxed"
           style={{ whiteSpace: 'pre-line' }}
         >
-          {'Efero er jobbstyring,\nfakturering og teamoversikt\ni én enkel app —\nbygget for norske håndverkere.'}
+          {'Efero er jobbstyring, fakturering og teamoversikt i én enkel app.\nBygget for norske håndverkere.'}
         </p>
 
         {/* Venteliste-teller */}
