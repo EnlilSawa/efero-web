@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { DashboardMockup } from '@/components/AppMockup'
@@ -8,29 +7,7 @@ import { HomeContactForm } from '@/components/HomeContactForm'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { MobilePreview } from '@/components/MobilePreview'
 
-export const metadata: Metadata = {
-  title: 'Efero — Jobbstyring og fakturering for håndverkere',
-  description: 'Efero er appen som samler jobber, team og faktura i én løsning. Bygget for norske rørleggere, elektrikere og snekkere. Start gratis i dag.',
-  keywords: [
-    'håndverker app', 'rørlegger program', 'elektriker app', 'jobbstyring håndverk',
-    'faktura håndverker', 'VVS program', 'snekker app', 'håndverkerbedrift',
-    'arbeidsordre app norge', 'fakturaprogram håndverker',
-  ],
-  alternates: { canonical: 'https://efero.app/home-full' },
-  robots: { index: false, follow: false },
-  openGraph: {
-    title: 'Efero — Jobbstyring og fakturering for håndverkere',
-    description: 'Efero er appen som samler jobber, team og faktura i én løsning. Bygget for norske rørleggere, elektrikere og snekkere. Start gratis i dag.',
-    url: 'https://efero.app/home-full',
-    type: 'website',
-  },
-  twitter: {
-    title: 'Efero — Jobbstyring og fakturering for håndverkere',
-    description: 'Efero er appen som samler jobber, team og faktura i én løsning. Bygget for norske rørleggere, elektrikere og snekkere. Start gratis i dag.',
-  },
-}
-
-const appSchema = {
+export const appSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'Efero',
@@ -47,7 +24,7 @@ const appSchema = {
 
 // ── App badges ────────────────────────────────────────────────────────────────
 
-function AppBadges() {
+export function AppBadges() {
   return (
     <div className="flex items-center justify-center gap-4 mt-10">
 
@@ -88,7 +65,7 @@ function AppBadges() {
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
-export default function Home() {
+export function HomeContent() {
   return (
     <>
       {/* ── HERO — bakgrunnsbilde ─────────────────────────────── */}

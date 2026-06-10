@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 }
 
 export default function AdminAccess() {
-  redirect('/home-full')
+  redirect('/home')
 }
