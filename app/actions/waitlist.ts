@@ -1,6 +1,7 @@
 'use server'
 
 import { supabase } from '@/lib/supabase'
+import { sendWaitlistConfirmation } from '@/lib/email'
 
 const BASE_COUNT = 47
 
@@ -29,5 +30,17 @@ export async function joinWaitlist(email: string): Promise<JoinResult> {
     return { status: 'error', message: 'Noe gikk galt. Prøv igjen.' }
   }
 
-  return data as JoinResult
+  const result = data as JoinResult
+
+  // Send bekreftelses-e-post kun for nye påmeldinger. Feiler sendingen skal
+  // påmeldingen likevel stå — vi logger og svelger feilen (blokkerer aldri).
+  if (result.status === 'added') {
+    try {
+      await sendWaitlistConfirmation(trimmed)
+    } catch (e) {
+      console.error('Waitlist-bekreftelse feilet for', trimmed, e)
+    }
+  }
+
+  return result
 }
