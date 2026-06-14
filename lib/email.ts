@@ -26,7 +26,7 @@ function waitlistConfirmationHtml(): string {
           <!-- 1. Header (navy) -->
           <tr>
             <td align="center" style="background:#0A1B33; padding:32px;">
-              <span style="font-family:${FONT}; font-size:28px; font-weight:700; letter-spacing:-0.5px; color:#FFFFFF;"><span style="color:#2563FF;">E</span>fero</span>
+              <img src="https://ldsgjkqjhnxttxnfggfu.supabase.co/storage/v1/object/public/company-logos/efero-email-logo-white.png" width="171" height="40" alt="Efero" style="display:block; border:0; outline:none; text-decoration:none; height:40px; width:171px;" />
             </td>
           </tr>
 
