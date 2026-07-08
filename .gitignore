@@ -2,3 +2,10 @@ node_modules/
 .next/
 .env*
 *.local
+
+# macOS + bygg-artefakter
+.DS_Store
+*.tsbuildinfo
+
+# Lokalt annonsemateriell (holdes utenfor nettside-repoet)
+efero-ads/
