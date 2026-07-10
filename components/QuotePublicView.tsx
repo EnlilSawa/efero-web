@@ -193,12 +193,14 @@ function Shell({ children, companyName, logoUrl }: { children: ReactNode; compan
   return (
     <main style={{ minHeight: '100vh', background: '#F5F7FA', padding: '24px 16px', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
       <div style={{ width: '100%', maxWidth: 600, background: '#FFFFFF', borderRadius: 16, overflow: 'hidden', boxShadow: '0 4px 24px rgba(10,27,51,0.06)' }}>
-        <div style={{ background: NAVY, padding: '28px 24px', textAlign: 'center' }}>
+        <div style={{ background: '#FFFFFF', padding: '28px 24px', textAlign: 'center', borderBottom: `1px solid ${BORDER}` }}>
           {logoUrl ? (
+            // Firmalogoen er laget for lys bakgrunn (vises på hvite fakturaer) →
+            // hvit header så den ikke forsvinner.
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={logoUrl} alt={companyName ?? ''} style={{ maxHeight: 44, maxWidth: 200, objectFit: 'contain' }} />
+            <img src={logoUrl} alt={companyName ?? ''} style={{ maxHeight: 48, maxWidth: 220, objectFit: 'contain' }} />
           ) : (
-            <h1 style={{ color: '#FFFFFF', fontSize: 22, margin: 0, fontWeight: 700 }}>{companyName ?? 'Tilbud'}</h1>
+            <h1 style={{ color: NAVY, fontSize: 22, margin: 0, fontWeight: 700 }}>{companyName ?? 'Tilbud'}</h1>
           )}
         </div>
         {children}
