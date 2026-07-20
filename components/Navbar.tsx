@@ -39,9 +39,6 @@ export function Navbar() {
 
         {/* Right */}
         <div className="hidden md:flex items-center gap-4 flex-shrink-0">
-          <Link href="/login" className="text-[14px] font-medium text-slate hover:text-navy transition-colors">
-            Logg inn
-          </Link>
           <Link href={DEMO_LINK} className="h-10 px-5 rounded-[8px] bg-navy text-white text-[14px] font-semibold flex items-center hover:bg-charcoal transition-colors">
             Book en demo
           </Link>
@@ -63,7 +60,6 @@ export function Navbar() {
             <Link key={l.label} href={l.href} onClick={() => setOpen(false)} className="text-[15px] text-charcoal">{l.label}</Link>
           ))}
           <div className="border-t border-border pt-4 flex flex-col gap-3">
-            <Link href="/login" onClick={() => setOpen(false)} className="text-[15px] text-slate">Logg inn</Link>
             <Link href={DEMO_LINK} onClick={() => setOpen(false)} className="h-12 rounded-[8px] bg-navy text-white text-[14px] font-semibold flex items-center justify-center">Book en demo</Link>
           </div>
         </div>

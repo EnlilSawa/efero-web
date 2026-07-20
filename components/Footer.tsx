@@ -49,7 +49,6 @@ const cols = [
       { label: 'Funksjoner', href: '/#funksjoner' },
       { label: 'Priser',     href: '/priser' },
       { label: 'Last ned appen', href: '#' },
-      { label: 'Logg inn',  href: '/login' },
     ],
   },
   {
