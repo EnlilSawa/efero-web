@@ -3,9 +3,19 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/',
-        destination: '/coming-soon',
-        permanent: false,
+        source: '/coming-soon',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/admin-access',
+        destination: '/',
+        permanent: true,
       },
     ]
   },
