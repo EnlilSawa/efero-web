@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
   "name": "efero-web",
+  "workers_dev": true,
   "compatibility_date": "2026-08-10",
   "compatibility_flags": [
     "nodejs_compat",
@@ -16,9 +17,5 @@
       "binding": "WORKER_SELF_REFERENCE",
       "service": "efero-web"
     }
-  ],
-  "routes": [
-    { "pattern": "efero.no", "custom_domain": true },
-    { "pattern": "www.efero.no", "custom_domain": true }
   ]
 }
