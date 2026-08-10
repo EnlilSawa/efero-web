@@ -4,7 +4,12 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Personvernerklæring — Efero',
   description: 'Les om hvordan Efero samler inn, bruker og beskytter dine personopplysninger.',
-  alternates: { canonical: 'https://efero.app/personvern' },
+  alternates: { canonical: 'https://efero.no/personvern' },
+  openGraph: {
+    title: 'Personvernerklæring — Efero',
+    description: 'Les om hvordan Efero samler inn, bruker og beskytter dine personopplysninger.',
+    url: 'https://efero.no/personvern',
+  },
 }
 
 export default function PersonvernPage() {
@@ -26,7 +31,7 @@ export default function PersonvernPage() {
           <div style={{ margin: '16px 0', padding: '20px 24px', backgroundColor: '#F5F7FA', borderRadius: 10, borderLeft: '3px solid #2563FF' }}>
             <p style={{ fontWeight: 600, color: '#0A1B33', marginBottom: 6 }}>Efero</p>
             <p>E-post: <a href="mailto:kontakt@efero.no" style={{ color: '#2563FF' }}>kontakt@efero.no</a></p>
-            <p>Nettside: <a href="https://efero.app" style={{ color: '#2563FF' }}>efero.app</a></p>
+            <p>Nettside: <a href="https://efero.no" style={{ color: '#004c3a' }}>efero.no</a></p>
           </div>
           <p>
             Vi er databehandler for dataene som lagres i tjenesten. Du som bedriftseier er behandlingsansvarlig for dine kunders og ansattes personopplysninger.

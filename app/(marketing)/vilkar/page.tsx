@@ -3,7 +3,12 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Vilkår og betingelser — Efero',
   description: 'Les vilkår og betingelser for bruk av Efero — programvaretjeneste for norske håndverkerbedrifter.',
-  alternates: { canonical: 'https://efero.app/vilkar' },
+  alternates: { canonical: 'https://efero.no/vilkar' },
+  openGraph: {
+    title: 'Vilkår og betingelser — Efero',
+    description: 'Les vilkår og betingelser for bruk av Efero — programvaretjeneste for norske håndverkerbedrifter.',
+    url: 'https://efero.no/vilkar',
+  },
 }
 
 export default function VilkarPage() {
@@ -25,7 +30,7 @@ export default function VilkarPage() {
           <div style={{ margin: '4px 0', padding: '20px 24px', backgroundColor: '#F5F7FA', borderRadius: 10, borderLeft: '3px solid #2563FF' }}>
             <p style={{ fontWeight: 600, color: '#0A1B33', marginBottom: 6 }}>Efero</p>
             <p><a href="mailto:kontakt@efero.no" style={{ color: '#2563FF' }}>kontakt@efero.no</a></p>
-            <p><a href="https://efero.app" style={{ color: '#2563FF' }}>efero.app</a></p>
+            <p><a href="https://efero.no" style={{ color: '#004c3a' }}>efero.no</a></p>
           </div>
         </Section>
 

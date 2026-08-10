@@ -3,7 +3,12 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Databehandleravtale — Efero',
   description: 'Databehandleravtale (DBA) mellom Efero og deg som kunde, i henhold til GDPR artikkel 28.',
-  alternates: { canonical: 'https://efero.app/databehandleravtale' },
+  alternates: { canonical: 'https://efero.no/databehandleravtale' },
+  openGraph: {
+    title: 'Databehandleravtale — Efero',
+    description: 'Databehandleravtale (DBA) mellom Efero og deg som kunde, i henhold til GDPR artikkel 28.',
+    url: 'https://efero.no/databehandleravtale',
+  },
 }
 
 export default function DatabehandleravtalePage() {
@@ -31,7 +36,7 @@ export default function DatabehandleravtalePage() {
               <p style={{ fontWeight: 600, color: '#0A1B33', marginBottom: 4 }}>Databehandler</p>
               <p>Efero</p>
               <p><a href="mailto:kontakt@efero.no" style={{ color: '#2563FF' }}>kontakt@efero.no</a></p>
-              <p><a href="https://efero.app" style={{ color: '#2563FF' }}>efero.app</a></p>
+              <p><a href="https://efero.no" style={{ color: '#004c3a' }}>efero.no</a></p>
             </div>
           </div>
         </Section>

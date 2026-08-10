@@ -8,18 +8,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy:    '#0A1B33',
-        eblue:   '#2563FF',
-        lgray:   '#F5F7FA',
-        slate:   '#64748B',
-        charcoal:'#1F2937',
-        border:  '#E2E8F0',
+        // Claude Design palette (efero.no artifact)
+        navy:     '#00281f',
+        eblue:    '#004c3a',
+        lgray:    '#f5f7f5',
+        slate:    '#3d5c52',
+        charcoal: '#141413',
+        border:   '#d3ded8',
+        mist:     '#d3ded8',
+        forest:   '#004c3a',
+        ink:      '#00281f',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['var(--font-sans)', 'Instrument Sans', 'Helvetica', 'Arial', 'sans-serif'],
+        mono: ['var(--font-mono)', 'IBM Plex Mono', 'ui-monospace', 'monospace'],
+        serif: ['var(--font-serif)', 'Instrument Serif', 'Georgia', 'serif'],
       },
       maxWidth: {
-        site: '1200px',
+        site: '1240px',
       },
       borderRadius: {
         btn: '10px',

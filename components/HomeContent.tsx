@@ -1,236 +1,243 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import { DashboardMockup } from '@/components/AppMockup'
-import { InteractiveDemo } from '@/components/InteractiveDemo'
 import { HomeContactForm } from '@/components/HomeContactForm'
 import { AnimatedSection } from '@/components/AnimatedSection'
-import { MobilePreview } from '@/components/MobilePreview'
+import { ScrollProgress } from '@/components/ScrollProgress'
 import { DEMO_LINK } from '@/lib/links'
 
-export const appSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'Efero',
-  applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Web, iOS, Android',
-  description: 'Jobbstyring og fakturering for norske håndverkere',
-  url: 'https://efero.app',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '3',
-  },
+const trustPoints = [
+  'Mindre jaging av folk på telefon, SMS og regneark.',
+  'Færre tapte timer, materialer og fakturaer.',
+  'Alt dokumentert for kvalitet, HMS og eventuelle tvister.',
+  'Enkelt nok at eldre, ikke-tekniske ansatte kan bruke det.',
+]
+
+const officeFeatures = [
+  'Hold kunder, jobber, ansatte og timeplaner organisert.',
+  'Send tilbud, få godkjenninger, spor endringer og lag faktura.',
+  'Se timer, materialer, innkjøp og lønnsomhet per jobb.',
+  'Planlegg periodisk vedlikehold og hold oversikt over utstyr hos kundene.',
+  'Få oversikt over hva som er gjort, forsinket, mangler eller trenger oppfølging.',
+]
+
+const techFeatures = [
+  'Se dagens jobber tydelig.',
+  'Registrer timer, materialer, utgifter, bilder og notater mens du er på stedet.',
+  'Fullfør sjekklister, risikovurderinger og servicerapporter.',
+  'Meld avvik eller farlige forhold raskt.',
+  'Mindre papirarbeid etter arbeidsdagen.',
+]
+
+const customerFeatures = [
+  'Motta profesjonelle tilbud, dokumenter og jobbinformasjon.',
+  'Godkjenn tilbud eller endringer enkelt.',
+  'Få tydelig dokumentasjon på utført arbeid.',
+]
+
+const businessPoints = [
+  { letter: 'A', text: 'Alt dokumenteres skikkelig for kvalitet, HMS og fremtidige tvister.' },
+  { letter: 'B', text: 'Færre tapte timer, materialer og fakturaer.' },
+  { letter: 'C', text: 'Mindre jaging av folk på telefon, SMS og regneark.' },
+  { letter: 'D', text: 'Enkelt nok at eldre, ikke-tekniske ansatte kan bruke det.' },
+]
+
+const appCapabilities = [
+  { title: 'Timeføring', text: 'Start, stopp og korriger timer på jobben.' },
+  { title: 'Bilder', text: 'Dokumenter arbeidet før, under og etter.' },
+  { title: 'Rapporter', text: 'Sjekklister, servicerapporter og avvik.' },
+]
+
+function Em({ children }: { children: React.ReactNode }) {
+  return (
+    <em className="font-serif italic font-normal text-forest">
+      {children}
+    </em>
+  )
 }
 
-// ── Priser ────────────────────────────────────────────────────────────────────
-
-const pricingPlans = [
-  { name: 'Liten',   teamLabel: '1–3 teknikere',   price: '399 kr',   featured: false },
-  { name: 'Middels', teamLabel: '4–10 teknikere',  price: '899 kr',   featured: true },
-  { name: 'Stor',    teamLabel: '11–20 teknikere', price: '1 499 kr', featured: false },
-]
-
-const pricingFeatures = [
-  'Alle funksjoner inkludert',
-  'Ubegrenset antall jobber og fakturaer',
-  '30 dager gratis prøveperiode',
-]
-
-// ── Page ──────────────────────────────────────────────────────────────────────
+function FeatureList({ items }: { items: string[] }) {
+  return (
+    <div>
+      {items.map((item, i) => (
+        <AnimatedSection key={item} delay={Math.min(i, 4) * 70}>
+          <h3
+            className={`m-0 border-t border-mist py-[26px] text-[19px] md:text-[21px] leading-[1.4] font-normal text-ink ${
+              i === items.length - 1 ? 'border-b' : ''
+            }`}
+          >
+            {item}
+          </h3>
+        </AnimatedSection>
+      ))}
+    </div>
+  )
+}
 
 export function HomeContent() {
   return (
     <>
-      {/* ── HERO — bakgrunnsbilde ─────────────────────────────── */}
-      <section className="bg-navy border-b border-white/10 relative overflow-hidden flex items-center" style={{ minHeight: '90vh' }}>
+      <ScrollProgress />
 
-        {/* Bakgrunnsbilde */}
-        <Image
-          src="/hero-bg.jpeg"
-          alt=""
-          fill
-          priority
-          className="object-cover object-center"
-          aria-hidden="true"
-        />
-        {/* Lett overlay for lesbarhet */}
-        <div className="absolute inset-0 z-0" style={{ background: 'rgba(10,27,51,0.55)' }}/>
-
-        <div className="relative z-10 max-w-[1280px] mx-auto px-6 py-20 w-full grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 lg:gap-16 items-center">
-
-          {/* Tekst */}
-          <div className="mx-auto text-center flex flex-col items-center">
-
-            <div className="inline-flex items-center bg-eblue text-white text-[12px] font-semibold px-4 py-1.5 rounded-full mb-8">
-              Bygget for håndverkere
-            </div>
-
-            <h1 className="text-[56px] font-semibold text-white leading-[1.12] tracking-tight mb-7">
-              Appen som gir deg<br />kontroll over bedriften.
+      {/* ── HERO ───────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,76,58,0.08),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(0,40,31,0.04),transparent_50%)]" />
+        <div className="relative max-w-site mx-auto px-6 md:px-10 pt-20 md:pt-24 pb-16 md:pb-20">
+          <AnimatedSection>
+            <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-[#3d5c52] mb-10">
+              Ordre- og timesystem for håndverksbedrifter
+            </p>
+            <h1 className="m-0 text-[clamp(40px,6vw,88px)] leading-[1.0] tracking-[-0.035em] font-medium text-ink max-w-[20ch] text-pretty mb-0">
+              Efero hjelper håndverksbedrifter med å drive hele arbeidsdagen i{' '}
+              <Em>ett enkelt system.</Em>
             </h1>
-
-            <p className="text-[20px] text-white/70 leading-relaxed max-w-[560px] mb-10">
-              Efero samler jobber, team og fakturering i én enkel app.
-              Fra kundetelefon til betalt faktura — uten papir og Excel.
-            </p>
-
-            <div className="flex flex-wrap gap-3 justify-center">
-              <Link
-                href={DEMO_LINK}
-                className="h-[52px] px-8 rounded-[10px] bg-eblue text-white text-[15px] font-semibold flex items-center hover:bg-blue-500 transition-colors"
-              >
-                Book en demo
-              </Link>
-              <Link
-                href="#kontakt"
-                className="h-[52px] px-8 rounded-[10px] border-2 border-white/30 text-white text-[15px] font-semibold flex items-center hover:border-white transition-colors"
-              >
-                Prøv gratis i 30 dager
-              </Link>
-            </div>
-
-            <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-7 text-[14px] text-white/60">
-              {['30 dager gratis prøveperiode', 'Personlig onboarding inkludert', 'Support 24/7'].map(t => (
-                <li key={t} className="flex items-center gap-1.5">
-                  <svg className="w-3.5 h-3.5 text-eblue flex-shrink-0" viewBox="0 0 14 14" fill="none">
-                    <path d="M2.5 7.5l3 3 6-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  {t}
-                </li>
-              ))}
-            </ul>
-
-          </div>
-
-          {/* Mobil-animasjon */}
-          <div className="flex justify-center">
-            <MobilePreview />
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── INTERAKTIV DEMO ────────────────────────────────────── */}
-      <InteractiveDemo />
-
-      {/* ── OM EFERO — hvit ────────────────────────────────────── */}
-      <section className="bg-white border-b border-border py-24 px-6">
-        <div className="max-w-site mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-
-          {/* Left — text */}
-          <AnimatedSection>
-            <p className="text-[13px] font-semibold text-eblue uppercase tracking-widest mb-4">Om oss</p>
-            <h2 className="text-[36px] font-semibold text-navy tracking-tight mb-6 leading-[1.2]">
-              Vi bygde verktøyet vi alltid ønsket fantes
-            </h2>
-            <div className="flex flex-col gap-4 text-[16px] text-slate leading-[1.8]">
-              <p>
-                Efero er bygget av folk som har sett håndverkere slite med administrasjon for lenge.
-              </p>
-              <p>
-                Rørleggere, elektrikere, snekkere, malere, VVS-montører — alle er eksperter på sitt håndverk.
-                Ingen skal måtte bruke timer på fakturaark og tungvinte systemer.
-              </p>
-              <p>
-                Vi laget Efero for å gi alle norske håndverkere et verktøy som faktisk fungerer i hverdagen — uansett fag.
-              </p>
-            </div>
           </AnimatedSection>
 
-          {/* Right — value grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              {
-                icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeWidth={1.8}/>,
-                title: 'Pålitelig',
-                text: 'Bygget for norske regler og norsk MVA. Fungerer hver dag.',
-              },
-              {
-                icon: <><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeWidth={1.8}/></>,
-                title: 'Effektivt',
-                text: 'Opprett jobb på 20 sekunder. Faktura genereres automatisk.',
-              },
-              {
-                icon: <><circle cx="12" cy="12" r="3" strokeWidth={1.8}/><path d="M2 12h3m14 0h3M12 2v3m0 14v3" strokeWidth={1.8}/></>,
-                title: 'Nordisk',
-                text: 'Laget i Norge, for norske håndverkere. Vi forstår hverdagen din.',
-              },
-              {
-                icon: <><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" strokeWidth={1.8}/><circle cx="12" cy="7" r="4" strokeWidth={1.8}/></>,
-                title: 'Menneskelig',
-                text: 'Snakk med oss direkte. Vi er her når du trenger hjelp.',
-              },
-            ].map((v, i) => (
-              <AnimatedSection key={v.title} delay={i * 80}>
-                <div className="bg-lgray rounded-[12px] p-6">
-                  <svg className="w-9 h-9 text-eblue mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
-                    {v.icon}
-                  </svg>
-                  <p className="text-[15px] font-semibold text-navy mb-2">{v.title}</p>
-                  <p className="text-[13px] text-slate leading-relaxed">{v.text}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── PRISER — hvit ──────────────────────────────────────── */}
-      <section className="bg-white border-b border-border py-24 px-6">
-        <div className="max-w-site mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <h2 className="text-[36px] font-semibold text-navy tracking-tight mb-4">
-                Enkel og ærlig pris
-              </h2>
-              <p className="text-[18px] text-slate">
-                Ingen bindingstid. Ingen oppstartskostnad. Avslutt når du vil.
+          <AnimatedSection delay={80}>
+            <div className="flex flex-wrap items-end justify-between gap-10 mt-14">
+              <p className="m-0 max-w-[48ch] text-[19px] leading-[1.55] text-[#2f4a41]">
+                Tilbud, jobber, timer, materialer, sjekklister og faktura på ett sted — fra
+                kontorpulten til bilen til kundens innboks.
               </p>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-            {pricingPlans.map((plan, i) => (
-              <AnimatedSection key={plan.name} delay={i * 80}>
-                <div
-                  className={`rounded-[16px] p-8 flex flex-col relative h-full ${
-                    plan.featured ? 'border-2 border-eblue md:-translate-y-2' : 'border border-border'
-                  }`}
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href={DEMO_LINK}
+                  className="h-[52px] px-7 rounded-full bg-forest text-[#f5f7f5] text-[16px] font-medium inline-flex items-center hover:bg-ink transition-colors"
                 >
-                  {plan.featured && (
-                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                      <span className="bg-eblue text-white text-[11px] font-semibold px-3 py-1 rounded-full whitespace-nowrap">
-                        Mest valgt
-                      </span>
-                    </div>
-                  )}
+                  Book en demo
+                </Link>
+                <Link
+                  href="/funksjoner"
+                  className="h-[52px] px-7 rounded-full border border-[#b9c9c1] text-forest text-[16px] inline-flex items-center hover:border-forest hover:bg-[#e9efeb] transition-colors"
+                >
+                  Se funksjoner
+                </Link>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
 
-                  <p className="text-[15px] font-semibold text-navy mb-1">{plan.name}</p>
-                  <p className="text-[14px] text-slate mb-6">{plan.teamLabel}</p>
+      {/* ── TRUST STRIP ────────────────────────────────────────── */}
+      <section aria-label="Kort oppsummert" className="border-y border-mist bg-[#eef2ef]">
+        <div className="max-w-site mx-auto px-6 md:px-10 py-[34px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {trustPoints.map((point, i) => (
+            <AnimatedSection key={point} delay={i * 60}>
+              <p className="text-[15px] leading-[1.5] text-[#2f4a41] m-0">{point}</p>
+            </AnimatedSection>
+          ))}
+        </div>
+      </section>
 
-                  <div className="flex items-end gap-1.5">
-                    <span className="text-[40px] font-semibold text-navy leading-none">{plan.price}</span>
-                    <span className="text-[16px] text-slate mb-1">/mnd</span>
+      {/* ── FOR KONTORET ───────────────────────────────────────── */}
+      <section id="kontoret" className="max-w-site mx-auto px-6 md:px-10 pt-[104px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-[72px] items-start">
+          <AnimatedSection className="lg:sticky lg:top-[120px]">
+            <p className="font-mono text-[12px] tracking-[0.16em] text-[#3d5c52] mb-[18px]">01</p>
+            <h2 className="m-0 mb-5 text-[42px] leading-[1.05] tracking-[-0.03em] font-medium text-ink">
+              For kontoret
+            </h2>
+            <p className="text-[17px] leading-[1.55] text-[#2f4a41] max-w-[34ch] m-0">
+              Ett sted for alt kontoret trenger for å holde jobbene i gang og pengene inn.
+            </p>
+          </AnimatedSection>
+          <FeatureList items={officeFeatures} />
+        </div>
+      </section>
+
+      {/* ── FOR MONTØRENE ──────────────────────────────────────── */}
+      <section id="montorene" className="max-w-site mx-auto px-6 md:px-10 pt-[104px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-[72px] items-start">
+          <AnimatedSection className="lg:sticky lg:top-[120px]">
+            <p className="font-mono text-[12px] tracking-[0.16em] text-[#3d5c52] mb-[18px]">02</p>
+            <h2 className="m-0 mb-5 text-[42px] leading-[1.05] tracking-[-0.03em] font-medium text-ink">
+              For montørene
+            </h2>
+            <p className="text-[17px] leading-[1.55] text-[#2f4a41] max-w-[34ch] m-0">
+              Alt i appen på mobilen, fylt ut mens jobben er fersk.
+            </p>
+          </AnimatedSection>
+          <FeatureList items={techFeatures} />
+        </div>
+      </section>
+
+      {/* ── APPEN ──────────────────────────────────────────────── */}
+      <section
+        id="appen"
+        aria-label="Efero-appen for iOS og Android"
+        className="mt-[104px] border-y border-mist bg-[#eef2ef]"
+      >
+        <div className="max-w-site mx-auto px-6 md:px-10 py-20 md:py-24">
+          <div className="max-w-[720px]">
+            <AnimatedSection>
+              <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-[#3d5c52] mb-[18px]">
+                App for iOS og Android
+              </p>
+              <h2 className="m-0 mb-6 text-[clamp(34px,4vw,54px)] leading-[1.05] tracking-[-0.03em] font-medium text-ink max-w-[22ch]">
+                Hele jobben i lomma — <Em>også uten kontor.</Em>
+              </h2>
+              <p className="text-[18px] leading-[1.55] text-[#2f4a41] max-w-[46ch] mb-9">
+                Montørene fører timer, tar bilder og skriver rapporter direkte på mobilen mens de
+                er ute på jobb. Alt havner på riktig jobb i samme system som kontoret bruker.
+              </p>
+            </AnimatedSection>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-mist mb-9">
+              {appCapabilities.map((cap, i) => (
+                <AnimatedSection key={cap.title} delay={i * 80} className="bg-[#eef2ef]">
+                  <div className={`py-5 ${i === 0 ? 'pr-5' : 'px-5'}`}>
+                    <h3 className="m-0 mb-1.5 text-[17px] font-medium text-ink">{cap.title}</h3>
+                    <p className="m-0 text-[15px] leading-[1.5] text-[#2f4a41]">{cap.text}</p>
                   </div>
-                  <p className="text-[13px] text-slate mb-6">Eks. mva</p>
+                </AnimatedSection>
+              ))}
+            </div>
 
-                  <div className="h-px bg-border mb-6"/>
+            <AnimatedSection>
+              <div className="flex flex-wrap gap-3">
+                <span className="inline-flex items-center h-[52px] px-[26px] rounded-full bg-forest text-[#f5f7f5] text-[16px] font-medium opacity-90">
+                  Last ned for iOS
+                </span>
+                <span className="inline-flex items-center h-[52px] px-[26px] rounded-full border border-[#b9c9c1] text-forest text-[16px] opacity-90">
+                  Last ned for Android
+                </span>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
 
-                  <ul className="flex flex-col gap-3 flex-1 mb-8">
-                    {pricingFeatures.map(f => (
-                      <li key={f} className="flex items-start gap-2.5 text-[14px] text-charcoal">
-                        <span className="text-eblue font-semibold">→</span>
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
+      {/* ── FOR KUNDENE ────────────────────────────────────────── */}
+      <section id="kundene" className="max-w-site mx-auto px-6 md:px-10 pt-[104px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-[72px] items-start">
+          <AnimatedSection className="lg:sticky lg:top-[120px]">
+            <p className="font-mono text-[12px] tracking-[0.16em] text-[#3d5c52] mb-[18px]">03</p>
+            <h2 className="m-0 mb-5 text-[42px] leading-[1.05] tracking-[-0.03em] font-medium text-ink">
+              For kundene
+            </h2>
+            <p className="text-[17px] leading-[1.55] text-[#2f4a41] max-w-[34ch] m-0">
+              Den delen av jobben kunden faktisk ser.
+            </p>
+          </AnimatedSection>
+          <FeatureList items={customerFeatures} />
+        </div>
+      </section>
 
-                  <Link
-                    href={DEMO_LINK}
-                    className="h-12 w-full rounded-[8px] bg-eblue text-white text-[14px] font-semibold flex items-center justify-center hover:bg-blue-500 transition-colors"
-                  >
-                    Book en demo
-                  </Link>
+      {/* ── FOR BEDRIFTEN ──────────────────────────────────────── */}
+      <section id="bedriften" className="mt-[104px] bg-forest text-[#e4ece8]">
+        <div className="max-w-site mx-auto px-6 md:px-10 py-[104px]">
+          <AnimatedSection>
+            <p className="font-mono text-[12px] tracking-[0.16em] text-[#c5ddd2] mb-[18px]">04</p>
+            <h2 className="m-0 mb-16 text-[clamp(36px,4.6vw,64px)] leading-[1.02] tracking-[-0.03em] font-medium text-[#f5f7f5] max-w-[22ch]">
+              For bedriften
+            </h2>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1d6350]">
+            {businessPoints.map((point, i) => (
+              <AnimatedSection key={point.letter} delay={i * 70} className="bg-forest">
+                <div className="p-[38px] md:px-10">
+                  <p className="m-0 mb-4 font-mono text-[12px] text-[#c5ddd2]">{point.letter}</p>
+                  <h3 className="m-0 text-[22px] leading-[1.4] font-normal text-[#f5f7f5]">
+                    {point.text}
+                  </h3>
                 </div>
               </AnimatedSection>
             ))}
@@ -238,103 +245,37 @@ export function HomeContent() {
         </div>
       </section>
 
-      {/* ── TALL-STRIP — navy ──────────────────────────────────── */}
-      <section className="bg-navy border-b border-white/10 py-16 px-6">
-        <div className="max-w-site mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 divide-x divide-white/10 border border-white/10 rounded-[14px] overflow-hidden">
-            {[
-              { value: '20 sek',    label: 'Tid for å opprette jobb' },
-              { value: '30 dager',  label: 'Gratis prøveperiode' },
-              { value: '24t',       label: 'Support responstid' },
-            ].map(s => (
-              <div key={s.value} className="text-center py-10 px-6">
-                <div className="text-[40px] font-semibold text-white mb-2">{s.value}</div>
-                <div className="text-[13px] text-white/55">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── BLI EN AV DE 20 FØRSTE — lys grå ───────────────────── */}
-      <section className="bg-lgray border-b border-border py-24 px-6">
-        <div className="max-w-site mx-auto text-center">
-          <AnimatedSection>
-            <h2 className="text-[36px] font-semibold text-navy tracking-tight mb-6">
-              Bli en av de 20 første
+      {/* ── FINAL CTA (Claude copy) ────────────────────────────── */}
+      <section className="max-w-site mx-auto px-6 md:px-10 py-[120px]">
+        <AnimatedSection>
+          <div className="flex flex-wrap items-end justify-between gap-12">
+            <h2 className="m-0 text-[clamp(36px,4.8vw,66px)] leading-[1.0] tracking-[-0.035em] font-medium text-ink max-w-[20ch]">
+              Ett system for hele <Em>arbeidsdagen.</Em>
             </h2>
-            <p className="text-[18px] text-slate leading-relaxed max-w-[600px] mx-auto mb-10">
-              Efero lanseres nå, og vi ser etter 20 håndverksbedrifter som vil være
-              med å forme produktet. De første kundene får egne betingelser, gratis
-              oppsett og direktelinje til gründeren. Book en demo, så forteller vi mer.
-            </p>
-            <Link
-              href={DEMO_LINK}
-              className="inline-flex h-[56px] px-10 rounded-[10px] bg-eblue text-white text-[16px] font-semibold items-center justify-center hover:bg-blue-500 transition-colors"
-            >
-              Book en 15-minutters demo
-            </Link>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* ── KONTAKT — lys grå ──────────────────────────────────── */}
-      <HomeContactForm />
-
-      {/* Tillitsboks */}
-      <div className="bg-lgray border-b border-border py-8 px-6">
-        <div className="max-w-sm mx-auto bg-white rounded-[12px] border border-border px-6 py-5 text-center">
-          <p className="text-[14px] font-semibold text-navy mb-4">Det inkluderer:</p>
-          <ul className="flex flex-col gap-2.5">
-            {[
-              'Gratis prøveperiode i 30 dager',
-              'Personlig onboarding-hjelp',
-              'Support 24/7',
-            ].map(item => (
-              <li key={item} className="flex items-center justify-center gap-2 text-[13px] text-slate">
-                <svg className="w-4 h-4 text-emerald-500 flex-shrink-0" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8.5l3.5 3.5 6.5-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
-      />
-
-      {/* ── CTA — navy ─────────────────────────────────────────── */}
-      <section id="kom-i-gang" className="bg-navy py-24 px-6">
-        <div className="max-w-[560px] mx-auto text-center">
-          <AnimatedSection>
-            <h2 className="text-[44px] font-semibold text-white tracking-tight mb-5">
-              Klar til å prøve Efero?
-            </h2>
-            <p className="text-[18px] text-white/70 leading-relaxed mb-10">
-              30 dager gratis prøveperiode.<br />
-              Personlig onboarding inkludert.
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center">
+            <div className="flex flex-col gap-4">
               <Link
                 href={DEMO_LINK}
-                className="h-[52px] px-8 rounded-[10px] bg-eblue text-white text-[15px] font-semibold flex items-center hover:bg-blue-500 transition-colors"
+                className="h-14 px-[34px] rounded-full bg-forest text-[#f5f7f5] text-[17px] font-medium inline-flex items-center justify-center hover:bg-ink transition-colors"
               >
                 Book en demo
               </Link>
-              <Link
-                href="#"
-                className="h-[52px] px-8 rounded-[10px] border-2 border-white/30 text-white text-[15px] font-semibold flex items-center hover:border-white transition-colors"
-              >
-                Last ned appen
-              </Link>
+              <span className="font-mono text-[12px] tracking-[0.1em] uppercase text-[#3d5c52]">
+                App for iOS og Android. Fungerer på mobil og PC.
+              </span>
+              <p className="m-0 text-[14px] text-[#2f4a41]">
+                <Link href="/bransjer" className="text-forest underline underline-offset-2">Bransjer</Link>
+                {' · '}
+                <Link href="/faq" className="text-forest underline underline-offset-2">FAQ</Link>
+                {' · '}
+                <Link href="/kom-i-gang" className="text-forest underline underline-offset-2">Kom i gang</Link>
+              </p>
             </div>
-          </AnimatedSection>
-        </div>
+          </div>
+        </AnimatedSection>
       </section>
+
+      {/* ── KONTAKT ────────────────────────────────────────────── */}
+      <HomeContactForm />
     </>
   )
 }

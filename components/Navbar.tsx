@@ -5,63 +5,91 @@ import EferoLogo from './EferoLogo'
 import { DEMO_LINK } from '@/lib/links'
 
 const centerLinks = [
-  { href: '/#funksjoner', label: 'Produkt' },
-  { href: '/#funksjoner', label: 'Funksjoner' },
-  { href: '/priser',      label: 'Priser' },
-  { href: '/om-oss',      label: 'Om oss' },
+  { href: '/funksjoner', label: 'Funksjoner' },
+  { href: '/bransjer',   label: 'Bransjer' },
+  { href: '/om-oss',     label: 'Om oss' },
+  { href: '/kontakt',    label: 'Kontakt' },
 ]
 
 export function Navbar() {
-  const [open, setOpen]       = useState(false)
+  const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 6)
-    window.addEventListener('scroll', fn)
+    window.addEventListener('scroll', fn, { passive: true })
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
   return (
-    <header className={`sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-border transition-shadow ${scrolled ? 'shadow-sm' : ''}`}>
-      <div className="max-w-site mx-auto px-8 h-16 flex items-center justify-between gap-8">
+    <header
+      className={`sticky top-0 z-50 w-full border-b transition-[background,box-shadow,border-color] ${
+        scrolled
+          ? 'bg-lgray/88 backdrop-blur-md border-mist shadow-[0_1px_0_rgba(0,40,31,0.06)]'
+          : 'bg-lgray/80 backdrop-blur-md border-transparent'
+      }`}
+    >
+      <div className="max-w-site mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between gap-6">
+        <Link href="/" className="flex items-center shrink-0" aria-label="Efero hjem">
+          <EferoLogo variant="dark" />
+        </Link>
 
-        {/* Logo */}
-        <Link href="/" className="flex items-center"><EferoLogo variant="dark" /></Link>
-
-        {/* Center links */}
-        <nav className="hidden md:flex items-center gap-7 flex-1 justify-center">
+        <nav className="hidden md:flex items-center gap-8 flex-1 justify-center" aria-label="Hovedmeny">
           {centerLinks.map(l => (
-            <Link key={l.label} href={l.href} className="text-[14px] font-medium text-slate hover:text-navy transition-colors">
+            <Link
+              key={l.label}
+              href={l.href}
+              className="text-[15px] font-medium text-slate hover:text-ink transition-colors"
+            >
               {l.label}
             </Link>
           ))}
         </nav>
 
-        {/* Right */}
-        <div className="hidden md:flex items-center gap-4 flex-shrink-0">
-          <Link href={DEMO_LINK} className="h-10 px-5 rounded-[8px] bg-navy text-white text-[14px] font-semibold flex items-center hover:bg-charcoal transition-colors">
+        <div className="hidden md:flex items-center gap-3 shrink-0">
+          <Link
+            href={DEMO_LINK}
+            className="h-11 px-5 rounded-full bg-ink text-[#f5f7f5] text-[14px] font-medium flex items-center hover:bg-forest transition-colors"
+          >
             Book en demo
           </Link>
         </div>
 
-        {/* Hamburger */}
-        <button className="md:hidden p-2 -mr-2 flex-shrink-0" onClick={() => setOpen(v => !v)}>
+        <button
+          type="button"
+          className="md:hidden min-h-11 min-w-11 p-2 -mr-2 shrink-0 inline-flex items-center justify-center"
+          onClick={() => setOpen(v => !v)}
+          aria-label={open ? 'Lukk meny' : 'Åpne meny'}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+        >
           <div className="w-5 flex flex-col gap-[5px]">
-            <span className={`h-[2px] bg-charcoal rounded transition-all ${open ? 'rotate-45 translate-y-[7px]' : ''}`}/>
-            <span className={`h-[2px] bg-charcoal rounded transition-all ${open ? 'opacity-0' : ''}`}/>
-            <span className={`h-[2px] bg-charcoal rounded transition-all ${open ? '-rotate-45 -translate-y-[7px]' : ''}`}/>
+            <span className={`h-[2px] bg-ink rounded transition-all ${open ? 'rotate-45 translate-y-[7px]' : ''}`} />
+            <span className={`h-[2px] bg-ink rounded transition-all ${open ? 'opacity-0' : ''}`} />
+            <span className={`h-[2px] bg-ink rounded transition-all ${open ? '-rotate-45 -translate-y-[7px]' : ''}`} />
           </div>
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-border px-8 py-5 flex flex-col gap-4">
+        <div id="mobile-nav" className="md:hidden bg-lgray/95 backdrop-blur-md border-t border-mist px-6 py-5 flex flex-col gap-4">
           {centerLinks.map(l => (
-            <Link key={l.label} href={l.href} onClick={() => setOpen(false)} className="text-[15px] text-charcoal">{l.label}</Link>
+            <Link
+              key={l.label}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="text-[16px] text-ink font-medium"
+            >
+              {l.label}
+            </Link>
           ))}
-          <div className="border-t border-border pt-4 flex flex-col gap-3">
-            <Link href={DEMO_LINK} onClick={() => setOpen(false)} className="h-12 rounded-[8px] bg-navy text-white text-[14px] font-semibold flex items-center justify-center">Book en demo</Link>
-          </div>
+          <Link
+            href={DEMO_LINK}
+            onClick={() => setOpen(false)}
+            className="mt-2 h-12 rounded-full bg-ink text-[#f5f7f5] text-[14px] font-medium flex items-center justify-center"
+          >
+            Book en demo
+          </Link>
         </div>
       )}
     </header>
