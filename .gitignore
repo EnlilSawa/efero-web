@@ -1,7 +1,10 @@
 node_modules/
 .next/
+.open-next/
 .env*
 *.local
+.dev.vars
+.wrangler/
 
 # macOS + bygg-artefakter
 .DS_Store

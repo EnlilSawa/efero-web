@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, type ReactElement } from 'react'
 import { DashboardMockup, InvoiceMockup, TechnicianMockup, StatisticsMockup } from './AppMockup'
 
 type Tab = {
@@ -9,7 +9,7 @@ type Tab = {
   title: string
   text: string
   features: string[]
-  Mockup: () => JSX.Element
+  Mockup: () => ReactElement
 }
 
 const tabs: Tab[] = [

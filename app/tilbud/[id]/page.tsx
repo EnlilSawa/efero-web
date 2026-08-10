@@ -14,10 +14,12 @@ export default async function TilbudPage({
   params,
   searchParams,
 }: {
-  params: { id: string }
-  searchParams: { t?: string }
+  params: Promise<{ id: string }>
+  searchParams: Promise<{ t?: string }>
 }) {
-  const token = searchParams.t ?? ''
-  const quote = await getPublicQuote(params.id, token)
-  return <QuotePublicView quote={quote} id={params.id} token={token} />
+  const { id } = await params
+  const { t } = await searchParams
+  const token = t ?? ''
+  const quote = await getPublicQuote(id, token)
+  return <QuotePublicView quote={quote} id={id} token={token} />
 }
