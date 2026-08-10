@@ -7,7 +7,7 @@ export const DEFAULT_OG_IMAGE = {
   url: '/opengraph-image',
   width: 1200,
   height: 630,
-  alt: 'Efero — jobbstyring for håndverkere',
+  alt: 'Efero — Ett enkelt system for hele arbeidsdagen',
 }
 
 type MetaInput = {

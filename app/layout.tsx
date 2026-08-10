@@ -45,7 +45,14 @@ export const metadata: Metadata = {
     siteName: 'Efero',
     locale: 'nb_NO',
     type: 'website',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Efero' }],
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Efero — Ett enkelt system for hele arbeidsdagen',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
