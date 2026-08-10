@@ -10,11 +10,14 @@ export default function EferoLogo({ variant = 'dark' }: { variant?: 'dark' | 'wh
 
   return (
     <div role="img" aria-label="Efero logo" style={{ display: 'flex', alignItems: 'center', height }}>
-      {/* E-ikon — alltid Electric Blue, uavhengig av variant */}
+      {/* E-ikon — forest green (#004c3a), matcher Claude-design-paletten */}
       <img
-        src="/images/logo-icon.png"
+        src="/images/logo-icon.png?v=green"
         alt=""
+        width={Math.round(ICON_SRC.w * scale)}
+        height={Math.round(ICON_SRC.h * scale)}
         style={{ width: ICON_SRC.w * scale, height: ICON_SRC.h * scale, flexShrink: 0 }}
+        decoding="async"
       />
 
       <div style={{ width: GAP_SRC * scale, flexShrink: 0 }} />
@@ -23,10 +26,13 @@ export default function EferoLogo({ variant = 'dark' }: { variant?: 'dark' | 'wh
       <img
         src="/images/logo-text.png"
         alt=""
+        width={Math.round(TEXT_SRC.w * scale)}
+        height={Math.round(TEXT_SRC.h * scale)}
         style={{
           width: TEXT_SRC.w * scale, height: TEXT_SRC.h * scale, flexShrink: 0,
           filter: variant === 'white' ? 'brightness(0) invert(1)' : 'none',
         }}
+        decoding="async"
       />
     </div>
   )

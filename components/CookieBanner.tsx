@@ -33,8 +33,8 @@ export function CookieBanner() {
         left: 0,
         right: 0,
         zIndex: 9999,
-        backgroundColor: '#0A1B33',
-        borderTop: '2px solid #2563FF',
+        backgroundColor: '#00281f',
+        borderTop: '2px solid #004c3a',
         opacity: fading ? 0 : 1,
         transition: 'opacity 0.3s ease',
       }}
@@ -53,12 +53,12 @@ export function CookieBanner() {
       >
         {/* Text */}
         <div style={{ flex: 1, minWidth: 240 }}>
-          <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: 14, lineHeight: 1.6, margin: 0 }}>
+          <p style={{ color: 'rgba(255,255,255,0.92)', fontSize: 14, lineHeight: 1.6, margin: 0 }}>
             Vi bruker kun nødvendige informasjonskapsler for innlogging og sesjonshåndtering. Ingen sporings- eller markedsføringscookies.
           </p>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 13, marginTop: 4, margin: '4px 0 0' }}>
+          <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: 13, marginTop: 4, margin: '4px 0 0' }}>
             Les mer i vår{' '}
-            <Link href="/personvern" style={{ color: '#2563FF', textDecoration: 'underline' }}>
+            <Link href="/personvern" style={{ color: '#c5ddd2', textDecoration: 'underline' }}>
               personvernerklæring
             </Link>
           </p>
@@ -71,7 +71,7 @@ export function CookieBanner() {
             style={{
               height: 44,
               padding: '0 24px',
-              backgroundColor: '#2563FF',
+              backgroundColor: '#004c3a',
               color: '#ffffff',
               fontSize: 14,
               fontWeight: 600,
@@ -80,8 +80,8 @@ export function CookieBanner() {
               cursor: 'pointer',
               transition: 'background-color 0.15s',
             }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#1d4ed8')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#2563FF')}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#003d2e')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#004c3a')}
           >
             Godta
           </button>

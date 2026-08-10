@@ -2,9 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Personvernerklæring — Efero',
+  title: 'Personvernerklæring',
   description: 'Les om hvordan Efero samler inn, bruker og beskytter dine personopplysninger.',
-  alternates: { canonical: 'https://efero.app/personvern' },
+  alternates: { canonical: 'https://efero.no/personvern' },
+  openGraph: {
+    title: 'Personvernerklæring | Efero',
+    description: 'Les om hvordan Efero samler inn, bruker og beskytter dine personopplysninger.',
+    url: 'https://efero.no/personvern',
+  },
 }
 
 export default function PersonvernPage() {
@@ -12,10 +17,10 @@ export default function PersonvernPage() {
     <main style={{ backgroundColor: '#ffffff', padding: '96px 24px' }}>
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
 
-        <h1 style={{ color: '#0A1B33', fontSize: 40, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 8 }}>
+        <h1 style={{ color: '#00281f', fontSize: 40, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 8 }}>
           Personvernerklæring
         </h1>
-        <p style={{ color: '#64748B', fontSize: 15, marginBottom: 56 }}>
+        <p style={{ color: '#3d5c52', fontSize: 15, marginBottom: 56 }}>
           Sist oppdatert: Juni 2026
         </p>
 
@@ -23,10 +28,10 @@ export default function PersonvernPage() {
           <p>
             Efero er en norsk programvaretjeneste for håndverkerbedrifter. Tjenesten leveres av:
           </p>
-          <div style={{ margin: '16px 0', padding: '20px 24px', backgroundColor: '#F5F7FA', borderRadius: 10, borderLeft: '3px solid #2563FF' }}>
-            <p style={{ fontWeight: 600, color: '#0A1B33', marginBottom: 6 }}>Efero</p>
-            <p>E-post: <a href="mailto:kontakt@efero.no" style={{ color: '#2563FF' }}>kontakt@efero.no</a></p>
-            <p>Nettside: <a href="https://efero.app" style={{ color: '#2563FF' }}>efero.app</a></p>
+          <div style={{ margin: '16px 0', padding: '20px 24px', backgroundColor: '#f5f7f5', borderRadius: 10, borderLeft: '3px solid #004c3a' }}>
+            <p style={{ fontWeight: 600, color: '#00281f', marginBottom: 6 }}>Efero</p>
+            <p>E-post: <a href="mailto:kontakt@efero.no" style={{ color: '#004c3a', textDecoration: 'underline', textUnderlineOffset: 2 }}>kontakt@efero.no</a></p>
+            <p>Nettside: <a href="https://efero.no" style={{ color: '#004c3a', textDecoration: 'underline', textUnderlineOffset: 2 }}>efero.no</a></p>
           </div>
           <p>
             Vi er databehandler for dataene som lagres i tjenesten. Du som bedriftseier er behandlingsansvarlig for dine kunders og ansattes personopplysninger.
@@ -68,7 +73,7 @@ export default function PersonvernPage() {
             'Forbedre tjenesten over tid',
             'Overholde norsk bokføringslov (fakturaer oppbevares i 5 år)',
           ]} />
-          <p style={{ marginTop: 16, fontWeight: 600, color: '#0A1B33' }}>
+          <p style={{ marginTop: 16, fontWeight: 600, color: '#00281f' }}>
             Vi selger aldri personopplysninger til tredjepart.
           </p>
         </Section>
@@ -81,9 +86,9 @@ export default function PersonvernPage() {
               { name: 'Stripe', desc: 'betalingsbehandling (PCI DSS-sertifisert)' },
               { name: 'Resend', desc: 'e-postutsending (servere i EU)' },
             ].map(p => (
-              <div key={p.name} style={{ padding: '14px 18px', backgroundColor: '#F5F7FA', borderRadius: 10, display: 'flex', gap: 12, alignItems: 'baseline' }}>
-                <span style={{ color: '#0A1B33', fontWeight: 600, minWidth: 90 }}>{p.name}</span>
-                <span style={{ color: '#64748B', fontSize: 14 }}>{p.desc}</span>
+              <div key={p.name} style={{ padding: '14px 18px', backgroundColor: '#f5f7f5', borderRadius: 10, display: 'flex', gap: 12, alignItems: 'baseline' }}>
+                <span style={{ color: '#00281f', fontWeight: 600, minWidth: 90 }}>{p.name}</span>
+                <span style={{ color: '#3d5c52', fontSize: 14 }}>{p.desc}</span>
               </div>
             ))}
           </div>
@@ -111,14 +116,14 @@ export default function PersonvernPage() {
               { right: 'Klage', desc: 'Til Datatilsynet på datatilsynet.no' },
             ].map(r => (
               <div key={r.right} style={{ display: 'flex', gap: 12, alignItems: 'baseline' }}>
-                <span style={{ color: '#0A1B33', fontWeight: 600, minWidth: 140 }}>{r.right}</span>
-                <span style={{ color: '#64748B', fontSize: 15 }}>{r.desc}</span>
+                <span style={{ color: '#00281f', fontWeight: 600, minWidth: 140 }}>{r.right}</span>
+                <span style={{ color: '#3d5c52', fontSize: 15 }}>{r.desc}</span>
               </div>
             ))}
           </div>
           <p style={{ marginTop: 20 }}>
             For å bruke rettighetene dine, kontakt oss på{' '}
-            <a href="mailto:kontakt@efero.no" style={{ color: '#2563FF' }}>kontakt@efero.no</a>.{' '}
+            <a href="mailto:kontakt@efero.no" style={{ color: '#004c3a', textDecoration: 'underline', textUnderlineOffset: 2 }}>kontakt@efero.no</a>.{' '}
             Vi svarer innen 30 dager.
           </p>
         </Section>
@@ -148,7 +153,7 @@ export default function PersonvernPage() {
         <Section heading="10. Kontakt oss" last>
           <p>
             Spørsmål om personvern? Kontakt oss på{' '}
-            <a href="mailto:kontakt@efero.no" style={{ color: '#2563FF' }}>kontakt@efero.no</a>
+            <a href="mailto:kontakt@efero.no" style={{ color: '#004c3a', textDecoration: 'underline', textUnderlineOffset: 2 }}>kontakt@efero.no</a>
           </p>
           <p style={{ marginTop: 8 }}>Vi behandler henvendelser innen 30 dager.</p>
         </Section>
@@ -160,11 +165,11 @@ export default function PersonvernPage() {
 
 function Section({ heading, children, last = false }: { heading: string; children: React.ReactNode; last?: boolean }) {
   return (
-    <section style={{ marginBottom: last ? 0 : 48, paddingBottom: last ? 0 : 48, borderBottom: last ? 'none' : '1px solid #E2E8F0' }}>
-      <h2 style={{ color: '#0A1B33', fontSize: 22, fontWeight: 600, marginBottom: 20, letterSpacing: '-0.01em' }}>
+    <section style={{ marginBottom: last ? 0 : 48, paddingBottom: last ? 0 : 48, borderBottom: last ? 'none' : '1px solid #d3ded8' }}>
+      <h2 style={{ color: '#00281f', fontSize: 22, fontWeight: 600, marginBottom: 20, letterSpacing: '-0.01em' }}>
         {heading}
       </h2>
-      <div style={{ color: '#64748B', fontSize: 16, lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div style={{ color: '#3d5c52', fontSize: 16, lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: 12 }}>
         {children}
       </div>
     </section>
@@ -173,7 +178,7 @@ function Section({ heading, children, last = false }: { heading: string; childre
 
 function SubHeading({ children }: { children: React.ReactNode }) {
   return (
-    <p style={{ color: '#0A1B33', fontWeight: 600, fontSize: 15, marginTop: 8, marginBottom: 4 }}>
+    <p style={{ color: '#00281f', fontWeight: 600, fontSize: 15, marginTop: 8, marginBottom: 4 }}>
       {children}
     </p>
   )
@@ -184,7 +189,7 @@ function List({ items }: { items: string[] }) {
     <ul style={{ paddingLeft: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
       {items.map(item => (
         <li key={item} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-          <span style={{ color: '#2563FF', marginTop: 4, flexShrink: 0 }}>
+          <span style={{ color: '#004c3a', marginTop: 4, flexShrink: 0 }}>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M2.5 7.5l3 3 6-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

@@ -1,9 +1,14 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Vilkår og betingelser — Efero',
+  title: 'Vilkår og betingelser',
   description: 'Les vilkår og betingelser for bruk av Efero — programvaretjeneste for norske håndverkerbedrifter.',
-  alternates: { canonical: 'https://efero.app/vilkar' },
+  alternates: { canonical: 'https://efero.no/vilkar' },
+  openGraph: {
+    title: 'Vilkår og betingelser | Efero',
+    description: 'Les vilkår og betingelser for bruk av Efero — programvaretjeneste for norske håndverkerbedrifter.',
+    url: 'https://efero.no/vilkar',
+  },
 }
 
 export default function VilkarPage() {
@@ -11,10 +16,10 @@ export default function VilkarPage() {
     <main style={{ backgroundColor: '#ffffff', padding: '96px 24px' }}>
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
 
-        <h1 style={{ color: '#0A1B33', fontSize: 40, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 8 }}>
+        <h1 style={{ color: '#00281f', fontSize: 40, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 8 }}>
           Vilkår og betingelser
         </h1>
-        <p style={{ color: '#64748B', fontSize: 15, marginBottom: 56 }}>
+        <p style={{ color: '#3d5c52', fontSize: 15, marginBottom: 56 }}>
           Sist oppdatert: Juni 2026
         </p>
 
@@ -22,10 +27,10 @@ export default function VilkarPage() {
           <p>
             Efero er en programvaretjeneste (SaaS) for håndverkerbedrifter i Norge. Tjenesten gir tilgang til jobbstyring, fakturering, tilbudsmodul og teamadministrasjon.
           </p>
-          <div style={{ margin: '4px 0', padding: '20px 24px', backgroundColor: '#F5F7FA', borderRadius: 10, borderLeft: '3px solid #2563FF' }}>
-            <p style={{ fontWeight: 600, color: '#0A1B33', marginBottom: 6 }}>Efero</p>
-            <p><a href="mailto:kontakt@efero.no" style={{ color: '#2563FF' }}>kontakt@efero.no</a></p>
-            <p><a href="https://efero.app" style={{ color: '#2563FF' }}>efero.app</a></p>
+          <div style={{ margin: '4px 0', padding: '20px 24px', backgroundColor: '#f5f7f5', borderRadius: 10, borderLeft: '3px solid #004c3a' }}>
+            <p style={{ fontWeight: 600, color: '#00281f', marginBottom: 6 }}>Efero</p>
+            <p><a href="mailto:kontakt@efero.no" style={{ color: '#004c3a', textDecoration: 'underline', textUnderlineOffset: 2 }}>kontakt@efero.no</a></p>
+            <p><a href="https://efero.no" style={{ color: '#004c3a', textDecoration: 'underline', textUnderlineOffset: 2 }}>efero.no</a></p>
           </div>
         </Section>
 
@@ -40,12 +45,12 @@ export default function VilkarPage() {
 
         <Section heading="3. Avtaleperiode og binding">
           <p>
-            Abonnementet løper for <strong style={{ color: '#0A1B33' }}>12 måneder</strong> av gangen fra avtaleinngåelse.
+            Abonnementet løper for <strong style={{ color: '#00281f' }}>12 måneder</strong> av gangen fra avtaleinngåelse.
           </p>
           <p>
             Oppsigelse må skje skriftlig til{' '}
-            <a href="mailto:kontakt@efero.no" style={{ color: '#2563FF' }}>kontakt@efero.no</a>{' '}
-            med <strong style={{ color: '#0A1B33' }}>3 måneders varsel</strong> før avtaleperiodens utløp.
+            <a href="mailto:kontakt@efero.no" style={{ color: '#004c3a', textDecoration: 'underline', textUnderlineOffset: 2 }}>kontakt@efero.no</a>{' '}
+            med <strong style={{ color: '#00281f' }}>3 måneders varsel</strong> før avtaleperiodens utløp.
           </p>
           <p>
             Ved manglende oppsigelse fornyes avtalen automatisk for en ny 12-månedersperiode.
@@ -65,7 +70,7 @@ export default function VilkarPage() {
           </p>
           <p>
             Vi forbeholder oss retten til å justere priser med{' '}
-            <strong style={{ color: '#0A1B33' }}>30 dagers skriftlig varsel.</strong>
+            <strong style={{ color: '#00281f' }}>30 dagers skriftlig varsel.</strong>
           </p>
         </Section>
 
@@ -164,7 +169,7 @@ export default function VilkarPage() {
         <Section heading="15. Kontakt" last>
           <p>
             Spørsmål om vilkårene?{' '}
-            <a href="mailto:kontakt@efero.no" style={{ color: '#2563FF' }}>kontakt@efero.no</a>
+            <a href="mailto:kontakt@efero.no" style={{ color: '#004c3a', textDecoration: 'underline', textUnderlineOffset: 2 }}>kontakt@efero.no</a>
           </p>
           <p>Vi behandler henvendelser innen 5 virkedager.</p>
         </Section>
@@ -176,11 +181,11 @@ export default function VilkarPage() {
 
 function Section({ heading, children, last = false }: { heading: string; children: React.ReactNode; last?: boolean }) {
   return (
-    <section style={{ marginBottom: last ? 0 : 48, paddingBottom: last ? 0 : 48, borderBottom: last ? 'none' : '1px solid #E2E8F0' }}>
-      <h2 style={{ color: '#0A1B33', fontSize: 22, fontWeight: 600, marginBottom: 20, letterSpacing: '-0.01em' }}>
+    <section style={{ marginBottom: last ? 0 : 48, paddingBottom: last ? 0 : 48, borderBottom: last ? 'none' : '1px solid #d3ded8' }}>
+      <h2 style={{ color: '#00281f', fontSize: 22, fontWeight: 600, marginBottom: 20, letterSpacing: '-0.01em' }}>
         {heading}
       </h2>
-      <div style={{ color: '#64748B', fontSize: 16, lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div style={{ color: '#3d5c52', fontSize: 16, lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: 12 }}>
         {children}
       </div>
     </section>
@@ -192,7 +197,7 @@ function List({ items }: { items: string[] }) {
     <ul style={{ paddingLeft: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
       {items.map(item => (
         <li key={item} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-          <span style={{ color: '#2563FF', marginTop: 4, flexShrink: 0 }}>
+          <span style={{ color: '#004c3a', marginTop: 4, flexShrink: 0 }}>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M2.5 7.5l3 3 6-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
