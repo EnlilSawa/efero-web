@@ -1,14 +1,18 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-export function AnimatedSection({ children, className = '', delay = 0 }: {
+export function AnimatedSection({ children, className = '', delay = 0, eager = false }: {
   children: React.ReactNode
   className?: string
   delay?: number
+  /** Innhold over folden: rendres synlig fra server, så LCP ikke venter på hydrering. */
+  eager?: boolean
 }) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (eager) return
+
     const el = ref.current
     if (!el) return
 
@@ -32,7 +36,11 @@ export function AnimatedSection({ children, className = '', delay = 0 }: {
     )
     observer.observe(el)
     return () => observer.disconnect()
-  }, [])
+  }, [eager])
+
+  if (eager) {
+    return <div className={className}>{children}</div>
+  }
 
   return (
     <div

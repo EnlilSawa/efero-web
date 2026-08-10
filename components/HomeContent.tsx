@@ -81,7 +81,7 @@ export function HomeContent() {
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,76,58,0.08),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(0,40,31,0.04),transparent_50%)]" />
         <div className="relative max-w-site mx-auto px-6 md:px-10 pt-20 md:pt-24 pb-16 md:pb-20">
-          <AnimatedSection>
+          <AnimatedSection eager>
             <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-[#3d5c52] mb-10">
               Ordre- og timesystem for håndverksbedrifter
             </p>
@@ -91,7 +91,7 @@ export function HomeContent() {
             </h1>
           </AnimatedSection>
 
-          <AnimatedSection delay={80}>
+          <AnimatedSection eager>
             <div className="flex flex-wrap items-end justify-between gap-10 mt-14">
               <p className="m-0 max-w-[48ch] text-[19px] leading-[1.55] text-[#2f4a41]">
                 Tilbud, jobber, timer, materialer, sjekklister og faktura på ett sted — fra

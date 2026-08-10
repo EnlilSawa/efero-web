@@ -28,7 +28,7 @@ export default function KontaktPage() {
       />
 
       <section className="max-w-site mx-auto px-6 md:px-10 pt-20 md:pt-24 pb-10">
-        <AnimatedSection>
+        <AnimatedSection eager>
           <nav aria-label="Brødsmuler" className="font-mono text-[12px] tracking-[0.08em] text-[#3d5c52] mb-8">
             <Link href="/" className="hover:text-ink">Hjem</Link>
             <span className="mx-2" aria-hidden> / </span>
