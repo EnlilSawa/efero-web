@@ -1,4 +1,21 @@
+/** Produksjonsdomenet. Canonical og structured data peker alltid hit. */
 export const SITE_URL = 'https://efero.no'
+
+/**
+ * Opphavet dette bygget faktisk kjører på. På previews og lokale tunneler må
+ * absolutte URL-er (som og:image) peke hit, ellers henter Facebook, LinkedIn og
+ * Telegram delingsbildet fra produksjon i stedet for fra versjonen du tester.
+ */
+function resolveDeploymentUrl() {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim()
+  if (explicit) return explicit.replace(/\/+$/, '')
+  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production' && process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`
+  }
+  return SITE_URL
+}
+
+export const DEPLOYMENT_URL = resolveDeploymentUrl()
 export const SITE_NAME = 'Efero'
 export const SITE_EMAIL = 'kontakt@efero.no'
 export const SITE_LOCALE = 'nb_NO'

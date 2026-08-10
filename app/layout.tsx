@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Instrument_Sans, Instrument_Serif, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
-import { organizationSchema, SITE_URL } from '@/lib/seo'
+import { organizationSchema, DEPLOYMENT_URL, SITE_URL } from '@/lib/seo'
 
 const sans = Instrument_Sans({
   subsets: ['latin'],
@@ -28,7 +28,7 @@ const mono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(DEPLOYMENT_URL),
   title: {
     default: 'Efero — Ett enkelt system for hele arbeidsdagen',
     template: '%s | Efero',
