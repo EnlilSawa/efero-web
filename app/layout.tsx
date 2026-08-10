@@ -9,18 +9,21 @@ const sans = Instrument_Sans({
   variable: '--font-sans',
 })
 
+// Serif brukes kun i kursiv (<Em>), så vi laster bare den varianten.
 const serif = Instrument_Serif({
   subsets: ['latin'],
   weight: '400',
-  style: ['normal', 'italic'],
+  style: 'italic',
   display: 'swap',
   variable: '--font-serif',
 })
 
+// Mono brukes bare til små etiketter — ikke preload, det stjeler båndbredde fra LCP-teksten.
 const mono = IBM_Plex_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
   display: 'swap',
+  preload: false,
   variable: '--font-mono',
 })
 

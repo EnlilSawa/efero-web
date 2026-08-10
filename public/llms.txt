@@ -23,6 +23,7 @@ Trial: 30 days free. Built for Norwegian VAT/MVA and local practice.
 - [Funksjoner](https://efero.no/funksjoner): Feature details for office, field and customers
 - [Bransjer](https://efero.no/bransjer): Industry fit for Norwegian trades
 - [Om oss](https://efero.no/om-oss): Company story and values
+- [Kom i gang](https://efero.no/kom-i-gang): Onboarding steps, demo and 30-day trial
 - [FAQ](https://efero.no/faq): Common questions (pricing trial, apps, setup)
 - [Kontakt](https://efero.no/kontakt): Contact and demo requests
 - [Priser](https://efero.no/priser): Pricing overview
