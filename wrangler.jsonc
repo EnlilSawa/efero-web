@@ -16,5 +16,9 @@
       "binding": "WORKER_SELF_REFERENCE",
       "service": "efero-web"
     }
+  ],
+  "routes": [
+    { "pattern": "efero.no", "custom_domain": true },
+    { "pattern": "www.efero.no", "custom_domain": true }
   ]
 }
