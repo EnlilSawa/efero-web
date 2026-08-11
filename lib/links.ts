@@ -1,2 +1,2 @@
-// TODO: erstatt med Cal.com-lenke når den er klar (DEMO-LENKE)
-export const DEMO_LINK = '#book-demo'
+// Én fast destinasjon gjør at CTA-en virker fra alle markedsføringssider.
+export const DEMO_LINK = '/book-demo'
