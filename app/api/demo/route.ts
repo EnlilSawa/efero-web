@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
         Authorization: `Bearer ${resendKey}`,
       },
       body: JSON.stringify({
-        from: process.env.DEMO_FROM_EMAIL || 'Efero <noreply@efero.app>',
+        from: process.env.DEMO_FROM_EMAIL || 'Efero <noreply@efero.no>',
         to: [process.env.DEMO_NOTIFICATION_EMAIL || 'kontakt@efero.no'],
         reply_to: validation.data.email,
         subject: email.subject,

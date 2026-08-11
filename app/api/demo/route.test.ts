@@ -63,6 +63,7 @@ describe('POST /api/demo', () => {
     expect(options.headers).toMatchObject({ Authorization: 'Bearer re_test_key' })
     const email = JSON.parse(String(options.body)) as Record<string, unknown>
     expect(email).toMatchObject({
+      from: 'Efero <noreply@efero.no>',
       to: ['demo@efero.no'],
       reply_to: 'kari@example.no',
       subject: 'Ny demoforespørsel: Nordmann Elektro AS',

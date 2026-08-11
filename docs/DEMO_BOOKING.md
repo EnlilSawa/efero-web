@@ -7,7 +7,7 @@ forespørsel til `/api/demo`, som varsler Efero via Resend.
 
 - `RESEND_API_KEY` er påkrevd for å sende e-post.
 - `DEMO_NOTIFICATION_EMAIL` er valgfri og bruker `kontakt@efero.no` som standard.
-- `DEMO_FROM_EMAIL` er valgfri og bruker `Efero <noreply@efero.app>` som standard.
+- `DEMO_FROM_EMAIL` er valgfri og bruker `Efero <noreply@efero.no>` som standard.
 - `RESEND_API_ENDPOINT` er valgfri og brukes bare når innsendingen skal testes mot
   en lokal e-postmock. Produksjon bruker Resends offisielle endepunkt som standard.
 
