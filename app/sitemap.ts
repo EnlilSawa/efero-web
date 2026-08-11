@@ -24,7 +24,8 @@ const ENTRIES: Entry[] = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
   return ENTRIES.map(({ path, changeFrequency, priority }) => ({
-    url: path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`,
+    // Uten skråstrek til slutt, likt canonical-taggen på forsiden.
+    url: path === '/' ? SITE_URL : `${SITE_URL}${path}`,
     lastModified,
     changeFrequency,
     priority,
