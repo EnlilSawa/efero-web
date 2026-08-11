@@ -1,10 +1,12 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import EferoLogo from './EferoLogo'
 import { DEMO_LINK } from '@/lib/links'
 
 const centerLinks = [
+  { href: '/',            label: 'Hjem' },
   { href: '/funksjoner', label: 'Funksjoner' },
   { href: '/bransjer',   label: 'Bransjer' },
   { href: '/om-oss',     label: 'Om oss' },
@@ -12,6 +14,7 @@ const centerLinks = [
 ]
 
 export function Navbar() {
+  const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -39,7 +42,10 @@ export function Navbar() {
             <Link
               key={l.label}
               href={l.href}
-              className="text-[15px] font-medium text-slate hover:text-ink transition-colors"
+              aria-current={pathname === l.href ? 'page' : undefined}
+              className={`text-[15px] font-medium transition-colors hover:text-ink ${
+                pathname === l.href ? 'text-ink underline decoration-forest/45 underline-offset-8' : 'text-slate'
+              }`}
             >
               {l.label}
             </Link>
@@ -78,7 +84,8 @@ export function Navbar() {
               key={l.label}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-[16px] text-ink font-medium"
+              aria-current={pathname === l.href ? 'page' : undefined}
+              className={`text-[16px] font-medium ${pathname === l.href ? 'text-forest underline underline-offset-4' : 'text-ink'}`}
             >
               {l.label}
             </Link>

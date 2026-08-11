@@ -65,10 +65,23 @@ export function pageMeta({ title, description, path = '', keywords, noIndex }: M
     title,
     description,
     keywords,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: { 'nb-NO': url, 'x-default': url },
+    },
     robots: noIndex
       ? { index: false, follow: false }
-      : { index: true, follow: true, googleBot: { index: true, follow: true } },
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            'max-image-preview': 'large' as const,
+            'max-snippet': -1,
+            'max-video-preview': -1,
+          },
+        },
     openGraph: {
       title: ogTitle,
       description,
@@ -90,6 +103,7 @@ export function pageMeta({ title, description, path = '', keywords, noIndex }: M
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
   name: SITE_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/images/logo-icon.png`,
@@ -101,12 +115,23 @@ export const organizationSchema = {
     contactType: 'customer service',
     availableLanguage: ['Norwegian', 'nb'],
   },
-  sameAs: [SITE_URL],
+}
+
+export const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: SITE_NAME,
+  description: 'Efero er et modulbasert ordre- og timesystem for norske håndverksbedrifter.',
+  inLanguage: 'nb-NO',
+  publisher: { '@id': `${SITE_URL}/#organization` },
 }
 
 export const softwareApplicationSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
+  '@id': `${SITE_URL}/#software`,
   name: SITE_NAME,
   url: SITE_URL,
   applicationCategory: 'BusinessApplication',
@@ -129,9 +154,12 @@ export const softwareApplicationSchema = {
     'Timeføring, bilder og rapporter fra mobil',
   ],
   publisher: {
-    '@type': 'Organization',
-    name: SITE_NAME,
-    url: SITE_URL,
+    '@id': `${SITE_URL}/#organization`,
+  },
+  isPartOf: { '@id': `${SITE_URL}/#website` },
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Norske håndverksbedrifter',
   },
 }
 

@@ -10,7 +10,7 @@ export const metadata: Metadata = pageMeta({
 
 export default function PersonvernPage() {
   return (
-    <main style={{ backgroundColor: '#ffffff', padding: '96px 24px' }}>
+    <article style={{ backgroundColor: '#ffffff', padding: '96px 24px' }}>
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
 
         <h1 style={{ color: '#00281f', fontSize: 40, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 8 }}>
@@ -155,7 +155,7 @@ export default function PersonvernPage() {
         </Section>
 
       </div>
-    </main>
+    </article>
   )
 }
 

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { HomeContactForm } from '@/components/HomeContactForm'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { ScrollProgress } from '@/components/ScrollProgress'
@@ -81,17 +82,16 @@ export function HomeContent() {
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,76,58,0.08),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(0,40,31,0.04),transparent_50%)]" />
         <div className="relative max-w-site mx-auto px-6 md:px-10 pt-20 md:pt-24 pb-16 md:pb-20">
-          <AnimatedSection eager>
+          <div>
             <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-[#3d5c52] mb-10">
               Ordre- og timesystem for håndverksbedrifter
             </p>
-            <h1 className="m-0 text-[clamp(40px,6vw,88px)] leading-[1.0] tracking-[-0.035em] font-medium text-ink max-w-[20ch] text-pretty mb-0">
-              Efero hjelper håndverksbedrifter med å drive hele arbeidsdagen i{' '}
-              <Em>ett enkelt system.</Em>
+            <h1 className="hero-lcp m-0 text-[clamp(40px,6vw,88px)] leading-[1.0] tracking-[-0.035em] font-medium text-ink max-w-[20ch] mb-0">
+              Ett enkelt system for <Em>hele håndverksbedriften.</Em>
             </h1>
-          </AnimatedSection>
+          </div>
 
-          <AnimatedSection eager>
+          <div>
             <div className="flex flex-wrap items-end justify-between gap-10 mt-14">
               <p className="m-0 max-w-[48ch] text-[19px] leading-[1.55] text-[#2f4a41]">
                 Tilbud, jobber, timer, materialer, sjekklister og faktura på ett sted — fra
@@ -112,7 +112,7 @@ export function HomeContent() {
                 </Link>
               </div>
             </div>
-          </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -127,6 +127,25 @@ export function HomeContent() {
         </div>
       </section>
 
+      {/* ── ARBEIDSDAGEN ──────────────────────────────────────── */}
+      <section className="max-w-site mx-auto px-6 md:px-10 pt-16 md:pt-20">
+        <figure className="m-0">
+          <div className="relative overflow-hidden rounded-[22px] bg-[#dfe7e2] aspect-[3/2] md:aspect-[18/8]">
+            <Image
+              src="/images/editorial/team-ved-servicebil.jpg"
+              alt="To håndverkere som planlegger arbeidsdagen sammen ved servicebilen"
+              fill
+              sizes="(max-width: 768px) 100vw, 1200px"
+              className="object-cover object-center md:object-[center_42%]"
+            />
+          </div>
+          <figcaption className="mt-4 flex flex-wrap justify-between gap-2 text-[13px] leading-[1.5] text-[#52675f]">
+            <span>Fra planlegging på kontoret til ferdig jobb hos kunden.</span>
+            <span className="font-mono uppercase tracking-[0.1em]">Én arbeidsflyt</span>
+          </figcaption>
+        </figure>
+      </section>
+
       {/* ── FOR KONTORET ───────────────────────────────────────── */}
       <section id="kontoret" className="max-w-site mx-auto px-6 md:px-10 pt-[104px]">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-[72px] items-start">
@@ -138,6 +157,17 @@ export function HomeContent() {
             <p className="text-[17px] leading-[1.55] text-[#2f4a41] max-w-[34ch] m-0">
               Ett sted for alt kontoret trenger for å holde jobbene i gang og pengene inn.
             </p>
+            <figure className="m-0 mt-9 max-w-[480px]">
+              <div className="relative overflow-hidden rounded-[18px] bg-[#dfe7e2] aspect-[3/2]">
+                <Image
+                  src="/images/editorial/planlegging-pa-kontoret.jpg"
+                  alt="To kolleger som planlegger oppdrag med laptop og arbeidstegninger"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 440px"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
           </AnimatedSection>
           <FeatureList items={officeFeatures} />
         </div>
@@ -166,40 +196,59 @@ export function HomeContent() {
         className="mt-[104px] border-y border-mist bg-[#eef2ef]"
       >
         <div className="max-w-site mx-auto px-6 md:px-10 py-20 md:py-24">
-          <div className="max-w-[720px]">
-            <AnimatedSection>
-              <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-[#3d5c52] mb-[18px]">
-                App for iOS og Android
-              </p>
-              <h2 className="m-0 mb-6 text-[clamp(34px,4vw,54px)] leading-[1.05] tracking-[-0.03em] font-medium text-ink max-w-[22ch]">
-                Hele jobben i lomma — <Em>også uten kontor.</Em>
-              </h2>
-              <p className="text-[18px] leading-[1.55] text-[#2f4a41] max-w-[46ch] mb-9">
-                Montørene fører timer, tar bilder og skriver rapporter direkte på mobilen mens de
-                er ute på jobb. Alt havner på riktig jobb i samme system som kontoret bruker.
-              </p>
-            </AnimatedSection>
+          <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.72fr] gap-14 lg:gap-20 items-center">
+            <div className="max-w-[720px]">
+              <AnimatedSection>
+                <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-[#3d5c52] mb-[18px]">
+                  App for iOS og Android
+                </p>
+                <h2 className="m-0 mb-6 text-[clamp(34px,4vw,54px)] leading-[1.05] tracking-[-0.03em] font-medium text-ink max-w-[22ch]">
+                  Hele jobben i lomma — <Em>også uten kontor.</Em>
+                </h2>
+                <p className="text-[18px] leading-[1.55] text-[#2f4a41] max-w-[46ch] mb-9">
+                  Montørene fører timer, tar bilder og skriver rapporter direkte på mobilen mens de
+                  er ute på jobb. Alt havner på riktig jobb i samme system som kontoret bruker.
+                </p>
+              </AnimatedSection>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-mist mb-9">
-              {appCapabilities.map((cap, i) => (
-                <AnimatedSection key={cap.title} delay={i * 80} className="bg-[#eef2ef]">
-                  <div className={`py-5 ${i === 0 ? 'pr-5' : 'px-5'}`}>
-                    <h3 className="m-0 mb-1.5 text-[17px] font-medium text-ink">{cap.title}</h3>
-                    <p className="m-0 text-[15px] leading-[1.5] text-[#2f4a41]">{cap.text}</p>
-                  </div>
-                </AnimatedSection>
-              ))}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-mist mb-9">
+                {appCapabilities.map((cap, i) => (
+                  <AnimatedSection key={cap.title} delay={i * 80} className="bg-[#eef2ef]">
+                    <div className={`py-5 ${i === 0 ? 'pr-5' : 'px-5'}`}>
+                      <h3 className="m-0 mb-1.5 text-[17px] font-medium text-ink">{cap.title}</h3>
+                      <p className="m-0 text-[15px] leading-[1.5] text-[#2f4a41]">{cap.text}</p>
+                    </div>
+                  </AnimatedSection>
+                ))}
+              </div>
+
+              <AnimatedSection>
+                <div className="flex flex-wrap gap-3">
+                  <span className="inline-flex items-center h-[52px] px-[26px] rounded-full bg-forest text-[#f5f7f5] text-[16px] font-medium opacity-90">
+                    Last ned for iOS
+                  </span>
+                  <span className="inline-flex items-center h-[52px] px-[26px] rounded-full border border-[#b9c9c1] text-forest text-[16px] opacity-90">
+                    Last ned for Android
+                  </span>
+                </div>
+              </AnimatedSection>
             </div>
 
             <AnimatedSection>
-              <div className="flex flex-wrap gap-3">
-                <span className="inline-flex items-center h-[52px] px-[26px] rounded-full bg-forest text-[#f5f7f5] text-[16px] font-medium opacity-90">
-                  Last ned for iOS
-                </span>
-                <span className="inline-flex items-center h-[52px] px-[26px] rounded-full border border-[#b9c9c1] text-forest text-[16px] opacity-90">
-                  Last ned for Android
-                </span>
-              </div>
+              <figure className="m-0 max-w-[460px] lg:ml-auto">
+                <div className="relative overflow-hidden rounded-[22px] bg-[#dfe7e2] aspect-[4/5]">
+                  <Image
+                    src="/images/editorial/mobil-pa-byggeplass.jpg"
+                    alt="Håndverker som registrerer arbeid på mobilen ute på byggeplass"
+                    fill
+                    sizes="(max-width: 1024px) 80vw, 420px"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-4 text-[13px] leading-[1.5] text-[#52675f]">
+                  Timer, bilder og rapporter registreres mens jobben er fersk.
+                </figcaption>
+              </figure>
             </AnimatedSection>
           </div>
         </div>

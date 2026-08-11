@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import { Instrument_Sans, Instrument_Serif, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
-import { organizationSchema, DEPLOYMENT_URL, SITE_URL } from '@/lib/seo'
+import { organizationSchema, websiteSchema, DEPLOYMENT_URL, SITE_URL } from '@/lib/seo'
 
 const sans = Instrument_Sans({
   subsets: ['latin'],
-  display: 'swap',
+  display: 'optional',
   variable: '--font-sans',
 })
 
@@ -14,7 +14,7 @@ const serif = Instrument_Serif({
   subsets: ['latin'],
   weight: '400',
   style: 'italic',
-  display: 'swap',
+  display: 'optional',
   variable: '--font-serif',
 })
 
@@ -22,7 +22,7 @@ const serif = Instrument_Serif({
 const mono = IBM_Plex_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
-  display: 'swap',
+  display: 'optional',
   preload: false,
   variable: '--font-mono',
 })
@@ -78,6 +78,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         {children}
       </body>
