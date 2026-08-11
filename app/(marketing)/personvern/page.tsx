@@ -1,20 +1,27 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { breadcrumbSchema, pageMeta } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Personvernerklæring',
-  description: 'Les om hvordan Efero samler inn, bruker og beskytter dine personopplysninger.',
-  alternates: { canonical: 'https://efero.no/personvern' },
-  openGraph: {
-    title: 'Personvernerklæring | Efero',
-    description: 'Les om hvordan Efero samler inn, bruker og beskytter dine personopplysninger.',
-    url: 'https://efero.no/personvern',
-  },
-}
+  description:
+    'Slik samler Efero inn, bruker og beskytter personopplysninger — hvilke data vi lagrer, hvor de lagres og hvilke rettigheter du har etter GDPR.',
+  path: '/personvern',
+  keywords: ['personvern', 'GDPR', 'personopplysninger', 'databehandling'],
+})
+
+const breadcrumbs = breadcrumbSchema([
+  { name: 'Hjem', path: '/' },
+  { name: 'Personvernerklæring', path: '/personvern' },
+])
 
 export default function PersonvernPage() {
   return (
-    <main style={{ backgroundColor: '#ffffff', padding: '96px 24px' }}>
+    <div style={{ backgroundColor: '#ffffff', padding: '96px 24px' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
 
         <h1 style={{ color: '#00281f', fontSize: 40, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 8 }}>
@@ -159,7 +166,7 @@ export default function PersonvernPage() {
         </Section>
 
       </div>
-    </main>
+    </div>
   )
 }
 

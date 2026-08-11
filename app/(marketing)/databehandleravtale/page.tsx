@@ -1,19 +1,26 @@
 import type { Metadata } from 'next'
+import { breadcrumbSchema, pageMeta } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Databehandleravtale',
-  description: 'Databehandleravtale (DBA) mellom Efero og deg som kunde, i henhold til GDPR artikkel 28.',
-  alternates: { canonical: 'https://efero.no/databehandleravtale' },
-  openGraph: {
-    title: 'Databehandleravtale | Efero',
-    description: 'Databehandleravtale (DBA) mellom Efero og deg som kunde, i henhold til GDPR artikkel 28.',
-    url: 'https://efero.no/databehandleravtale',
-  },
-}
+  description:
+    'Databehandleravtale (DBA) mellom Efero og deg som kunde etter GDPR artikkel 28 — behandlingens formål, underleverandører, sikkerhet og sletting.',
+  path: '/databehandleravtale',
+  keywords: ['databehandleravtale', 'DBA', 'GDPR artikkel 28', 'underleverandører'],
+})
+
+const breadcrumbs = breadcrumbSchema([
+  { name: 'Hjem', path: '/' },
+  { name: 'Databehandleravtale', path: '/databehandleravtale' },
+])
 
 export default function DatabehandleravtalePage() {
   return (
-    <main style={{ backgroundColor: '#ffffff', padding: '96px 24px' }}>
+    <div style={{ backgroundColor: '#ffffff', padding: '96px 24px' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
 
         <h1 style={{ color: '#00281f', fontSize: 40, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 8 }}>
@@ -189,7 +196,7 @@ export default function DatabehandleravtalePage() {
         </Section>
 
       </div>
-    </main>
+    </div>
   )
 }
 

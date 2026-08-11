@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /tilbud/
-Disallow: /api/
-
-Sitemap: https://efero.no/sitemap.xml

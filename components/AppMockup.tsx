@@ -39,10 +39,10 @@ export function NewJobMockup() {
 
 export function DashboardMockup() {
   const jobs = [
-    { name: 'Kjetil Hansen', addr: 'Storgata 12, Oslo', status: 'Pågår', color: 'bg-blue-100 text-eblue' },
+    { name: 'Kjetil Hansen', addr: 'Storgata 12, Oslo', status: 'Pågår', color: 'bg-[#dcefe7] text-eblue' },
     { name: 'Nina Berg',      addr: 'Fjordveien 3, Bergen', status: 'Ny',    color: 'bg-emerald-100 text-emerald-700' },
     { name: 'Tor Lindgren',   addr: 'Elvegata 8, Trondheim', status: 'Ny',   color: 'bg-emerald-100 text-emerald-700' },
-    { name: 'Anne Sørby',     addr: 'Parkveien 22, Oslo',  status: 'Pågår', color: 'bg-blue-100 text-eblue' },
+    { name: 'Anne Sørby',     addr: 'Parkveien 22, Oslo',  status: 'Pågår', color: 'bg-[#dcefe7] text-eblue' },
   ]
   return (
     <div className="rounded-2xl overflow-hidden shadow-2xl border border-border flex" style={{ height: 380 }} role="img" aria-label="Efero jobbstyring dashboard for håndverkere">
@@ -143,7 +143,7 @@ export function TechnicianMockup() {
       <div className="p-3 flex flex-col gap-2">
         {[
           { name: 'Kjetil Hansen', addr: 'Storgata 12', time: '08:00', status: 'Fullført', color: 'text-emerald-700 bg-emerald-100' },
-          { name: 'Nina Berg',     addr: 'Fjordveien 3', time: '11:00', status: 'Pågår',   color: 'text-eblue bg-blue-100' },
+          { name: 'Nina Berg',     addr: 'Fjordveien 3', time: '11:00', status: 'Pågår',   color: 'text-eblue bg-[#dcefe7]' },
           { name: 'Tor Lindgren',  addr: 'Elvegata 8',  time: '14:00', status: 'Ny',       color: 'text-slate bg-lgray' },
         ].map((j, i) => (
           <div key={i} className="border border-border rounded-xl p-3">

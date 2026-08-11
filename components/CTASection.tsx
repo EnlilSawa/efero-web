@@ -15,7 +15,7 @@ export function CTASection() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="#"
-              className="h-[52px] px-8 rounded-btn bg-eblue text-white text-[15px] font-semibold flex items-center hover:bg-blue-500 transition-colors"
+              className="h-[52px] px-8 rounded-btn bg-eblue text-white text-[15px] font-semibold flex items-center hover:bg-[#00654e] transition-colors"
             >
               Start gratis prøveperiode
             </Link>

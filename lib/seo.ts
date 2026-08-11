@@ -84,6 +84,17 @@ export const organizationSchema = {
   sameAs: [SITE_URL],
 }
 
+export const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  url: SITE_URL,
+  inLanguage: 'nb-NO',
+  description:
+    'Efero er ett enkelt system for hele arbeidsdagen til norske håndverksbedrifter: kunder, jobber, tilbud, timer, materialer, sjekklister, HMS og faktura.',
+  publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+}
+
 export const softwareApplicationSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
