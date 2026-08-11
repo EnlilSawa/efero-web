@@ -1,7 +1,21 @@
-'use client'
-import { useState } from 'react'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+import { FaqAccordion } from '@/components/FaqAccordion'
 import { DEMO_LINK } from '@/lib/links'
+import { breadcrumbSchema, faqSchema, pageMeta, SITE_NAME, SITE_URL } from '@/lib/seo'
+
+export const metadata: Metadata = pageMeta({
+  title: 'Priser',
+  description:
+    'Priser for Efero: pakker for små, mellomstore og store håndverksbedrifter. 30 dager gratis prøveperiode, gratis oppsett og ingen bindingstid.',
+  path: '/priser',
+  keywords: [
+    'pris ordresystem håndverker',
+    'timeføring pris',
+    'håndverkerprogram pris',
+    'abonnement uten bindingstid',
+  ],
+})
 
 // ── Types ───────────────────────────────────────────────────────────────────
 
@@ -77,7 +91,7 @@ const included = [
 const faqItems = [
   {
     q: 'Hva koster Efero?',
-    a: 'Fra 399 kr/mnd eks. mva, avhengig av antall teknikere. Se prispakkene over for full oversikt.',
+    a: 'Prisen avhenger av hvor mange teknikere dere er. Vi har tre pakker — Liten (opptil 3 teknikere), Middels (opptil 8) og Stor (ubegrenset). Ta kontakt, så får du pris tilpasset bedriften.',
   },
   {
     q: 'Hva skjer etter 30 dager gratis?',
@@ -111,38 +125,52 @@ function Check() {
   )
 }
 
-function PricingFAQ() {
-  const [open, setOpen] = useState<number | null>(null)
-  return (
-    <div className="max-w-[720px] mx-auto">
-      {faqItems.map((item, i) => (
-        <div key={i} className="border-b border-border">
-          <button
-            onClick={() => setOpen(open === i ? null : i)}
-            className="w-full flex items-center justify-between py-5 text-left gap-6"
-          >
-            <span className="text-[16px] font-semibold text-navy">{item.q}</span>
-            <svg
-              className={`w-5 h-5 text-slate flex-shrink-0 transition-transform duration-200 ${open === i ? 'rotate-180' : ''}`}
-              viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.8}
-            >
-              <path d="M5 8l5 5 5-5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-          {open === i && (
-            <p className="text-[15px] text-slate leading-[1.7] pb-5 pr-10">{item.a}</p>
-          )}
-        </div>
-      ))}
-    </div>
-  )
+// ── Structured data ──────────────────────────────────────────────────────────
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: `${SITE_NAME} — ordre- og timesystem`,
+  url: `${SITE_URL}/priser`,
+  brand: { '@type': 'Brand', name: SITE_NAME },
+  description:
+    'Ordre-, time- og fakturasystem for norske håndverksbedrifter. Tre pakker etter antall teknikere, med 30 dagers gratis prøveperiode.',
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'NOK',
+    offerCount: plans.length,
+    availability: 'https://schema.org/InStock',
+    offers: plans.map(plan => ({
+      '@type': 'Offer',
+      name: `${plan.name} — ${plan.teamLabel.toLowerCase()}`,
+      priceCurrency: 'NOK',
+      url: `${SITE_URL}/priser`,
+    })),
+  },
 }
+
+const breadcrumbs = breadcrumbSchema([
+  { name: 'Hjem', path: '/' },
+  { name: 'Priser', path: '/priser' },
+])
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Priser() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqItems)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* ── Hero — navy ─────────────────────────────────────────── */}
       <section className="bg-navy border-b border-white/10 py-24 px-6">
         <div className="max-w-[640px] mx-auto text-center">
@@ -219,7 +247,7 @@ export default function Priser() {
                   className={`h-12 w-full rounded-[8px] flex items-center justify-center text-[14px] font-semibold transition-colors ${
                     plan.outline
                       ? 'border-2 border-navy text-navy hover:bg-navy hover:text-white'
-                      : 'bg-eblue text-white hover:bg-blue-500'
+                      : 'bg-eblue text-white hover:bg-[#00654e]'
                   }`}
                 >
                   {plan.cta}
@@ -254,7 +282,7 @@ export default function Priser() {
           <h2 className="text-[36px] font-semibold text-navy tracking-tight text-center mb-14">
             Ofte stilte spørsmål om priser
           </h2>
-          <PricingFAQ />
+          <FaqAccordion items={faqItems} />
         </div>
       </section>
 
@@ -271,7 +299,7 @@ export default function Priser() {
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
               href={DEMO_LINK}
-              className="h-11 px-6 rounded-[8px] bg-eblue text-white text-[15px] font-semibold flex items-center hover:bg-blue-500 transition-colors"
+              className="h-11 px-6 rounded-[8px] bg-eblue text-white text-[15px] font-semibold flex items-center hover:bg-[#00654e] transition-colors"
             >
               Book en demo
             </Link>

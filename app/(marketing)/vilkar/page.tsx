@@ -1,19 +1,26 @@
 import type { Metadata } from 'next'
+import { breadcrumbSchema, pageMeta } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Vilkår og betingelser',
-  description: 'Les vilkår og betingelser for bruk av Efero — programvaretjeneste for norske håndverkerbedrifter.',
-  alternates: { canonical: 'https://efero.no/vilkar' },
-  openGraph: {
-    title: 'Vilkår og betingelser | Efero',
-    description: 'Les vilkår og betingelser for bruk av Efero — programvaretjeneste for norske håndverkerbedrifter.',
-    url: 'https://efero.no/vilkar',
-  },
-}
+  description:
+    'Vilkår og betingelser for bruk av Efero — abonnement, prøveperiode, betaling, ansvar og oppsigelse for norske håndverksbedrifter.',
+  path: '/vilkar',
+  keywords: ['vilkår', 'betingelser', 'abonnement', 'brukeravtale'],
+})
+
+const breadcrumbs = breadcrumbSchema([
+  { name: 'Hjem', path: '/' },
+  { name: 'Vilkår og betingelser', path: '/vilkar' },
+])
 
 export default function VilkarPage() {
   return (
-    <main style={{ backgroundColor: '#ffffff', padding: '96px 24px' }}>
+    <div style={{ backgroundColor: '#ffffff', padding: '96px 24px' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
 
         <h1 style={{ color: '#00281f', fontSize: 40, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 8 }}>
@@ -175,7 +182,7 @@ export default function VilkarPage() {
         </Section>
 
       </div>
-    </main>
+    </div>
   )
 }
 

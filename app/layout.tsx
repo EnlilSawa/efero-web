@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import { Instrument_Sans, Instrument_Serif, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
-import { organizationSchema, DEPLOYMENT_URL, SITE_URL } from '@/lib/seo'
+import { organizationSchema, websiteSchema, DEPLOYMENT_URL, SITE_URL } from '@/lib/seo'
 
+// «optional» hindrer at hero-teksten males på nytt når webfonten lander.
+// Reflowen fra den ombyggingen var det som dro LCP forbi FCP på mobil.
 const sans = Instrument_Sans({
   subsets: ['latin'],
-  display: 'swap',
+  display: 'optional',
   variable: '--font-sans',
 })
 
@@ -78,6 +80,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         {children}
       </body>

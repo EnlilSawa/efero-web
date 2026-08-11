@@ -90,7 +90,7 @@ export function ContactForm() {
               <button
                 type="submit"
                 disabled={state === 'loading'}
-                className="h-[52px] w-full rounded-[8px] bg-eblue text-white text-[15px] font-semibold hover:bg-blue-500 transition-colors disabled:opacity-60"
+                className="h-[52px] w-full rounded-[8px] bg-eblue text-white text-[15px] font-semibold hover:bg-[#00654e] transition-colors disabled:opacity-60"
               >
                 {state === 'loading' ? 'Sender…' : 'Send melding'}
               </button>
