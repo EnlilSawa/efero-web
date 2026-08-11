@@ -1,15 +1,11 @@
 import type { Metadata } from 'next'
+import { pageMeta } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Databehandleravtale',
   description: 'Databehandleravtale (DBA) mellom Efero og deg som kunde, i henhold til GDPR artikkel 28.',
-  alternates: { canonical: 'https://efero.no/databehandleravtale' },
-  openGraph: {
-    title: 'Databehandleravtale | Efero',
-    description: 'Databehandleravtale (DBA) mellom Efero og deg som kunde, i henhold til GDPR artikkel 28.',
-    url: 'https://efero.no/databehandleravtale',
-  },
-}
+  path: '/databehandleravtale',
+})
 
 export default function DatabehandleravtalePage() {
   return (

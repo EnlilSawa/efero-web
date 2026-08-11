@@ -1,15 +1,11 @@
 import type { Metadata } from 'next'
+import { pageMeta } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Vilkår og betingelser',
   description: 'Les vilkår og betingelser for bruk av Efero — programvaretjeneste for norske håndverkerbedrifter.',
-  alternates: { canonical: 'https://efero.no/vilkar' },
-  openGraph: {
-    title: 'Vilkår og betingelser | Efero',
-    description: 'Les vilkår og betingelser for bruk av Efero — programvaretjeneste for norske håndverkerbedrifter.',
-    url: 'https://efero.no/vilkar',
-  },
-}
+  path: '/vilkar',
+})
 
 export default function VilkarPage() {
   return (

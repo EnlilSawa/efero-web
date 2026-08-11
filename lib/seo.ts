@@ -35,12 +35,32 @@ type MetaInput = {
   noIndex?: boolean
 }
 
+function socialImage(title: string, description: string) {
+  const params = new URLSearchParams({
+    title,
+    description,
+    // Endres når designet oppdateres, slik at WhatsApp m.fl. ikke bruker gammelt cachet bilde.
+    v: '2',
+  })
+
+  return {
+    url: `/api/og?${params.toString()}`,
+    width: 1200,
+    height: 630,
+    alt: `${title} | ${SITE_NAME}`,
+  }
+}
+
 export function pageMeta({ title, description, path = '', keywords, noIndex }: MetaInput) {
   const isHome = !path || path === '/'
   const url = isHome
     ? SITE_URL
     : `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`
   const ogTitle = isHome ? title : `${title} | ${SITE_NAME}`
+  const imageTitle = title
+    .replace(/^Efero\s+(?:—|\|)\s+/, '')
+    .replace(/\s+(?:—|\|)\s+Efero.*$/, '')
+  const image = socialImage(imageTitle, description)
   return {
     title,
     description,
@@ -56,13 +76,13 @@ export function pageMeta({ title, description, path = '', keywords, noIndex }: M
       siteName: SITE_NAME,
       locale: SITE_LOCALE,
       type: 'website' as const,
-      images: [DEFAULT_OG_IMAGE],
+      images: [image],
     },
     twitter: {
       card: 'summary_large_image' as const,
       title: ogTitle,
       description,
-      images: [DEFAULT_OG_IMAGE.url],
+      images: [image.url],
     },
   }
 }

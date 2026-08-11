@@ -1,16 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { pageMeta } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Personvernerklæring',
   description: 'Les om hvordan Efero samler inn, bruker og beskytter dine personopplysninger.',
-  alternates: { canonical: 'https://efero.no/personvern' },
-  openGraph: {
-    title: 'Personvernerklæring | Efero',
-    description: 'Les om hvordan Efero samler inn, bruker og beskytter dine personopplysninger.',
-    url: 'https://efero.no/personvern',
-  },
-}
+  path: '/personvern',
+})
 
 export default function PersonvernPage() {
   return (
