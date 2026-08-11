@@ -2,8 +2,9 @@
 import { useState } from 'react'
 
 export function ContactForm() {
-  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', company: '', message: '', website: '' })
   const [state, setState] = useState<'idle' | 'loading' | 'ok' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm(f => ({ ...f, [k]: e.target.value }))
@@ -11,14 +12,23 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setState('loading')
+    setErrorMessage('')
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
-      setState(res.ok ? 'ok' : 'error')
+      if (res.ok) {
+        setState('ok')
+        return
+      }
+
+      const result = await res.json().catch(() => null) as { error?: string } | null
+      setErrorMessage(result?.error || 'Noe gikk galt. Prøv igjen eller send oss en e-post direkte.')
+      setState('error')
     } catch {
+      setErrorMessage('Kunne ikke kontakte serveren. Prøv igjen eller send oss en e-post direkte.')
       setState('error')
     }
   }
@@ -55,6 +65,17 @@ export function ContactForm() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <div className="absolute -left-[9999px]" aria-hidden="true">
+                <label htmlFor="question-website">Nettside</label>
+                <input
+                  id="question-website"
+                  value={form.website}
+                  onChange={set('website')}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[12px] font-medium text-slate">Navn *</label>
@@ -84,7 +105,7 @@ export function ContactForm() {
               </div>
 
               {state === 'error' && (
-                <p className="text-[13px] text-red-500">Noe gikk galt. Prøv igjen eller e-post oss direkte.</p>
+                <p role="alert" className="text-[13px] text-red-600">{errorMessage}</p>
               )}
 
               <button

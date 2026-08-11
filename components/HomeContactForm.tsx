@@ -1,22 +1,11 @@
 'use client'
 import { useState } from 'react'
-
-const teamOptions = [
-  'Kun meg selv',
-  '2-3 teknikere',
-  '4-8 teknikere',
-  '9+ teknikere',
-]
-
-const startOptions = [
-  'Så snart som mulig',
-  'Innen 1 måned',
-  'Bare utforsker',
-]
+import { CONTACT_START_OPTIONS, CONTACT_TEAM_OPTIONS } from '@/lib/contact-request'
 
 export function HomeContactForm() {
-  const [form, setForm] = useState({ name: '', email: '', company: '', team: '', start: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', company: '', team: '', start: '', message: '', website: '' })
   const [state, setState] = useState<'idle' | 'loading' | 'ok' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const set = (k: keyof typeof form) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
@@ -25,14 +14,23 @@ export function HomeContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setState('loading')
+    setErrorMessage('')
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
-      setState(res.ok ? 'ok' : 'error')
+      if (res.ok) {
+        setState('ok')
+        return
+      }
+
+      const result = await res.json().catch(() => null) as { error?: string } | null
+      setErrorMessage(result?.error || 'Noe gikk galt. Prøv igjen eller send oss en e-post direkte.')
+      setState('error')
     } catch {
+      setErrorMessage('Kunne ikke kontakte serveren. Prøv igjen eller send oss en e-post direkte.')
       setState('error')
     }
   }
@@ -97,6 +95,17 @@ export function HomeContactForm() {
               <p className="text-[13px] text-slate mb-7">Tar under 1 minutt.</p>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <div className="absolute -left-[9999px]" aria-hidden="true">
+                  <label htmlFor="contact-website">Nettside</label>
+                  <input
+                    id="contact-website"
+                    value={form.website}
+                    onChange={set('website')}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="contact-name" className="text-[12px] font-medium text-[#2f4a41]">Navn *</label>
                   <input id="contact-name" className={inputCls} value={form.name} onChange={set('name')} placeholder="Kjetil Hansen" required autoComplete="name" />
@@ -116,7 +125,7 @@ export function HomeContactForm() {
                   <label htmlFor="contact-team" className="text-[12px] font-medium text-[#2f4a41]">Antall teknikere</label>
                   <select id="contact-team" className={`${inputCls} cursor-pointer`} value={form.team} onChange={set('team')}>
                     <option value="">Velg antall</option>
-                    {teamOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                    {CONTACT_TEAM_OPTIONS.map(o => <option key={o} value={o}>{o}</option>)}
                   </select>
                 </div>
 
@@ -124,7 +133,7 @@ export function HomeContactForm() {
                   <label htmlFor="contact-start" className="text-[12px] font-medium text-[#2f4a41]">Når ønsker du å starte?</label>
                   <select id="contact-start" className={`${inputCls} cursor-pointer`} value={form.start} onChange={set('start')}>
                     <option value="">Velg tidspunkt</option>
-                    {startOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                    {CONTACT_START_OPTIONS.map(o => <option key={o} value={o}>{o}</option>)}
                   </select>
                 </div>
 
@@ -141,7 +150,7 @@ export function HomeContactForm() {
                 </div>
 
                 {state === 'error' && (
-                  <p className="text-[13px] text-red-500">Noe gikk galt. Prøv igjen eller e-post oss direkte.</p>
+                  <p role="alert" className="text-[13px] text-red-600">{errorMessage}</p>
                 )}
 
                 <button

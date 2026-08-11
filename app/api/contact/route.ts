@@ -1,42 +1,80 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { buildContactEmail, validateContactRequest } from '@/lib/contact-request'
 
-export async function POST(req: NextRequest) {
-  const { name, email, company, message } = await req.json()
+const MAX_BODY_BYTES = 16_384
 
-  if (!name || !email || !message) {
-    return NextResponse.json({ error: 'Fyll inn alle påkrevde felt' }, { status: 400 })
+export async function POST(request: NextRequest) {
+  const contentLength = Number(request.headers.get('content-length') ?? 0)
+  if (contentLength > MAX_BODY_BYTES) {
+    return NextResponse.json({ error: 'Forespørselen er for stor.' }, { status: 413 })
+  }
+
+  let rawBody: string
+  try {
+    rawBody = await request.text()
+  } catch {
+    return NextResponse.json({ error: 'Kunne ikke lese skjemaet.' }, { status: 400 })
+  }
+
+  if (new TextEncoder().encode(rawBody).byteLength > MAX_BODY_BYTES) {
+    return NextResponse.json({ error: 'Forespørselen er for stor.' }, { status: 413 })
+  }
+
+  let body: unknown
+  try {
+    body = JSON.parse(rawBody)
+  } catch {
+    return NextResponse.json({ error: 'Kunne ikke lese skjemaet.' }, { status: 400 })
+  }
+
+  const validation = validateContactRequest(body)
+  if (!validation.ok) {
+    return NextResponse.json(
+      { error: 'Kontroller feltene og prøv igjen.', fields: validation.errors },
+      { status: 400 },
+    )
+  }
+
+  if (validation.data.website) {
+    return NextResponse.json({ ok: true })
   }
 
   const resendKey = process.env.RESEND_API_KEY
   if (!resendKey) {
-    return NextResponse.json({ error: 'E-postkonfigurasjon mangler' }, { status: 500 })
+    console.error('Contact request failed: RESEND_API_KEY is missing')
+    return NextResponse.json(
+      { error: 'Kontaktskjemaet er midlertidig utilgjengelig. Send oss gjerne en e-post.' },
+      { status: 503 },
+    )
   }
 
-  const html = `
-    <p><strong>Navn:</strong> ${name}</p>
-    <p><strong>E-post:</strong> ${email}</p>
-    ${company ? `<p><strong>Bedrift:</strong> ${company}</p>` : ''}
-    <p><strong>Melding:</strong></p>
-    <p style="white-space:pre-wrap">${message}</p>
-  `
+  const email = buildContactEmail(validation.data)
+  let response: Response
+  try {
+    response = await fetch(process.env.RESEND_API_ENDPOINT || 'https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${resendKey}`,
+      },
+      body: JSON.stringify({
+        from: process.env.CONTACT_FROM_EMAIL || process.env.DEMO_FROM_EMAIL || 'Efero <noreply@efero.no>',
+        to: [process.env.CONTACT_NOTIFICATION_EMAIL || process.env.DEMO_NOTIFICATION_EMAIL || 'kontakt@efero.no'],
+        reply_to: validation.data.email,
+        subject: email.subject,
+        html: email.html,
+        text: email.text,
+      }),
+      signal: AbortSignal.timeout(10_000),
+    })
+  } catch (error) {
+    console.error('Contact email request failed', error instanceof Error ? error.message : error)
+    return NextResponse.json({ error: 'Sendingen tok for lang tid. Prøv igjen.' }, { status: 504 })
+  }
 
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${resendKey}`,
-    },
-    body: JSON.stringify({
-      from: 'noreply@efero.app',
-      to: 'kontakt@efero.no',
-      reply_to: email,
-      subject: `Kontaktskjema: ${name}`,
-      html,
-    }),
-  })
-
-  if (!res.ok) {
-    return NextResponse.json({ error: 'Sending feilet' }, { status: 500 })
+  if (!response.ok) {
+    console.error('Contact email rejected by Resend', response.status)
+    return NextResponse.json({ error: 'Kunne ikke sende meldingen. Prøv igjen.' }, { status: 502 })
   }
 
   return NextResponse.json({ ok: true })
