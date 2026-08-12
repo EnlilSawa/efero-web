@@ -1,32 +1,17 @@
-export const PRICING_PLANS = [
+export const PRICING_FACTORS = [
   {
-    name: 'Liten',
-    price: '690 kr/mnd',
-    priceMinor: 69_000,
-    teamLabel: 'Inntil 3 feltbrukere',
-    description: 'For enkeltpersonforetak og små fagbedrifter som vil samle den daglige driften.',
-    features: ['Inntil 3 feltbrukere', 'Alle funksjoner i grunnpakken', 'Gratis personlig oppstart', 'E-postsupport innen én virkedag'],
+    name: 'Behov og arbeidsflyt',
+    description: 'Vi ser på hvordan dere jobber i dag og hvilke deler av Efero som faktisk vil spare tid.',
   },
   {
-    name: 'Middels',
-    price: '1 490 kr/mnd',
-    priceMinor: 149_000,
-    teamLabel: 'Inntil 8 feltbrukere',
-    description: 'For bedrifter i vekst som trenger den samme gode flyten for et større lag.',
-    features: ['Inntil 8 feltbrukere', 'Alle funksjoner i grunnpakken', 'Gratis personlig oppstart', 'Prioritert e-postsupport'],
+    name: 'Antall brukere',
+    description: 'Løsningen dimensjoneres for medarbeiderne som skal bruke Efero på kontoret og ute i felt.',
   },
   {
-    name: 'Stor',
-    price: '2 490 kr/mnd',
-    priceMinor: 249_000,
-    teamLabel: 'Inntil 15 feltbrukere',
-    description: 'For større fagmiljøer som vil samle kontor, felt og prosjektoppfølging i Efero.',
-    features: ['Inntil 15 feltbrukere', 'Alle funksjoner i grunnpakken', 'Gratis personlig oppstart', 'Prioritert e-postsupport'],
+    name: 'Moduler og integrasjoner',
+    description: 'Dere velger relevante arbeidsområder og eventuelle koblinger til systemene dere allerede bruker.',
   },
 ] as const
-
-export const EXTRA_FIELD_USER_PRICE = '119 kr/mnd'
-export const EXTRA_FIELD_USER_PRICE_MINOR = 11_900
 
 export const CORE_PACKAGE_FEATURES = [
   'Kunder og kundehistorikk',
@@ -51,3 +36,9 @@ export const PRICING_TERMS = {
   cancellation: 'Månedsabonnement uten bindingstid',
   support: 'E-postsupport med svar innen én virkedag',
 } as const
+
+export const PRICING_PROMISES = [
+  'Dere betaler bare for løsningen dere faktisk trenger',
+  'Totalpris og omfang bekreftes skriftlig før oppstart',
+  'Løsningen kan utvides når bedriften vokser',
+] as const

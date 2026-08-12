@@ -4,7 +4,7 @@ import { pageMeta } from '@/lib/seo'
 export const metadata: Metadata = pageMeta({
   title: 'Priser',
   description:
-    'Efero fra 690 kr/mnd eks. mva. Tydelige pakker, 119 kr per ekstra feltbruker, ingen binding eller etableringsavgift og 30 dager gratis.',
+    'Efero prises etter det bedriften faktisk trenger. Få en tydelig totalpris basert på brukere, arbeidsområder og integrasjoner – uten binding eller etableringsavgift.',
   path: '/priser',
   keywords: ['efero pris', 'håndverker program pris', 'jobbstyring pris norge'],
 })

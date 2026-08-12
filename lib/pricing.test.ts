@@ -1,20 +1,21 @@
 import { describe, expect, it } from 'vitest'
 import {
   CORE_PACKAGE_FEATURES,
-  EXTRA_FIELD_USER_PRICE_MINOR,
   OPTIONAL_MODULES,
-  PRICING_PLANS,
+  PRICING_FACTORS,
+  PRICING_PROMISES,
   PRICING_TERMS,
 } from '@/lib/pricing'
 
 describe('offentlig prismodell', () => {
-  it('har avtalte pakker og jevnere vekstgrenser', () => {
-    expect(PRICING_PLANS.map(plan => [plan.priceMinor, plan.teamLabel])).toEqual([
-      [69_000, 'Inntil 3 feltbrukere'],
-      [149_000, 'Inntil 8 feltbrukere'],
-      [249_000, 'Inntil 15 feltbrukere'],
+  it('forklarer hva prisforslaget baseres på uten å publisere beløp', () => {
+    expect(PRICING_FACTORS.map(factor => factor.name)).toEqual([
+      'Behov og arbeidsflyt',
+      'Antall brukere',
+      'Moduler og integrasjoner',
     ])
-    expect(EXTRA_FIELD_USER_PRICE_MINOR).toBe(11_900)
+    expect(PRICING_PROMISES).toContain('Totalpris og omfang bekreftes skriftlig før oppstart')
+    expect(JSON.stringify({ PRICING_FACTORS, PRICING_PROMISES })).not.toMatch(/kr\/mnd|\d{3}\s?kr/i)
   })
 
   it('forklarer grunnpakke, tilvalg og kommersielle vilkår', () => {

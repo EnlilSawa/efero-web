@@ -4,7 +4,7 @@ import { useState } from 'react'
 const items = [
   {
     q: 'Hva koster Efero?',
-    a: 'Fra 690 kr/mnd eks. mva for inntil 3 feltbrukere. Middels koster 1 490 kr for inntil 8 og Stor 2 490 kr for inntil 15.',
+    a: 'Prisen tilpasses antall brukere, arbeidsområdene dere trenger og eventuelle integrasjoner. Etter en kort behovsavklaring får dere en tydelig, skriftlig totalpris før oppstart.',
   },
   {
     q: 'Trenger jeg å installere noe?',
@@ -12,7 +12,7 @@ const items = [
   },
   {
     q: 'Hvor mange teknikere kan jeg ha?',
-    a: 'Stor inkluderer inntil 15 feltbrukere. Deretter koster hver ekstra feltbruker 119 kr/mnd eks. mva.',
+    a: 'Efero kan tilpasses både små fagbedrifter og større team. Antall brukere inngår i prisforslaget, slik at dere får en løsning som passer dagens behov og kan utvides senere.',
   },
   {
     q: 'Hva skjer etter prøveperioden?',

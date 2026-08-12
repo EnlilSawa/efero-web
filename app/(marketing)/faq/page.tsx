@@ -16,7 +16,7 @@ const faqItems = [
   },
   {
     q: 'Hva koster Efero?',
-    a: 'Liten koster 690 kr/mnd eks. mva for inntil 3 feltbrukere, Middels 1 490 kr for inntil 8 og Stor 2 490 kr for inntil 15. Ekstra feltbrukere koster 119 kr/mnd.',
+    a: 'Prisen tilpasses antall brukere, arbeidsområdene dere trenger og eventuelle integrasjoner. Etter en kort behovsavklaring får dere en tydelig, skriftlig totalpris før oppstart.',
   },
   {
     q: 'Trenger jeg å installere noe på PC?',

@@ -141,9 +141,8 @@ export const softwareApplicationSchema = {
     'Efero hjelper håndverksbedrifter med å drive hele arbeidsdagen i ett enkelt system: kunder, jobber, tilbud, timer, materialer, sjekklister, HMS og faktura.',
   offers: {
     '@type': 'Offer',
-    price: '690',
-    priceCurrency: 'NOK',
-    description: 'Fra 690 kr per måned eks. mva for inntil 3 feltbrukere, uten binding eller etableringsavgift',
+    url: `${SITE_URL}/priser`,
+    description: 'Behovsbasert månedsabonnement med skriftlig totalpris før oppstart, uten binding eller etableringsavgift',
   },
   featureList: [
     'Kunder, jobber, ansatte og timeplaner',

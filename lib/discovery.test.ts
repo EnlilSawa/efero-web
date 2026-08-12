@@ -29,12 +29,13 @@ describe('offentlig oppdagbarhet', () => {
     expect(aiRule?.disallow).toEqual(['/tilbud/', '/api/'])
   })
 
-  it('publiserer korrekt minstepris for søkemotorer og AI-tjenester', () => {
+  it('forklarer behovsbasert prising uten å publisere et utdatert beløp', () => {
     expect(softwareApplicationSchema.offers).toMatchObject({
-      price: '690',
-      priceCurrency: 'NOK',
+      '@type': 'Offer',
+      url: 'https://efero.no/priser',
     })
-    expect(softwareApplicationSchema.offers.description).toContain('inntil 3 feltbrukere')
+    expect(softwareApplicationSchema.offers).not.toHaveProperty('price')
+    expect(softwareApplicationSchema.offers.description).toContain('skriftlig totalpris')
     expect(softwareApplicationSchema.offers.description).toContain('uten binding')
   })
 })
