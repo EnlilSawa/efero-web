@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { AnimatedSection } from '@/components/AnimatedSection'
 import { DEMO_LINK } from '@/lib/links'
 import {
   CORE_PACKAGE_FEATURES,
@@ -80,106 +81,100 @@ function PricingFAQ() {
 export default function Priser() {
   return (
     <>
-      <section className="border-b border-white/10 bg-navy px-6 py-24">
-        <div className="mx-auto max-w-[720px] text-center">
-          <div className="mb-8 inline-flex items-center rounded-full bg-eblue px-4 py-1.5 text-[12px] font-semibold text-white">
-            Behovsbasert prising
-          </div>
-          <h1 className="mb-5 text-[clamp(40px,6vw,60px)] font-semibold leading-[1.08] tracking-tight text-white">
-            Betal for det dere<br className="hidden sm:block" /> faktisk trenger
+      <section className="max-w-site mx-auto px-6 md:px-10 pt-20 md:pt-24 pb-16">
+        <AnimatedSection eager>
+          <nav aria-label="Brødsmuler" className="font-mono text-[12px] tracking-[0.08em] text-[#3d5c52] mb-8">
+            <Link href="/" className="hover:text-ink">Hjem</Link>
+            <span className="mx-2" aria-hidden> / </span>
+            <span className="text-ink">Priser</span>
+          </nav>
+          <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-[#3d5c52] mb-[18px]">Behovsbasert prising</p>
+          <h1 className="m-0 text-[clamp(36px,5vw,64px)] leading-[1.02] tracking-[-0.035em] font-medium text-ink max-w-[18ch] mb-7">
+            Betal for det dere{' '}
+            <em className="font-serif italic font-normal text-forest">faktisk trenger</em>
           </h1>
-          <p className="mx-auto mb-12 max-w-[610px] text-[18px] leading-relaxed text-white/65">
+          <p className="m-0 text-[18px] md:text-[19px] leading-[1.55] text-[#2f4a41] max-w-[48ch]">
             Efero tilpasses arbeidsflyten, størrelsen og behovene deres. Dere får én tydelig totalpris før oppstart – uten unødvendige funksjoner eller overraskelser.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link href={DEMO_LINK} className="flex h-12 items-center rounded-[8px] bg-eblue px-7 text-[15px] font-semibold text-white transition-colors hover:bg-blue-500">
-              Få et prisforslag
-            </Link>
-            <Link href="/#kontakt" className="flex h-12 items-center rounded-[8px] border border-white/30 px-7 text-[15px] font-semibold text-white transition-colors hover:border-white">
-              Snakk med oss
-            </Link>
+          <div className="flex flex-wrap gap-3 mt-9">
+            <Link href={DEMO_LINK} className="h-12 px-7 rounded-full bg-forest text-[#f5f7f5] text-[15px] font-medium inline-flex items-center hover:bg-ink transition-colors">Få et prisforslag</Link>
+            <Link href="/#kontakt" className="h-12 px-7 rounded-full border border-[#b9c9c1] text-forest text-[15px] inline-flex items-center">Snakk med oss</Link>
           </div>
-          <div className="mt-14 grid grid-cols-3 gap-4 border-t border-white/10 pt-10">
-            {[
-              { value: '30 dager', label: 'Gratis prøveperiode' },
-              { value: 'Skriftlig', label: 'Totalpris før oppstart' },
-              { value: 'Ingen', label: 'Bindingstid' },
-            ].map(item => (
-              <div key={item.label} className="text-center">
-                <div className="mb-1 text-[clamp(19px,3vw,28px)] font-semibold text-white">{item.value}</div>
-                <div className="text-[12px] leading-5 text-white/50">{item.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
+        </AnimatedSection>
       </section>
 
-      <section className="border-b border-border bg-white px-6 py-24">
-        <div className="mx-auto max-w-[1000px]">
-          <div className="mx-auto mb-12 max-w-[650px] text-center">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-eblue">Slik settes prisen</p>
-            <h2 className="mt-3 text-[36px] font-semibold tracking-tight text-navy">En løsning tilpasset bedriften</h2>
-            <p className="mt-4 text-[16px] leading-7 text-slate">En kort behovsavklaring er nok til at vi kan sette sammen riktig omfang og gi dere en forutsigbar totalpris.</p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
+      <section className="border-y border-mist bg-[#eef2ef]">
+        <div className="max-w-site mx-auto px-6 md:px-10 py-16 md:py-20">
+          <AnimatedSection>
+            <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-[#3d5c52] mb-[18px]">Slik settes prisen</p>
+            <h2 className="m-0 text-[32px] md:text-[42px] leading-[1.05] tracking-[-0.03em] font-medium text-ink max-w-[20ch]">En løsning tilpasset bedriften</h2>
+            <p className="mt-5 text-[17px] leading-[1.55] text-[#2f4a41] max-w-[46ch]">En kort behovsavklaring er nok til at vi kan sette sammen riktig omfang og gi dere en forutsigbar totalpris.</p>
+          </AnimatedSection>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-px bg-mist">
             {PRICING_FACTORS.map((factor, index) => (
-              <article key={factor.name} className="rounded-[16px] border border-border bg-lgray p-7">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-eblue text-[14px] font-semibold text-white">{index + 1}</span>
-                <h3 className="mt-6 text-[19px] font-semibold text-navy">{factor.name}</h3>
-                <p className="mt-3 text-[14px] leading-6 text-slate">{factor.description}</p>
-              </article>
+              <AnimatedSection key={factor.name} delay={index * 70} className="bg-[#eef2ef]">
+                <article className="p-8 md:p-10 h-full">
+                  <p className="font-mono text-[12px] text-[#3d5c52] mb-5">0{index + 1}</p>
+                  <h3 className="m-0 mb-3 text-[21px] font-medium text-ink">{factor.name}</h3>
+                  <p className="m-0 text-[15px] leading-[1.6] text-[#2f4a41]">{factor.description}</p>
+                </article>
+              </AnimatedSection>
             ))}
           </div>
-          <div className="mt-8 rounded-[16px] border border-[#b9e6d2] bg-[#eaf8f2] p-6">
-            <ul className="grid gap-4 md:grid-cols-3">
-              {PRICING_PROMISES.map(promise => <li key={promise} className="flex items-start gap-2.5"><Check /><span className="text-[14px] leading-6 text-charcoal">{promise}</span></li>)}
-            </ul>
-          </div>
+          <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+            {PRICING_PROMISES.map(promise => <li key={promise} className="flex items-start gap-2.5"><Check /><span className="text-[15px] leading-[1.55] text-[#2f4a41]">{promise}</span></li>)}
+          </ul>
         </div>
       </section>
 
-      <section className="border-b border-border bg-white px-6 py-24">
-        <div className="mx-auto grid max-w-[1000px] gap-12 lg:grid-cols-2">
-          <div>
-            <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-eblue">Den daglige arbeidsflyten</p>
-            <h2 className="mt-3 text-[30px] font-semibold tracking-tight text-navy">Et solid utgangspunkt</h2>
-            <p className="mt-3 text-[15px] leading-7 text-slate">Vi starter med arbeidsflyten dere trenger i hverdagen og tilpasser løsningen rundt den.</p>
-            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-              {CORE_PACKAGE_FEATURES.map(feature => <li className="flex items-start gap-2.5" key={feature}><Check /><span className="text-[14px] text-charcoal">{feature}</span></li>)}
+      <section className="max-w-site mx-auto px-6 md:px-10 py-20 md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-[88px]">
+          <AnimatedSection>
+            <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-[#3d5c52] mb-[18px]">Den daglige arbeidsflyten</p>
+            <h2 className="m-0 text-[32px] md:text-[38px] leading-[1.08] tracking-[-0.03em] font-medium text-ink">Et solid utgangspunkt</h2>
+            <p className="mt-5 text-[17px] leading-[1.55] text-[#2f4a41]">Vi starter med arbeidsflyten dere trenger i hverdagen og tilpasser løsningen rundt den.</p>
+            <ul className="mt-8 border-t border-mist">
+              {CORE_PACKAGE_FEATURES.map(feature => <li className="flex items-center gap-3 py-4 border-b border-mist" key={feature}><Check /><span className="text-[15px] text-ink">{feature}</span></li>)}
             </ul>
-          </div>
-          <div>
-            <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-eblue">Kan utvides</p>
-            <h2 className="mt-3 text-[30px] font-semibold tracking-tight text-navy">Velg relevante arbeidsområder</h2>
-            <div className="mt-7 grid gap-3">
-              {OPTIONAL_MODULES.map(module => <div className="rounded-[12px] border border-border p-4" key={module.name}><p className="text-[15px] font-semibold text-navy">{module.name}</p><p className="mt-1 text-[13px] leading-5 text-slate">{module.description}</p></div>)}
+          </AnimatedSection>
+          <AnimatedSection delay={80}>
+            <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-[#3d5c52] mb-[18px]">Kan utvides</p>
+            <h2 className="m-0 text-[32px] md:text-[38px] leading-[1.08] tracking-[-0.03em] font-medium text-ink">Velg relevante arbeidsområder</h2>
+            <div className="mt-8 border-t border-mist">
+              {OPTIONAL_MODULES.map(module => <div className="py-4 border-b border-mist" key={module.name}><h3 className="m-0 text-[17px] font-medium text-ink">{module.name}</h3><p className="mt-1.5 text-[14px] leading-[1.55] text-[#2f4a41]">{module.description}</p></div>)}
             </div>
-            <p className="mt-4 text-[13px] leading-5 text-slate">Ingenting aktiveres før pris og omfang er bekreftet skriftlig.</p>
+            <p className="mt-5 text-[14px] leading-[1.55] text-[#2f4a41]">Ingenting aktiveres før pris og omfang er bekreftet skriftlig.</p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="border-y border-mist bg-[#eef2ef]">
+        <div className="max-w-site mx-auto px-6 md:px-10 py-16 md:py-20">
+          <AnimatedSection>
+            <h2 className="m-0 mb-9 text-[32px] md:text-[36px] leading-[1.1] tracking-[-0.03em] font-medium text-ink">Dette er alltid med</h2>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-5">
+            {included.map((item, index) => <AnimatedSection key={item} delay={index * 40}><div className="flex items-start gap-3"><Check /><span className="text-[15px] leading-[1.55] text-[#2f4a41]">{item}</span></div></AnimatedSection>)}
           </div>
         </div>
       </section>
 
-      <section className="border-b border-border bg-lgray px-6 py-20">
-        <div className="mx-auto max-w-[720px]">
-          <h2 className="mb-10 text-center text-[28px] font-semibold tracking-tight text-navy">Dette er alltid med</h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {included.map(item => <div key={item} className="flex items-center gap-3"><Check /><span className="text-[15px] text-charcoal">{item}</span></div>)}
-          </div>
-        </div>
+      <section className="max-w-site mx-auto px-6 md:px-10 py-20 md:py-24">
+        <AnimatedSection>
+          <h2 className="m-0 mb-10 text-[32px] md:text-[42px] leading-[1.05] tracking-[-0.03em] font-medium text-ink max-w-[18ch]">Ofte stilte spørsmål om pris</h2>
+        </AnimatedSection>
+        <PricingFAQ />
       </section>
 
-      <section className="border-b border-border bg-white px-6 py-24">
-        <div className="mx-auto max-w-[720px]">
-          <h2 className="mb-14 text-center text-[36px] font-semibold tracking-tight text-navy">Ofte stilte spørsmål om pris</h2>
-          <PricingFAQ />
-        </div>
-      </section>
-
-      <section className="bg-navy px-6 py-24">
-        <div className="mx-auto max-w-[560px] text-center">
-          <h2 className="text-[34px] font-semibold tracking-tight text-white">Få en pris tilpasset bedriften</h2>
-          <p className="mt-4 text-[16px] leading-7 text-white/60">Fortell hvor mange dere er og hvilke arbeidsområder som er viktigst. Vi viser det relevante og sender en tydelig totalpris.</p>
-          <Link href={DEMO_LINK} className="mt-9 inline-flex h-12 items-center rounded-[8px] bg-eblue px-7 text-[15px] font-semibold text-white transition-colors hover:bg-blue-500">Book en kort gjennomgang</Link>
+      <section className="bg-forest text-[#e4ece8]">
+        <div className="max-w-site mx-auto px-6 md:px-10 py-20 md:py-24 flex flex-wrap items-end justify-between gap-10">
+          <AnimatedSection>
+            <h2 className="m-0 text-[clamp(32px,4vw,52px)] leading-[1.05] tracking-[-0.03em] font-medium text-[#f5f7f5] max-w-[16ch]">Få en pris tilpasset bedriften</h2>
+            <p className="mt-5 m-0 text-[16px] leading-[1.6] text-[#e4ece8] max-w-[42ch]">Fortell hvor mange dere er og hvilke arbeidsområder som er viktigst. Vi viser det relevante og sender en tydelig totalpris.</p>
+          </AnimatedSection>
+          <AnimatedSection delay={80}>
+            <Link href={DEMO_LINK} className="h-[52px] px-8 rounded-full bg-[#f5f7f5] text-ink text-[15px] font-medium inline-flex items-center hover:bg-white transition-colors">Book en kort gjennomgang</Link>
+          </AnimatedSection>
         </div>
       </section>
     </>
