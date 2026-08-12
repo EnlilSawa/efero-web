@@ -9,6 +9,8 @@ const centerLinks = [
   { href: '/',            label: 'Hjem' },
   { href: '/funksjoner', label: 'Funksjoner' },
   { href: '/bransjer',   label: 'Bransjer' },
+  { href: '/priser',     label: 'Priser' },
+  { href: '/ressurser',  label: 'Guider' },
   { href: '/om-oss',     label: 'Om oss' },
   { href: '/kontakt',    label: 'Kontakt' },
 ]

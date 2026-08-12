@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/seo'
+import { resourceArticles } from '@/lib/resources'
 
 const pages: Array<{
   path: string
@@ -15,6 +16,7 @@ const pages: Array<{
   { path: '/kontakt', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/kom-i-gang', changeFrequency: 'monthly', priority: 0.75 },
   { path: '/priser', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/ressurser', changeFrequency: 'weekly', priority: 0.85 },
   { path: '/personvern', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/vilkar', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/databehandleravtale', changeFrequency: 'yearly', priority: 0.3 },
@@ -23,7 +25,11 @@ const pages: Array<{
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
 
-  return pages.map(page => ({
+  return [...pages, ...resourceArticles.map(article => ({
+    path: `/ressurser/${article.slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+  }))].map(page => ({
     url: `${SITE_URL}${page.path}`,
     lastModified,
     changeFrequency: page.changeFrequency,

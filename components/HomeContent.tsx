@@ -133,7 +133,7 @@ export function HomeContent() {
           <div className="relative overflow-hidden rounded-[22px] bg-[#dfe7e2] aspect-[3/2] md:aspect-[18/8]">
             <Image
               src="/images/editorial/team-ved-servicebil.jpg"
-              alt="To håndverkere som planlegger arbeidsdagen sammen ved servicebilen"
+              alt="Et håndverkerteam som planlegger arbeidsdagen sammen ved servicebilen"
               fill
               sizes="(max-width: 768px) 100vw, 1200px"
               className="object-cover object-center md:object-[center_42%]"
@@ -161,7 +161,7 @@ export function HomeContent() {
               <div className="relative overflow-hidden rounded-[18px] bg-[#dfe7e2] aspect-[3/2]">
                 <Image
                   src="/images/editorial/planlegging-pa-kontoret.jpg"
-                  alt="To kolleger som planlegger oppdrag med laptop og arbeidstegninger"
+                  alt="Tre kolleger som planlegger oppdrag med laptop og arbeidstegninger"
                   fill
                   sizes="(max-width: 1024px) 100vw, 440px"
                   className="object-cover"

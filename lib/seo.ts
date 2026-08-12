@@ -141,9 +141,9 @@ export const softwareApplicationSchema = {
     'Efero hjelper håndverksbedrifter med å drive hele arbeidsdagen i ett enkelt system: kunder, jobber, tilbud, timer, materialer, sjekklister, HMS og faktura.',
   offers: {
     '@type': 'Offer',
-    price: '0',
+    price: '690',
     priceCurrency: 'NOK',
-    description: '30 dager gratis prøveperiode',
+    description: 'Fra 690 kr per måned eks. mva, med 30 dager gratis prøveperiode',
   },
   featureList: [
     'Kunder, jobber, ansatte og timeplaner',

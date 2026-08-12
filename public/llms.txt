@@ -18,6 +18,7 @@ Efero helps plumbing, electrical, carpentry, painting, HVAC/VVS and mixed trades
 - Customers: professional quotes, documents, approvals, clear job documentation
 
 Trial: 30 days free. Built for Norwegian VAT/MVA and local practice.
+Entry price: NOK 690/month excluding VAT for up to 3 technicians. The growth plan is NOK 1,490/month for up to 8 technicians, and larger teams start from NOK 2,990/month. Optional modules are priced separately and the final total is confirmed in writing before start.
 
 Efero is modular: a company can choose the functions it needs instead of paying for every module. Exact pricing and module availability should be confirmed with Efero through the demo form or contact email.
 
@@ -43,6 +44,11 @@ Efero is modular: a company can choose the functions it needs instead of paying 
 - [Kontakt](https://efero.no/kontakt): Contact and demo requests
 - [Book demo](https://efero.no/book-demo): Request a tailored demo and choose relevant product modules
 - [Priser](https://efero.no/priser): Pricing overview
+- [Guider](https://efero.no/ressurser): Practical product guides
+- [Kalkulasjon](https://efero.no/ressurser/lag-tilbud-med-kalkulasjon): Quotes with recipes, labor and materials
+- [Grossistpriser](https://efero.no/ressurser/oppdater-grossistpriser): Supplier CSV/TXT price-file workflow
+- [Tilbudsoppfølging](https://efero.no/ressurser/folg-opp-sendte-tilbud): Customer opening, questions and decisions
+- [Prosjektøkonomi](https://efero.no/ressurser/prosjektokonomi-i-efero): Accepted quotes versus invoiced revenue
 - [Personvern](https://efero.no/personvern): Privacy policy
 - [Vilkår](https://efero.no/vilkar): Terms of service
 - [Databehandleravtale](https://efero.no/databehandleravtale): GDPR processor agreement

@@ -7,6 +7,7 @@ import { DEMO_LINK } from '@/lib/links'
 
 type Plan = {
   name: string
+  price: string
   teamLabel: string
   desc: string
   features: string[]
@@ -20,8 +21,9 @@ type Plan = {
 const plans: Plan[] = [
   {
     name: 'Liten',
+    price: '690 kr/mnd',
     teamLabel: 'Opp til 3 teknikere',
-    desc: 'Perfekt for små bedrifter med inntil 3 teknikere.',
+    desc: 'For enkeltpersonforetak og små fagbedrifter som vil samle den daglige driften.',
     features: [
       'Opp til 3 teknikere',
       'Jobbstyring',
@@ -37,8 +39,9 @@ const plans: Plan[] = [
   },
   {
     name: 'Middels',
+    price: '1 490 kr/mnd',
     teamLabel: 'Opp til 8 teknikere',
-    desc: 'For bedrifter i vekst med inntil 8 teknikere.',
+    desc: 'For bedrifter i vekst som trenger bedre oppfølging, rapportering og flere brukere.',
     features: [
       'Opp til 8 teknikere',
       'Alt i Liten-pakken',
@@ -52,10 +55,11 @@ const plans: Plan[] = [
   },
   {
     name: 'Stor',
-    teamLabel: 'Ubegrenset teknikere',
-    desc: 'For større lag uten begrensninger.',
+    price: 'Fra 2 990 kr/mnd',
+    teamLabel: 'Fra 9 teknikere',
+    desc: 'For større fagmiljøer. Pris tilpasses antall brukere, moduler og behov for oppstartshjelp.',
     features: [
-      'Ubegrenset teknikere',
+      'Fra 9 teknikere',
       'Alt i Middels-pakken',
       'Dedikert onboarding-hjelp',
       'Tilpassede rapporter',
@@ -77,7 +81,7 @@ const included = [
 const faqItems = [
   {
     q: 'Hva koster Efero?',
-    a: 'Fra 399 kr/mnd eks. mva, avhengig av antall teknikere. Se prispakkene over for full oversikt.',
+    a: 'Liten koster 690 kr/mnd og Middels 1 490 kr/mnd eks. mva. Stor starter fra 2 990 kr/mnd. Valgfrie moduler og eventuelle tillegg bekreftes alltid skriftlig før oppstart.',
   },
   {
     q: 'Hva skjer etter 30 dager gratis?',
@@ -148,7 +152,7 @@ export default function Priser() {
         <div className="max-w-[640px] mx-auto text-center">
 
           <div className="inline-flex items-center bg-eblue text-white text-[12px] font-semibold px-4 py-1.5 rounded-full mb-8">
-            Enkel og transparent prising
+            Modulbasert prising
           </div>
 
           <h1 className="text-[48px] font-semibold text-white leading-[1.15] tracking-tight mb-5">
@@ -156,7 +160,7 @@ export default function Priser() {
           </h1>
 
           <p className="text-[17px] text-white/60 leading-relaxed mb-16">
-            Ingen skjulte kostnader. Transparent prising.
+            Start fra 690 kr/mnd eks. mva. Velg en grunnpakke og legg bare til modulene bedriften faktisk trenger.
           </p>
 
           {/* Stats */}
@@ -198,6 +202,7 @@ export default function Priser() {
 
                 <div className="mb-6">
                   <p className="text-[18px] font-semibold text-navy mb-4">{plan.name}</p>
+                  <p className="text-[24px] leading-tight font-semibold text-eblue mb-2">{plan.price}</p>
                   <p className="text-[18px] font-semibold text-navy mb-1">{plan.teamLabel}</p>
                 </div>
 
@@ -227,7 +232,7 @@ export default function Priser() {
               </div>
             ))}
           </div>
-          <p className="text-center text-[14px] text-slate">Ta kontakt for pris</p>
+          <p className="text-center text-[14px] text-slate">Alle priser er per bedrift per måned, eks. mva. Valgfrie moduler kommer i tillegg, og dere får alltid skriftlig totalpris før oppstart.</p>
         </div>
       </section>
 

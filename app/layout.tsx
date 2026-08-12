@@ -6,6 +6,7 @@ import { organizationSchema, websiteSchema, DEPLOYMENT_URL, SITE_URL } from '@/l
 const sans = Instrument_Sans({
   subsets: ['latin'],
   display: 'optional',
+  preload: false,
   variable: '--font-sans',
 })
 
@@ -15,6 +16,7 @@ const serif = Instrument_Serif({
   weight: '400',
   style: 'italic',
   display: 'optional',
+  preload: false,
   variable: '--font-serif',
 })
 

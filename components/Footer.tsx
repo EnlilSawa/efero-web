@@ -23,6 +23,7 @@ const cols = [
       { label: 'Kom i gang', href: '/kom-i-gang' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Priser', href: '/priser' },
+      { label: 'Guider', href: '/ressurser' },
     ],
   },
   {
