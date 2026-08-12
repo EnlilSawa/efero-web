@@ -4,7 +4,7 @@ import { useState } from 'react'
 const items = [
   {
     q: 'Hva koster Efero?',
-    a: 'Efero tilbyr en enkel og transparent modell. Start med 30 dager gratis. Ta kontakt med oss for å høre mer.',
+    a: 'Fra 690 kr/mnd eks. mva for inntil 3 feltbrukere. Middels koster 1 490 kr for inntil 8 og Stor 2 490 kr for inntil 15.',
   },
   {
     q: 'Trenger jeg å installere noe?',
@@ -12,7 +12,7 @@ const items = [
   },
   {
     q: 'Hvor mange teknikere kan jeg ha?',
-    a: 'Så mange du vil. Ingen ekstra kostnad per tekniker.',
+    a: 'Stor inkluderer inntil 15 feltbrukere. Deretter koster hver ekstra feltbruker 119 kr/mnd eks. mva.',
   },
   {
     q: 'Hva skjer etter prøveperioden?',
@@ -20,7 +20,7 @@ const items = [
   },
   {
     q: 'Kan jeg prøve det uten å forplikte meg?',
-    a: '30 dager gratis. Du har ingenting å tape.',
+    a: 'Ja. Du får 30 dager gratis uten betalingskort, ingen etableringsavgift og ingen bindingstid.',
   },
 ]
 

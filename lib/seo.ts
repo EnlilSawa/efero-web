@@ -143,7 +143,7 @@ export const softwareApplicationSchema = {
     '@type': 'Offer',
     price: '690',
     priceCurrency: 'NOK',
-    description: 'Fra 690 kr per måned eks. mva, med 30 dager gratis prøveperiode',
+    description: 'Fra 690 kr per måned eks. mva for inntil 3 feltbrukere, uten binding eller etableringsavgift',
   },
   featureList: [
     'Kunder, jobber, ansatte og timeplaner',

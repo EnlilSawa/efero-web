@@ -2,7 +2,8 @@ export const CONTACT_TEAM_OPTIONS = [
   'Kun meg selv',
   '2-3 teknikere',
   '4-8 teknikere',
-  '9+ teknikere',
+  '9–15 teknikere',
+  '16+ teknikere',
 ] as const
 
 export const CONTACT_START_OPTIONS = [

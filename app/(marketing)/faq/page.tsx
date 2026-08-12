@@ -16,7 +16,7 @@ const faqItems = [
   },
   {
     q: 'Hva koster Efero?',
-    a: 'Efero har en enkel og transparent modell med 30 dagers gratis prøveperiode. Ta kontakt for å høre mer om pakker tilpasset bedriften din.',
+    a: 'Liten koster 690 kr/mnd eks. mva for inntil 3 feltbrukere, Middels 1 490 kr for inntil 8 og Stor 2 490 kr for inntil 15. Ekstra feltbrukere koster 119 kr/mnd.',
   },
   {
     q: 'Trenger jeg å installere noe på PC?',
@@ -24,7 +24,7 @@ const faqItems = [
   },
   {
     q: 'Kan jeg prøve uten å forplikte meg?',
-    a: 'Ja. Du får 30 dager gratis. Ingen bindingstid etterpå — avslutt når du vil.',
+    a: 'Ja. Du får 30 dager gratis uten betalingskort. Det er ingen etableringsavgift eller bindingstid etterpå.',
   },
   {
     q: 'Støtter Efero norsk MVA og faktura?',

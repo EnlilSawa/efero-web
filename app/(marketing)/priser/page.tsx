@@ -2,6 +2,13 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { DEMO_LINK } from '@/lib/links'
+import {
+  CORE_PACKAGE_FEATURES,
+  EXTRA_FIELD_USER_PRICE,
+  OPTIONAL_MODULES,
+  PRICING_PLANS,
+  PRICING_TERMS,
+} from '@/lib/pricing'
 
 // ── Types ───────────────────────────────────────────────────────────────────
 
@@ -18,70 +25,29 @@ type Plan = {
 
 // ── Data ────────────────────────────────────────────────────────────────────
 
-const plans: Plan[] = [
-  {
-    name: 'Liten',
-    price: '690 kr/mnd',
-    teamLabel: 'Opp til 3 teknikere',
-    desc: 'For enkeltpersonforetak og små fagbedrifter som vil samle den daglige driften.',
-    features: [
-      'Opp til 3 teknikere',
-      'Jobbstyring',
-      'Automatisk faktura',
-      'Tilbudsmodul',
-      'Kunderegister',
-      'Jobbarkiv med bilder',
-      'Support',
-    ],
-    cta: 'Book en demo',
-    featured: false,
-    outline: true,
-  },
-  {
-    name: 'Middels',
-    price: '1 490 kr/mnd',
-    teamLabel: 'Opp til 8 teknikere',
-    desc: 'For bedrifter i vekst som trenger bedre oppfølging, rapportering og flere brukere.',
-    features: [
-      'Opp til 8 teknikere',
-      'Alt i Liten-pakken',
-      'Prioritert support',
-      'Månedlig rapport',
-      'Eksport til PDF',
-    ],
-    cta: 'Book en demo',
-    featured: true,
-    outline: false,
-  },
-  {
-    name: 'Stor',
-    price: 'Fra 2 990 kr/mnd',
-    teamLabel: 'Fra 9 teknikere',
-    desc: 'For større fagmiljøer. Pris tilpasses antall brukere, moduler og behov for oppstartshjelp.',
-    features: [
-      'Fra 9 teknikere',
-      'Alt i Middels-pakken',
-      'Dedikert onboarding-hjelp',
-      'Tilpassede rapporter',
-    ],
-    cta: 'Book en demo',
-    featured: false,
-    outline: true,
-  },
-]
+const plans: Plan[] = PRICING_PLANS.map((plan, index) => ({
+  name: plan.name,
+  price: plan.price,
+  teamLabel: plan.teamLabel,
+  desc: plan.description,
+  features: [...plan.features],
+  cta: 'Book en demo',
+  featured: index === 1,
+  outline: index !== 1,
+}))
 
 const included = [
-  '30 dagers gratis prøveperiode',
-  'Mva utregning automatisk',
-  'Automatisk faktura',
-  'Mobilapp for admin og teknikere',
-  'E-post support',
+  PRICING_TERMS.trial,
+  PRICING_TERMS.setup,
+  PRICING_TERMS.cancellation,
+  PRICING_TERMS.support,
+  'Norsk MVA og sikker lagring av bedriftsdata',
 ]
 
 const faqItems = [
   {
     q: 'Hva koster Efero?',
-    a: 'Liten koster 690 kr/mnd og Middels 1 490 kr/mnd eks. mva. Stor starter fra 2 990 kr/mnd. Valgfrie moduler og eventuelle tillegg bekreftes alltid skriftlig før oppstart.',
+    a: 'Liten koster 690 kr/mnd for inntil 3 feltbrukere, Middels 1 490 kr/mnd for inntil 8 og Stor 2 490 kr/mnd for inntil 15. Alle priser er per bedrift og eks. mva.',
   },
   {
     q: 'Hva skjer etter 30 dager gratis?',
@@ -89,15 +55,19 @@ const faqItems = [
   },
   {
     q: 'Kan jeg bytte pakke?',
-    a: 'Ja. Du kan oppgradere eller nedgradere når som helst fra innstillingene i appen. Endringen trer i kraft ved neste faktureringsdato.',
+    a: 'Ja. Du kan oppgradere eller nedgradere med virkning fra neste faktureringsperiode.',
   },
   {
-    q: 'Hva koster det per ekstra tekniker over grensen?',
-    a: 'Oppgrader til neste pakke for å legge til flere teknikere. Vi jobber med fleksible løsninger for større team — ta kontakt for skreddersøm.',
+    q: 'Hva koster det per ekstra feltbruker?',
+    a: `Når Stor-pakken ikke er stor nok, koster hver ekstra feltbruker ${EXTRA_FIELD_USER_PRICE} eks. mva. Kontor- og støttebrukere avklares i tilbudet.`,
   },
   {
     q: 'Er det bindingstid?',
-    a: 'Nei. Efero betales månedlig, og du kan avslutte når du vil.',
+    a: 'Nei. Efero faktureres månedlig og kan sies opp før neste faktureringsperiode. Det er ingen etableringsavgift.',
+  },
+  {
+    q: 'Hva er inkludert, og hva er valgfritt?',
+    a: 'Grunnpakken dekker den daglige flyten fra kunde og planlegging til timer, tilbud og fakturagrunnlag. HMS/kvalitet, grossistpriser, service, utvidet prosjektøkonomi og integrasjoner er valgfrie moduler. Dere får skriftlig totalpris før oppstart.',
   },
   {
     q: 'Får jeg faktura for abonnementet?',
@@ -167,8 +137,8 @@ export default function Priser() {
           <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-12">
             {[
               { value: '30 dager', label: 'Gratis prøveperiode' },
-              { value: 'Gratis',   label: 'Oppsett' },
-              { value: '24t',      label: 'Support responstid' },
+              { value: '0 kr',     label: 'Etableringsgebyr' },
+              { value: 'Ingen',    label: 'Bindingstid' },
             ].map(s => (
               <div key={s.value} className="text-center">
                 <div className="text-[32px] font-semibold text-white mb-1">{s.value}</div>
@@ -232,7 +202,34 @@ export default function Priser() {
               </div>
             ))}
           </div>
-          <p className="text-center text-[14px] text-slate">Alle priser er per bedrift per måned, eks. mva. Valgfrie moduler kommer i tillegg, og dere får alltid skriftlig totalpris før oppstart.</p>
+          <div className="mx-auto max-w-[720px] rounded-[14px] border border-border bg-lgray p-5 text-center">
+            <p className="text-[16px] font-semibold text-navy">Trenger dere mer enn 15 feltbrukere?</p>
+            <p className="mt-1 text-[14px] text-slate">Legg til flere for {EXTRA_FIELD_USER_PRICE} per feltbruker, eks. mva. Ingen brå overgang til en skjult storbedriftspakke.</p>
+          </div>
+          <p className="mt-5 text-center text-[14px] text-slate">Alle priser er per bedrift per måned, eks. mva. Grunnpakken er inkludert. Valgfrie moduler prises etter behov, og dere får alltid skriftlig totalpris før oppstart.</p>
+        </div>
+      </section>
+
+      <section className="bg-white border-b border-border py-24 px-6">
+        <div className="max-w-[1000px] mx-auto">
+          <div className="grid gap-12 lg:grid-cols-2">
+            <div>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-eblue">Grunnpakken</p>
+              <h2 className="mt-3 text-[30px] font-semibold tracking-tight text-navy">Hele den daglige arbeidsflyten er med</h2>
+              <p className="mt-3 text-[15px] leading-7 text-slate">Du kjøper ikke et tomt skall. Alle tre pakkene inkluderer verktøyene bedriften trenger fra kundehenvendelse til fakturagrunnlag.</p>
+              <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+                {CORE_PACKAGE_FEATURES.map(feature => <li className="flex items-start gap-2.5" key={feature}><Check /><span className="text-[14px] text-charcoal">{feature}</span></li>)}
+              </ul>
+            </div>
+            <div>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-eblue">Valgfrie moduler</p>
+              <h2 className="mt-3 text-[30px] font-semibold tracking-tight text-navy">Betal bare for det dere faktisk trenger</h2>
+              <div className="mt-7 grid gap-3">
+                {OPTIONAL_MODULES.map(module => <div className="rounded-[12px] border border-border p-4" key={module.name}><p className="text-[15px] font-semibold text-navy">{module.name}</p><p className="mt-1 text-[13px] leading-5 text-slate">{module.description}</p></div>)}
+              </div>
+              <p className="mt-4 text-[13px] leading-5 text-slate">Modulpris avhenger av valgt pakke og behov. Ingen modul aktiveres uten at pris og omfang er bekreftet skriftlig.</p>
+            </div>
+          </div>
         </div>
       </section>
 

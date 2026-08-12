@@ -34,5 +34,7 @@ describe('offentlig oppdagbarhet', () => {
       price: '690',
       priceCurrency: 'NOK',
     })
+    expect(softwareApplicationSchema.offers.description).toContain('inntil 3 feltbrukere')
+    expect(softwareApplicationSchema.offers.description).toContain('uten binding')
   })
 })

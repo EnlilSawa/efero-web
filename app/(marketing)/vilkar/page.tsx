@@ -16,7 +16,7 @@ export default function VilkarPage() {
           Vilkår og betingelser
         </h1>
         <p style={{ color: '#3d5c52', fontSize: 15, marginBottom: 56 }}>
-          Sist oppdatert: Juni 2026
+          Sist oppdatert: August 2026
         </p>
 
         <Section heading="1. Om tjenesten">
@@ -41,23 +41,20 @@ export default function VilkarPage() {
 
         <Section heading="3. Avtaleperiode og binding">
           <p>
-            Abonnementet løper for <strong style={{ color: '#00281f' }}>12 måneder</strong> av gangen fra avtaleinngåelse.
+            Efero leveres som et <strong style={{ color: '#00281f' }}>løpende månedsabonnement uten bindingstid</strong>.
           </p>
           <p>
             Oppsigelse må skje skriftlig til{' '}
             <a href="mailto:kontakt@efero.no" style={{ color: '#004c3a', textDecoration: 'underline', textUnderlineOffset: 2 }}>kontakt@efero.no</a>{' '}
-            med <strong style={{ color: '#00281f' }}>3 måneders varsel</strong> før avtaleperiodens utløp.
+            før neste faktureringsperiode. Tilgangen varer ut perioden som allerede er betalt.
           </p>
           <p>
-            Ved manglende oppsigelse fornyes avtalen automatisk for en ny 12-månedersperiode.
-          </p>
-          <p>
-            Prøveperioden på 30 dager er gratis og uforpliktende. Binding starter først ved aktivering av betalt abonnement.
+            Prøveperioden på 30 dager er gratis og uforpliktende. Betalt abonnement starter bare etter uttrykkelig avtale.
           </p>
         </Section>
 
         <Section heading="4. Pris og betaling">
-          <p>Pris avtales ved inngåelse av abonnement.</p>
+          <p>Gjeldende grunnpriser publiseres på efero.no/priser. Valgfrie moduler og øvrige tillegg avtales skriftlig før aktivering.</p>
           <p>
             Fakturering skjer månedlig eller årlig etter avtale. Betalingsfrist er 14 dager fra fakturadato.
           </p>
@@ -72,13 +69,13 @@ export default function VilkarPage() {
 
         <Section heading="5. Etableringsgebyr">
           <p>
-            Ved oppstart av nytt abonnement påløper et etableringsgebyr. Størrelsen avtales ved inngåelse. Etableringsgebyret refunderes ikke ved oppsigelse.
+            Personlig standardoppsett er inkludert uten etableringsgebyr. Eventuelt særskilt konsulentarbeid eller datamigrering avtales og prises skriftlig på forhånd.
           </p>
         </Section>
 
         <Section heading="6. Prøveperiode">
           <p>
-            Nye kunder får 30 dagers gratis prøveperiode. Prøveperioden gir full tilgang til alle funksjoner.
+            Nye kunder får 30 dagers gratis prøveperiode uten betalingskort. Tilgjengelige funksjoner i prøveperioden følger avtalt prøveoppsett.
           </p>
           <p>
             Prøveperioden avsluttes automatisk etter 30 dager. Ønsker du å fortsette må du aktivere et betalt abonnement.
