@@ -135,7 +135,7 @@ export const softwareApplicationSchema = {
   name: SITE_NAME,
   url: SITE_URL,
   applicationCategory: 'BusinessApplication',
-  operatingSystem: 'iOS, Android, Web',
+  operatingSystem: 'Web',
   inLanguage: 'nb-NO',
   description:
     'Efero hjelper håndverksbedrifter med å drive hele arbeidsdagen i ett enkelt system: kunder, jobber, tilbud, timer, materialer, sjekklister, HMS og faktura.',

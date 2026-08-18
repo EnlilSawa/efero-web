@@ -141,15 +141,15 @@ export default function FunksjonerPage() {
           <div className="max-w-[720px]">
             <AnimatedSection>
               <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-[#3d5c52] mb-[18px]">
-                App for iOS og Android
+                Mobilappen kommer snart
               </p>
               <h2 className="m-0 mb-6 text-[clamp(32px,4vw,48px)] leading-[1.05] tracking-[-0.03em] font-medium text-ink max-w-[22ch]">
                 Hele jobben i lomma —{' '}
                 <em className="font-serif italic font-normal text-forest">også uten kontor.</em>
               </h2>
               <p className="text-[18px] leading-[1.55] text-[#2f4a41] max-w-[46ch] mb-9">
-                Montørene fører timer, tar bilder og skriver rapporter direkte på mobilen mens de
-                er ute på jobb. Alt havner på riktig jobb i samme system som kontoret bruker.
+                Når mobilappen lanseres, kan montørene føre timer, ta bilder og skrive rapporter
+                direkte ute på jobb. Alt havner på riktig jobb i samme system som kontoret bruker.
               </p>
             </AnimatedSection>
 

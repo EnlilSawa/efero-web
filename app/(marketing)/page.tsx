@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   ...pageMeta({
     title: 'Efero — Ett enkelt system for hele arbeidsdagen',
     description:
-      'Efero hjelper håndverksbedrifter med å drive hele arbeidsdagen i ett enkelt system: kunder, jobber, tilbud, timer, materialer, sjekklister, HMS og faktura. Med app for iOS og Android.',
+      'Efero hjelper håndverksbedrifter med å drive hele arbeidsdagen i ett enkelt system: kunder, jobber, tilbud, timer, materialer, sjekklister, HMS og faktura. Mobilapp for iOS og Android kommer snart.',
     path: '/',
     keywords: [
       'ordresystem håndverker',

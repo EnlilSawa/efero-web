@@ -8,11 +8,11 @@ import type { Metadata } from 'next'
 const faqItems = [
   {
     q: 'Finnes Efero som app?',
-    a: 'Ja. Efero har app for iOS og Android der montørene fører timer, tar bilder, fyller ut sjekklister og skriver rapporter ute på jobb.',
+    a: 'Mobilappen for iOS og Android kommer snart. Der skal montørene kunne føre timer, ta bilder, fylle ut sjekklister og skrive rapporter ute på jobb. Kontorløsningen brukes allerede i nettleseren.',
   },
   {
     q: 'Er Efero enkelt å komme i gang med?',
-    a: 'Efero er laget for å være enkelt nok at eldre, ikke-tekniske ansatte kan bruke det. Ingen tung installasjon på PC — appen lastes ned fra App Store eller Google Play, og kontoret bruker nettet.',
+    a: 'Efero er laget for å være enkelt nok at eldre, ikke-tekniske ansatte kan bruke det. Kontoret bruker Efero direkte i nettleseren, uten tung installasjon. Mobilappen kommer snart til App Store og Google Play.',
   },
   {
     q: 'Hva koster Efero?',
@@ -20,7 +20,7 @@ const faqItems = [
   },
   {
     q: 'Trenger jeg å installere noe på PC?',
-    a: 'Nei. Kontoret bruker Efero i nettleseren. Montørene bruker mobilappen på iPhone eller Android.',
+    a: 'Nei. Kontoret bruker Efero direkte i nettleseren. Mobilappen for montører kommer snart til iPhone og Android.',
   },
   {
     q: 'Kan jeg prøve uten å forplikte meg?',

@@ -200,7 +200,7 @@ export function HomeContent() {
             <div className="max-w-[720px]">
               <AnimatedSection>
                 <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-[#3d5c52] mb-[18px]">
-                  App for iOS og Android
+                  Mobilappen kommer snart
                 </p>
                 <h2 className="m-0 mb-6 text-[clamp(34px,4vw,54px)] leading-[1.05] tracking-[-0.03em] font-medium text-ink max-w-[22ch]">
                   Hele jobben i lomma — <Em>også uten kontor.</Em>
@@ -223,14 +223,40 @@ export function HomeContent() {
               </div>
 
               <AnimatedSection>
-                <div className="flex flex-wrap gap-3">
-                  <span className="inline-flex items-center h-[52px] px-[26px] rounded-full bg-forest text-[#f5f7f5] text-[16px] font-medium opacity-90">
-                    Last ned for iOS
+                <div
+                  className="flex flex-wrap gap-3"
+                  aria-label="Efero-appen kommer snart til iOS og Android"
+                >
+                  <span
+                    aria-disabled="true"
+                    className="inline-flex min-w-[176px] items-center rounded-full bg-forest px-6 py-3 text-[#f5f7f5]"
+                  >
+                    <span className="leading-tight">
+                      <span className="block text-[11px] font-medium uppercase tracking-[0.12em] text-white/70">
+                        Kommer snart på
+                      </span>
+                      <span className="block text-[16px] font-medium">App Store</span>
+                    </span>
                   </span>
-                  <span className="inline-flex items-center h-[52px] px-[26px] rounded-full border border-[#b9c9c1] text-forest text-[16px] opacity-90">
-                    Last ned for Android
+                  <span
+                    aria-disabled="true"
+                    className="inline-flex min-w-[176px] items-center rounded-full border border-[#b9c9c1] px-6 py-3 text-forest"
+                  >
+                    <span className="leading-tight">
+                      <span className="block text-[11px] font-medium uppercase tracking-[0.12em] text-[#52675f]">
+                        Kommer snart på
+                      </span>
+                      <span className="block text-[16px] font-medium">Google Play</span>
+                    </span>
                   </span>
                 </div>
+                <p className="mt-4 mb-0 text-[14px] leading-[1.5] text-[#52675f]">
+                  Vil du få beskjed når appen er klar?{' '}
+                  <Link href="/kontakt" className="font-medium text-forest underline underline-offset-4">
+                    Meld din interesse
+                  </Link>
+                  .
+                </p>
               </AnimatedSection>
             </div>
 
@@ -309,7 +335,7 @@ export function HomeContent() {
                 Book en demo
               </Link>
               <span className="font-mono text-[12px] tracking-[0.1em] uppercase text-[#3d5c52]">
-                App for iOS og Android. Fungerer på mobil og PC.
+                Mobilappen kommer snart. Kontorløsningen fungerer på mobil og PC.
               </span>
               <p className="m-0 text-[14px] text-[#2f4a41]">
                 <Link href="/bransjer" className="text-forest underline underline-offset-2">Bransjer</Link>

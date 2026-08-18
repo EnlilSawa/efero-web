@@ -8,7 +8,7 @@ const items = [
   },
   {
     q: 'Trenger jeg å installere noe?',
-    a: 'Nei. Efero fungerer i nettleseren på alle enheter. Teknikerne dine laster ned appen på iPhone eller Android.',
+    a: 'Nei. Efero fungerer i nettleseren på alle enheter. Mobilappen for iPhone og Android kommer snart.',
   },
   {
     q: 'Hvor mange teknikere kan jeg ha?',

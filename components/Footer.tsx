@@ -3,12 +3,15 @@ import EferoLogo from './EferoLogo'
 
 function AppBadges() {
   return (
-    <div className="flex flex-wrap items-center gap-3">
+    <div
+      className="flex flex-wrap items-center gap-3"
+      aria-label="Efero-appen kommer snart til iOS og Android"
+    >
       <span className="inline-flex items-center h-10 px-4 rounded-[10px] bg-white/10 text-white/80 text-[12px] font-medium border border-white/15">
-        App Store · kommer snart
+        Kommer snart på App Store
       </span>
       <span className="inline-flex items-center h-10 px-4 rounded-[10px] bg-white/10 text-white/80 text-[12px] font-medium border border-white/15">
-        Google Play · kommer snart
+        Kommer snart på Google Play
       </span>
     </div>
   )
