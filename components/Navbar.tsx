@@ -28,10 +28,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b transition-[background,box-shadow,border-color] ${
+      className={`sticky top-0 z-50 w-full border-b bg-lgray transition-[box-shadow,border-color] ${
         scrolled
-          ? 'bg-lgray/88 backdrop-blur-md border-mist shadow-[0_1px_0_rgba(0,40,31,0.06)]'
-          : 'bg-lgray/80 backdrop-blur-md border-transparent'
+          ? 'border-mist shadow-[0_1px_0_rgba(0,40,31,0.06)]'
+          : 'border-transparent'
       }`}
     >
       <div className="max-w-site mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between gap-6">
@@ -80,7 +80,7 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div id="mobile-nav" className="md:hidden bg-lgray/95 backdrop-blur-md border-t border-mist px-6 py-5 flex flex-col gap-4">
+        <div id="mobile-nav" className="md:hidden bg-lgray border-t border-mist px-6 py-5 flex flex-col gap-4">
           {centerLinks.map(l => (
             <Link
               key={l.label}
