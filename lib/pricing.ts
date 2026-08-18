@@ -17,17 +17,17 @@ export const CORE_PACKAGE_FEATURES = [
   'Kunder og kundehistorikk',
   'Oppdrag, prosjekter og planlegger',
   'Timer, ansatte og fravær',
-  'Tilbud og kalkulasjon',
+  'Tilbud med sanntidsvisning',
   'Fakturagrunnlag og PDF-eksport',
   'Mobilapp, bilder og jobbarkiv',
 ] as const
 
 export const OPTIONAL_MODULES = [
   { name: 'HMS og kvalitet', description: 'Sjekklister, risiko, SJA, RUH og dokumentasjon.' },
-  { name: 'Materialer og grossistpriser', description: 'Prisimport, materialbibliotek, innkjøp og forbruk.' },
+  { name: 'Materialer og innkjøp', description: 'Innkjøp, forbruk og kostnader på riktig oppdrag.' },
   { name: 'Service og vedlikehold', description: 'Serviceavtaler, utstyr og periodiske oppdrag.' },
   { name: 'Prosjektøkonomi og rapporter', description: 'Utvidet økonomioversikt, nøkkeltall og rapportering.' },
-  { name: 'Integrasjoner og tilpasning', description: 'Regnskap, grossister og særskilte arbeidsflyter.' },
+  { name: 'Integrasjoner og tilpasning', description: 'Regnskap, eksterne systemer og særskilte arbeidsflyter.' },
 ] as const
 
 export const PRICING_TERMS = {

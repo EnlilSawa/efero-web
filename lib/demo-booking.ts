@@ -11,8 +11,8 @@ export const DEMO_MODULES = [
   },
   {
     id: 'quotes',
-    label: 'Tilbud og kalkulasjon',
-    description: 'Profesjonelle tilbud, materialer, arbeidstid og godkjenning.',
+    label: 'Tilbud og godkjenning',
+    description: 'Enkle pristilbud, sanntidsvisning og digital godkjenning.',
   },
   {
     id: 'time',

@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import { HomeContent } from '@/components/HomeContent'
-import { pageMeta, softwareApplicationSchema } from '@/lib/seo'
+import { pageMeta, softwareApplicationSchema, webPageSchema } from '@/lib/seo'
+
+const description = 'Efero samler kunder, oppdrag, tilbud, timer, materialer, HMS og fakturagrunnlag for norske håndverksbedrifter – i ett enkelt system.'
 
 export const metadata: Metadata = {
   ...pageMeta({
     title: 'Efero — Ett enkelt system for hele arbeidsdagen',
-    description:
-      'Efero hjelper håndverksbedrifter med å drive hele arbeidsdagen i ett enkelt system: kunder, jobber, tilbud, timer, materialer, sjekklister, HMS og faktura. Mobilapp for iOS og Android kommer snart.',
+    description,
     path: '/',
     keywords: [
       'ordresystem håndverker',
@@ -28,7 +29,16 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            softwareApplicationSchema,
+            webPageSchema({
+              name: 'Efero — Ett enkelt system for hele arbeidsdagen',
+              description,
+              path: '/',
+            }),
+          ]),
+        }}
       />
       <HomeContent />
     </>

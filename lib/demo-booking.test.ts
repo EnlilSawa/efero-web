@@ -61,7 +61,7 @@ describe('buildDemoEmail', () => {
     const email = buildDemoEmail(result.data)
 
     expect(email.subject).toBe('Ny demoforespørsel: Efero AS')
-    expect(email.text).toContain('Tilbud og kalkulasjon')
+    expect(email.text).toContain('Tilbud og godkjenning')
     expect(email.text).toContain('Timer og ansatte')
     expect(email.html).toContain('Ønskede moduler')
   })

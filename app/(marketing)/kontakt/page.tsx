@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = pageMeta({
   title: 'Kontakt',
   description:
-    'Ta kontakt med Efero. Vi svarer innen én arbeidsdag og hjelper håndverksbedrifter i gang med jobbstyring, faktura og montørapp.',
+    'Ta kontakt med Efero. Vi svarer innen én arbeidsdag og hjelper håndverksbedrifter i gang med oppdrag, tilbud og fakturaflyt.',
   path: '/kontakt',
   keywords: ['kontakt efero', 'demo håndverker app', 'support efero'],
 })

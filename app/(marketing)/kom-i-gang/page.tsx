@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = pageMeta({
   title: 'Kom i gang',
   description:
-    'Slik kommer håndverksbedrifter i gang med Efero: book demo, prøv i 30 dager, last ned montørappen og få kontoret oversikt over jobber og faktura.',
+    'Slik kommer håndverksbedrifter i gang med Efero: book demo, prøv i 30 dager og få oversikt over kunder, oppdrag, tilbud og fakturagrunnlag.',
   path: '/kom-i-gang',
   keywords: ['komme i gang efero', 'håndverker program oppstart', 'efero onboarding'],
 })
@@ -21,7 +21,7 @@ const steps = [
   {
     num: '02',
     title: 'Prøv i 30 dager',
-    text: 'Sett opp kunder og jobber, inviter montører til appen, og se tilbud og faktura i samme system.',
+    text: 'Sett opp kunder og oppdrag, inviter medarbeidere, og se tilbud og fakturagrunnlag i samme system.',
   },
   {
     num: '03',

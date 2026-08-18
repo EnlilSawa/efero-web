@@ -23,16 +23,17 @@ const pages: Array<{
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date()
-
-  return [...pages, ...resourceArticles.map(article => ({
-    path: `/ressurser/${article.slug}`,
-    changeFrequency: 'monthly' as const,
-    priority: 0.75,
-  }))].map(page => ({
+  const staticEntries = pages.map(page => ({
     url: `${SITE_URL}${page.path}`,
-    lastModified,
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }))
+  const resourceEntries = resourceArticles.map(article => ({
+    url: `${SITE_URL}/ressurser/${article.slug}`,
+    lastModified: new Date(article.updatedAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+  }))
+
+  return [...staticEntries, ...resourceEntries]
 }

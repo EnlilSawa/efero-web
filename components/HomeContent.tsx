@@ -182,7 +182,7 @@ export function HomeContent() {
               For montørene
             </h2>
             <p className="text-[17px] leading-[1.55] text-[#2f4a41] max-w-[34ch] m-0">
-              Alt i appen på mobilen, fylt ut mens jobben er fersk.
+              Mobilvennlig arbeidsflyt, fylt ut mens jobben er fersk.
             </p>
           </AnimatedSection>
           <FeatureList items={techFeatures} />

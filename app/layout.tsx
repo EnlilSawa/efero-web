@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: '%s | Efero',
   },
   description:
-    'Efero hjelper håndverksbedrifter med å drive hele arbeidsdagen i ett enkelt system: kunder, jobber, tilbud, timer, materialer, sjekklister, HMS og faktura.',
+    'Efero samler kunder, oppdrag, tilbud, timer, materialer, HMS og fakturagrunnlag for norske håndverksbedrifter – i ett enkelt system.',
   applicationName: 'Efero',
   authors: [{ name: 'Efero', url: SITE_URL }],
   creator: 'Efero',
@@ -70,6 +70,7 @@ export const metadata: Metadata = {
   },
   other: {
     'llms-txt': 'https://efero.no/llms.txt',
+    'llms-full-txt': 'https://efero.no/llms-full.txt',
   },
 }
 

@@ -27,7 +27,7 @@ const faqItems = [
   },
   {
     q: 'Hvorfor viser dere ikke én standardpris?',
-    a: 'Håndverksbedrifter jobber forskjellig. Noen trenger først og fremst timer og planlegging, mens andre trenger kalkulasjon, HMS, grossistpriser eller prosjektøkonomi. Behovsbasert prising gjør at dere slipper å betale for en unødvendig stor løsning.',
+    a: 'Håndverksbedrifter jobber forskjellig. Noen trenger først og fremst timer og planlegging, mens andre trenger tilbud, HMS, serviceoppfølging eller prosjektøkonomi. Behovsbasert prising gjør at dere slipper å betale for en unødvendig stor løsning.',
   },
   {
     q: 'Kan vi få hele systemet?',

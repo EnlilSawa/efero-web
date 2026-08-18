@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { pageMeta } from './seo'
+import { organizationSchema, pageMeta, softwareApplicationSchema, webPageSchema } from './seo'
 
 describe('pageMeta', () => {
   it('gir hver underside riktig canonical, delingstittel og eget delingsbilde', () => {
@@ -28,5 +28,25 @@ describe('pageMeta', () => {
     expect(metadata.openGraph.images[0].url).toContain(
       'title=Ett+enkelt+system+for+hele+arbeidsdagen',
     )
+  })
+
+  it('kobler sider, produkt og organisasjon til samme Efero-entitet', () => {
+    const page = webPageSchema({
+      name: 'Funksjoner',
+      description: 'Produktfunksjoner i Efero.',
+      path: '/funksjoner',
+      dateModified: '2026-08-18',
+    })
+
+    expect(organizationSchema['@id']).toBe('https://efero.no/#organization')
+    expect(organizationSchema.knowsAbout).toContain('Jobbstyring for håndverksbedrifter')
+    expect(softwareApplicationSchema.publisher).toEqual({ '@id': organizationSchema['@id'] })
+    expect(page).toMatchObject({
+      '@id': 'https://efero.no/funksjoner/#webpage',
+      url: 'https://efero.no/funksjoner',
+      inLanguage: 'nb-NO',
+      about: { '@id': 'https://efero.no/#software' },
+      dateModified: '2026-08-18',
+    })
   })
 })

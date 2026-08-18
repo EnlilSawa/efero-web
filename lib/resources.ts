@@ -2,6 +2,7 @@ export type ResourceArticle = {
   slug: string
   title: string
   description: string
+  updatedAt: string
   eyebrow: string
   intro: string
   steps: Array<{ title: string; text: string }>
@@ -10,37 +11,40 @@ export type ResourceArticle = {
 
 export const resourceArticles: ResourceArticle[] = [
   {
-    slug: 'lag-tilbud-med-kalkulasjon',
-    title: 'Lag tilbud med kalkulasjon',
-    description: 'Slik lager du et tilbud med egne oppskrifter, arbeidstimer, materialkost, påslag og frosne kundepriser i Efero.',
-    eyebrow: 'Tilbud og kalkyle',
-    intro: 'Kalkulasjon passer når du vil regne fra mengde til arbeid og materialer. Du bruker bedriftens egne oppskrifter og satser – Efero legger ikke inn skjulte bransjenormer.',
+    slug: 'lag-enkelt-pristilbud',
+    title: 'Lag et enkelt pristilbud',
+    description: 'Slik lager du et oversiktlig pristilbud med manuelle linjer, sanntidsvisning, riktig MVA og en trygg kundelenke i Efero.',
+    updatedAt: '2026-08-18',
+    eyebrow: 'Tilbud',
+    intro: 'Et godt tilbud skal være enkelt å skrive og enkelt å forstå. I Efero fyller du inn hver tilbudslinje manuelt og ser samtidig nøyaktig hva kunden får se.',
     steps: [
-      { title: 'Velg Kalkulasjon', text: 'Opprett et nytt tilbud, velg kunde og velg Kalkulasjon. Enkelt pristilbud er fortsatt tilgjengelig når du bare vil skrive salgspris direkte.' },
-      { title: 'Legg inn timer og materialer', text: 'Velg arbeidstimer som egen linje, eller søk etter en vare på navn eller varenummer. Antall eller m² er det eneste du trenger å skrive når grunnlaget allerede finnes.' },
-      { title: 'Kontroller kost og påslag', text: 'Kostpris, påslag og beregnet salgspris vises internt. Du kan justere bedriftens egne faktorer før tilbudet opprettes.' },
-      { title: 'Send en trygg kundelenke', text: 'Kunden ser beskrivelse, mengde, pris og MVA – aldri kostpris, påslag, margin eller leverandørinformasjon.' },
+      { title: 'Velg kunde og skriv en tydelig tittel', text: 'Start med kunden tilbudet gjelder. Knytt det gjerne til et oppdrag, legg inn en kort tittel og velg svarfrist hvis kunden må svare innen en bestemt dato.' },
+      { title: 'Legg til manuelle linjer', text: 'Skriv beskrivelse, mengde, enhet, pris og MVA for hver del av arbeidet. Materialer og arbeidstimer legges inn på samme enkle måte.' },
+      { title: 'Kontroller sanntidsvisningen', text: 'Forhåndsvisningen oppdateres mens du skriver. Kontroller at beskrivelsene er forståelige og at sum ekskl. MVA, MVA og totalbeløp ser riktig ut.' },
+      { title: 'Lagre og send til kunden', text: 'Lagre tilbudet når alt er klart. Derfra kan du forhåndsvise dokumentet, laste ned PDF og sende en sikker kundelenke.' },
     ],
-    tips: ['Lag oppskrifter for arbeid dere gjør ofte.', 'Bruk en tydelig egen linje for arbeidstimer.', 'Kontroller gyldighetsdato før utsending.'],
+    tips: ['Bruk korte beskrivelser uten interne faguttrykk.', 'Skill arbeid og materialer i egne linjer når det gjør tilbudet lettere å lese.', 'Kontroller svarfristen før utsending.'],
   },
   {
-    slug: 'oppdater-grossistpriser',
-    title: 'Oppdater grossistpriser fra prisfil',
-    description: 'Importer CSV- eller TXT-priser, match på varenummer og forhåndsvis alle endringer før materialbiblioteket oppdateres.',
-    eyebrow: 'Materialer og grossist',
-    intro: 'Prisfilimport gjør det mulig å oppdatere innkjøpspriser uten å skrive hver vare på nytt. Efero matcher varenummer og lar deg kontrollere endringene før de lagres.',
+    slug: 'fra-tilbud-til-faktura',
+    title: 'Fra akseptert tilbud til faktura',
+    description: 'Slik følger Efero et akseptert tilbud videre til oppdrag, kalender og faktura uten at du må registrere det samme arbeidet på nytt.',
+    updatedAt: '2026-08-18',
+    eyebrow: 'Tilbud, oppdrag og faktura',
+    intro: 'Når kunden godkjenner tilbudet, skal resten av arbeidsflyten være enkel. Efero lar deg planlegge oppdraget og bruke det aksepterte tilbudet som grunnlag når jobben er ferdig.',
     steps: [
-      { title: 'Eksporter prisfilen', text: 'Hent CSV eller TXT fra grossisten. Filen må inneholde varenummer, navn eller beskrivelse, enhet og kostpris.' },
-      { title: 'Velg leverandør og påslag', text: 'Skriv leverandørnavn og standardpåslag for nye varer. Eksisterende varer beholder sitt avtalte påslag.' },
-      { title: 'Forhåndsvis', text: 'Efero viser hvilke varer som er nye, hvilke priser som endres og hvilke som er uendret. Store avvik blir enkle å oppdage.' },
-      { title: 'Importer', text: 'Bekreft først når tallene ser riktige ut. Allerede opprettede tilbud beholder sine opprinnelige priser.' },
+      { title: 'Kunden aksepterer tilbudet', text: 'Godkjenningen registreres på tilbudet. Det avtalte innholdet og beløpet beholdes som grunnlag for videre arbeid.' },
+      { title: 'Planlegg oppdraget', text: 'Oppdraget legges på riktig dato og vises i kalenderen med status og arbeidsadresse. Derfra kan du åpne oppdraget direkte.' },
+      { title: 'Marker jobben som ferdig', text: 'Når arbeidet er fullført, kontrollerer du timer, materialer, utlegg og eventuelle endringer før fakturering.' },
+      { title: 'Opprett faktura fra oppdraget', text: 'Bruk det aksepterte tilbudet som fakturagrunnlag. Legg bare til dokumenterte ekstrakostnader, kontroller forhåndsvisningen og utsted når alt stemmer.' },
     ],
-    tips: ['Ta vare på originalfilen fra grossisten.', 'Kontroller prisformat med komma eller punktum.', 'Send aldri kostpris eller påslag i kundedokumenter.'],
+    tips: ['Sett dato og arbeidsadresse før oppdraget planlegges.', 'Registrer tillegg mens jobben pågår.', 'Kontroller fakturakladden før den utstedes.'],
   },
   {
     slug: 'folg-opp-sendte-tilbud',
     title: 'Følg opp sendte tilbud',
     description: 'Se når kunden åpner tilbudet, motta spørsmål og få godkjenning eller avslag direkte i Efero.',
+    updatedAt: '2026-08-18',
     eyebrow: 'Kundeoppfølging',
     intro: 'Et sendt tilbud bør ikke forsvinne i innboksen. Den sikre kundelenken samler åpning, spørsmål og endelig svar i samme tilbudstidslinje.',
     steps: [
@@ -55,6 +59,7 @@ export const resourceArticles: ResourceArticle[] = [
     slug: 'prosjektokonomi-i-efero',
     title: 'Prosjektøkonomi uten falsk margin',
     description: 'Sammenlign godkjente tilbud med netto fakturert og se hva som gjenstår, uten å blande omsetning med lønnskost eller regnskapsresultat.',
+    updatedAt: '2026-08-18',
     eyebrow: 'Prosjektkontroll',
     intro: 'Efero viser tall det faktisk har belegg for: godkjente tilbud, utstedte fakturaer, kreditert beløp og registrerte timer. Det kalles omsetningskontroll – ikke regnskapsmargin.',
     steps: [

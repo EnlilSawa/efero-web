@@ -18,12 +18,12 @@ const tabs = [
   },
   {
     label: 'Fakturering',
-    heading: 'Faktura som sender seg selv',
+    heading: 'Fakturagrunnlaget er klart',
     features: [
-      'Automatisk generert ved ferdig jobb',
-      'MVA beregnet automatisk',
-      'Sendes på e-post til kunden',
-      'Kunden kan akseptere tilbudet digitalt',
+      'Opprett fra ferdig oppdrag',
+      'Bruk akseptert tilbud som grunnlag',
+      'MVA og totalsum beregnes for deg',
+      'Kontroller før utsending',
       'Full oversikt over alle fakturaer',
     ],
     mockup: <InvoiceMockup />,

@@ -106,7 +106,7 @@ function Screen2() {
         Jobb fullført!
       </div>
       <div style={{ color: '#64748B', fontSize: 13, textAlign: 'center', lineHeight: 1.6, marginBottom: 24 }}>
-        Faktura genereres<br />automatisk
+        Fakturagrunnlag<br />fra oppdraget
       </div>
       <div style={{
         backgroundColor: '#2563FF', color: 'white',

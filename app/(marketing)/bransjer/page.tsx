@@ -72,7 +72,7 @@ export default function BransjerPage() {
           </h1>
           <p className="m-0 text-[18px] leading-[1.55] text-[#2f4a41] max-w-[48ch]">
             Samme enkle system enten du er rørlegger, elektriker eller driver et blandet firma —
-            med app til montørene og oversikt til kontoret.
+            med mobilvennlig arbeidsflyt for montørene og oversikt til kontoret.
           </p>
         </AnimatedSection>
       </section>

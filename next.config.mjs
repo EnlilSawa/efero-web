@@ -24,6 +24,16 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/ressurser/lag-tilbud-med-kalkulasjon',
+        destination: '/ressurser/lag-enkelt-pristilbud',
+        permanent: true,
+      },
+      {
+        source: '/ressurser/oppdater-grossistpriser',
+        destination: '/ressurser/fra-tilbud-til-faktura',
+        permanent: true,
+      },
     ]
   },
 }

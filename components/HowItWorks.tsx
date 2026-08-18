@@ -17,8 +17,8 @@ const steps = [
   },
   {
     number: 'Steg 3',
-    title: 'Faktura sendes automatisk',
-    text: 'I det teknikeren trykker ferdig genereres fakturaen automatisk med riktig MVA. Kunden får den på e-post og betaler innen forfall.',
+    title: 'Fakturaen opprettes fra oppdraget',
+    text: 'Åpne den ferdige jobben, bruk det aksepterte tilbudet som grunnlag og kontroller eventuelle tillegg. Du sender fakturaen når alt stemmer.',
     mockup: <InvoiceMockup />,
     imageLeft: true,
   },

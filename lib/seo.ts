@@ -107,8 +107,16 @@ export const organizationSchema = {
   name: SITE_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/images/logo-icon.png`,
+  description: 'Norsk programvare for jobbstyring, tilbud, dokumentasjon og fakturaflyt i håndverksbedrifter.',
   email: SITE_EMAIL,
   areaServed: 'NO',
+  knowsAbout: [
+    'Jobbstyring for håndverksbedrifter',
+    'Tilbud og kundeoppfølging',
+    'Timeføring og materialregistrering',
+    'HMS og kvalitetsdokumentasjon',
+    'Fakturagrunnlag for norske håndverksbedrifter',
+  ],
   contactPoint: {
     '@type': 'ContactPoint',
     email: SITE_EMAIL,
@@ -138,7 +146,7 @@ export const softwareApplicationSchema = {
   operatingSystem: 'Web',
   inLanguage: 'nb-NO',
   description:
-    'Efero hjelper håndverksbedrifter med å drive hele arbeidsdagen i ett enkelt system: kunder, jobber, tilbud, timer, materialer, sjekklister, HMS og faktura.',
+    'Efero samler kunder, oppdrag, tilbud, timer, materialer, HMS og fakturagrunnlag for norske håndverksbedrifter – i ett enkelt system.',
   offers: {
     '@type': 'Offer',
     url: `${SITE_URL}/priser`,
@@ -160,6 +168,39 @@ export const softwareApplicationSchema = {
     '@type': 'BusinessAudience',
     audienceType: 'Norske håndverksbedrifter',
   },
+  mainEntityOfPage: SITE_URL,
+}
+
+type WebPageSchemaInput = {
+  name: string
+  description: string
+  path: string
+  type?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage'
+  dateModified?: string
+}
+
+/** Felles entitetskoblinger gjør hver side tydelig for søke- og AI-systemer. */
+export function webPageSchema({
+  name,
+  description,
+  path,
+  type = 'WebPage',
+  dateModified,
+}: WebPageSchemaInput) {
+  const url = `${SITE_URL}${path === '/' ? '' : path}`
+  return {
+    '@context': 'https://schema.org',
+    '@type': type,
+    '@id': `${url}/#webpage`,
+    url,
+    name,
+    description,
+    inLanguage: 'nb-NO',
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    about: { '@id': `${SITE_URL}/#software` },
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    ...(dateModified ? { dateModified } : {}),
+  }
 }
 
 export function faqSchema(items: { q: string; a: string }[]) {

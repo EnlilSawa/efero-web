@@ -12,9 +12,12 @@ describe('offentlig oppdagbarhet', () => {
     expect(urls).toContain('https://efero.no')
     expect(urls).toContain('https://efero.no/book-demo')
     expect(urls).toContain('https://efero.no/ressurser')
-    expect(urls).toContain('https://efero.no/ressurser/oppdater-grossistpriser')
+    expect(urls).toContain('https://efero.no/ressurser/lag-enkelt-pristilbud')
+    expect(urls).toContain('https://efero.no/ressurser/fra-tilbud-til-faktura')
+    expect(urls).not.toContain('https://efero.no/ressurser/oppdater-grossistpriser')
     expect(urls.some(url => url.includes('/tilbud/'))).toBe(false)
-    expect(entries.every(entry => entry.lastModified instanceof Date)).toBe(true)
+    expect(entries.find(entry => entry.url === 'https://efero.no')?.lastModified).toBeUndefined()
+    expect(entries.filter(entry => entry.url.includes('/ressurser/')).every(entry => entry.lastModified instanceof Date)).toBe(true)
   })
 
   it('slipper søke- og AI-hentere inn, men beskytter tilbud og API-ruter', () => {
@@ -23,6 +26,7 @@ describe('offentlig oppdagbarhet', () => {
     const aiRule = rules.find(rule => Array.isArray(rule.userAgent))
 
     expect(config.sitemap).toBe('https://efero.no/sitemap.xml')
+    expect(config.host).toBe('efero.no')
     expect(aiRule?.userAgent).toContain('OAI-SearchBot')
     expect(aiRule?.userAgent).toContain('Claude-SearchBot')
     expect(aiRule?.userAgent).toContain('PerplexityBot')

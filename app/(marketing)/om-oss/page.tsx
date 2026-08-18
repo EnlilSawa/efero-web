@@ -81,15 +81,15 @@ export default function OmOss() {
               <AnimatedSection delay={140}>
                 <p className="m-0">
                   Vi bygget Efero fordi vi mente det måtte finnes en bedre måte. En app som er
-                  enkel nok til å brukes på byggeplass, men kraftig nok til å erstatte Excel,
-                  Tripletex og WhatsApp på én gang.
+                  enkel nok til å brukes på byggeplass, men kraftig nok til å samle oppdrag,
+                  dokumentasjon og oppfølging i én arbeidsflyt.
                 </p>
               </AnimatedSection>
               <AnimatedSection delay={200}>
                 <p className="m-0">
-                  I dag bruker hundrevis av håndverkere Efero til å styre jobber, fakturere kunder
-                  og holde team i sync — uten papir og uten stress. Vi er stolte av hver enkelt
-                  rørlegger, elektriker og snekker som stoler på oss.
+                  Målet vårt er at rørleggere, elektrikere, snekkere og andre håndverkere skal få
+                  en ryddig arbeidsdag uten dobbeltregistrering og unødvendig papirarbeid. Derfor
+                  utvikler vi Efero tett på de faktiske arbeidsflytene i norske håndverksbedrifter.
                 </p>
               </AnimatedSection>
             </div>

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { resourceArticles, resourceBySlug } from '@/lib/resources'
-import { breadcrumbSchema, pageMeta, SITE_URL } from '@/lib/seo'
+import { breadcrumbSchema, pageMeta, SITE_URL, webPageSchema } from '@/lib/seo'
 
 export function generateStaticParams() { return resourceArticles.map(article => ({ slug: article.slug })) }
 
@@ -18,11 +18,21 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
   const path = `/ressurser/${article.slug}`
   const structured = {
     '@context': 'https://schema.org', '@type': 'HowTo', name: article.title, description: article.description,
-    inLanguage: 'nb-NO', url: `${SITE_URL}${path}`,
+    inLanguage: 'nb-NO', url: `${SITE_URL}${path}`, dateModified: article.updatedAt,
+    mainEntityOfPage: `${SITE_URL}${path}`, publisher: { '@id': `${SITE_URL}/#organization` },
     step: article.steps.map((step, index) => ({ '@type': 'HowToStep', position: index + 1, name: step.title, text: step.text })),
   }
   return <>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([structured, breadcrumbSchema([{ name: 'Hjem', path: '/' }, { name: 'Ressurser', path: '/ressurser' }, { name: article.title, path }])]) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
+      structured,
+      breadcrumbSchema([{ name: 'Hjem', path: '/' }, { name: 'Ressurser', path: '/ressurser' }, { name: article.title, path }]),
+      webPageSchema({
+        name: article.title,
+        description: article.description,
+        path,
+        dateModified: article.updatedAt,
+      }),
+    ]) }} />
     <article className="max-w-[840px] mx-auto px-6 md:px-10 py-16 md:py-24">
       <nav aria-label="Brødsmuler" className="font-mono text-[12px] tracking-[0.08em] text-[#3d5c52] mb-10"><Link href="/">Hjem</Link><span className="mx-2">/</span><Link href="/ressurser">Ressurser</Link><span className="mx-2">/</span><span>{article.title}</span></nav>
       <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-[#3d5c52]">{article.eyebrow}</p>

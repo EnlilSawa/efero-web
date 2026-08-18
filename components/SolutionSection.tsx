@@ -15,14 +15,14 @@ const features = [
     id: 'tech',
     label: 'Tekniker-app',
     heading: 'Ansatte ser jobbene på telefonen',
-    text: 'Teknikerne ser dagens jobber, adresse og detaljer i appen. Én knapp når jobben er ferdig — fakturaen genereres automatisk.',
+    text: 'Teknikerne ser dagens jobber, adresse og detaljer i appen. Når jobben markeres ferdig, er den klar for kontroll og fakturering.',
     mockup: <TechnicianMockup />,
   },
   {
     id: 'invoice',
-    label: 'Automatisk faktura',
+    label: 'Enkel faktura',
     heading: 'Faktura på sekunder',
-    text: 'Faktura genereres automatisk når jobben er ferdig og sendes til kunden på e-post. Du slipper å tenke på det.',
+    text: 'Opprett fakturakladden fra den ferdige jobben, bruk det aksepterte tilbudet som grunnlag og send når du har kontrollert alt.',
     mockup: <InvoiceMockup />,
   },
   {

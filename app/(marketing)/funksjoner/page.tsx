@@ -36,7 +36,7 @@ const groups = [
     id: 'montorene',
     num: '02',
     title: 'For montørene',
-    intro: 'Alt i appen på mobilen, fylt ut mens jobben er fersk.',
+    intro: 'En mobilvennlig arbeidsflate, fylt ut mens jobben er fersk.',
     items: [
       'Se dagens jobber tydelig.',
       'Registrer timer, materialer, utgifter, bilder og notater mens du er på stedet.',
