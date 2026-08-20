@@ -252,7 +252,7 @@ export function HomeContent() {
                 </div>
                 <p className="mt-4 mb-0 text-[14px] leading-[1.5] text-[#52675f]">
                   Vil du få beskjed når appen er klar?{' '}
-                  <Link href="/kontakt" className="font-medium text-forest underline underline-offset-4">
+                  <Link href="/venteliste" className="font-medium text-forest underline underline-offset-4">
                     Meld din interesse
                   </Link>
                   .

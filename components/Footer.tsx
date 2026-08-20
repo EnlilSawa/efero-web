@@ -27,6 +27,7 @@ const cols = [
       { label: 'FAQ', href: '/faq' },
       { label: 'Priser', href: '/priser' },
       { label: 'Guider', href: '/ressurser' },
+      { label: 'Venteliste', href: '/venteliste' },
     ],
   },
   {

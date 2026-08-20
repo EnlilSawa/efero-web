@@ -17,7 +17,7 @@ export default function PersonvernPage() {
           Personvernerklæring
         </h1>
         <p style={{ color: '#3d5c52', fontSize: 15, marginBottom: 56 }}>
-          Sist oppdatert: Juni 2026
+          Sist oppdatert: August 2026
         </p>
 
         <Section heading="1. Hvem vi er">
@@ -41,6 +41,12 @@ export default function PersonvernPage() {
             'Telefonnummer',
             'Bedriftsnavn og organisasjonsnummer',
             'Betalingsinformasjon (håndteres av Stripe — vi lagrer ikke kortdetaljer)',
+          ]} />
+          <SubHeading>Om deg som står på ventelisten:</SubHeading>
+          <List items={[
+            'Navn, jobb-e-post og bedriftsnavn',
+            'Telefonnummer dersom du velger å oppgi det',
+            'Fagområde og antall ansatte',
           ]} />
           <SubHeading>Om dine kunder:</SubHeading>
           <List items={[
@@ -66,6 +72,7 @@ export default function PersonvernPage() {
             'Levere og drifte tjenesten Efero',
             'Sende fakturaer og tilbud på dine vegne til dine kunder',
             'Sende deg viktige varsler om tjenesten',
+            'Kontakte deg om tidlig tilgang når du har meldt deg på ventelisten',
             'Forbedre tjenesten over tid',
             'Overholde norsk bokføringslov (fakturaer oppbevares i 5 år)',
           ]} />
@@ -98,6 +105,7 @@ export default function PersonvernPage() {
             'Kontodata: så lenge kontoen er aktiv + 30 dager etter sletting',
             'Fakturaer: 5 år (påkrevd av bokføringsloven)',
             'Tekniske logger: 90 dager',
+            'Ventelistedata: til du ber om sletting, trekker samtykket eller blir kunde',
           ]} />
         </Section>
 
